@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhrumil Rana | Data Science Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg: #050505;
+            --accent: #00d4ff; /* Cyber Blue */
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(0, 212, 255, 0.15);
+            --text-main: #e0e0e0;
+            --text-dim: #999;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            background-image: 
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 100px 20px;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .social-links a {
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--accent);
+        }
+
+        /* --- HERO --- */
+        header {
+            margin-bottom: 120px;
+        }
+
+        .subtitle {
+            color: var(--accent);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: -2px;
+        }
+
+        .bio {
+            max-width: 700px;
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            margin-top: 20px;
+        }
+
+        /* --- SECTION HEADINGS --- */
+        .section-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-label::after {
+            content: '';
+            height: 1px;
+            flex-grow: 1;
+            background: var(--border);
+        }
+
+        /* --- PROJECT GRID --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 100px;
+        }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 2px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.05);
+        }
+
+        h3 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .tech {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+            margin-top: 25px;
+            letter-spacing: 1px;
+        }
+
+        /* --- EXPERIENCE SECTION --- */
+        .exp-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .exp-company {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .exp-role {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .exp-date {
+            font-family: 'Space Mono', monospace;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            border: 1px solid var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+
+        footer {
+            margin-top: 150px;
+            padding-bottom: 50px;
+            text-align: center;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav>
+        <div style="font-family: 'Space Mono'; font-weight: bold; color: var(--accent);">D.RANA</div>
+        <div class="social-links">
+            <a href="https://github.com/dhrumilrana25" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/dhrumil-rana-265316232/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="subtitle">DATA SCIENTIST // AI ENGINEER</div>
+        <h1>Dhrumil Rana</h1>
+        <p class="bio">
+            Currently advancing the field of Data Science at the University of Texas at Arlington. 
+            Focused on Graph Analytics, Neural Architectures, and Large-scale Predictive Engines.
+        </p>
+        <a href="mailto:your-email@example.com" class="btn">SECURE_CONTACT</a>
+    </header>
+
+    <div class="section-label">SELECTED_REPOSITORIES</div>
+    <div class="grid">
+        <div class="card">
+            <h3>Twitter-Scale Link Prediction</h3>
+            <p>Developed a Graph-based engine utilizing DeepWalk on a 1.2M node social graph to predict network evolution.</p>
+            <div class="tech">GRAPH THEORY / DEEPWALK / PYTHON</div>
+        </div>
+
+        <div class="card">
+            <h3>IoT Malware Detection</h3>
+            <p>Behavioral network analytics processing 1.1 million connections with a 95.38% classification accuracy.</p>
+            <div class="tech">CYBERSECURITY / ML / ANALYTICS</div>
+        </div>
+
+        <div class="card">
+            <h3>Hybrid Recommendation Engine</h3>
+            <p>Neural collaborative filtering system engineered for Amazon E-commerce behavioral forecasting.</p>
+            <div class="tech">TENSORFLOW / COLLABORATIVE FILTERING</div>
+        </div>
+    </div>
+
+    <div class="section-label">PROFESSIONAL_HISTORY</div>
+    
+    <div class="exp-row">
+        <div>
+            <div class="exp-company">Maverick Activities Center (UTA)</div>
+            <div class="exp-role">Building Manager</div>
+        </div>
+        <div class="exp-date">MAR 2025 — PRESENT</div>
+    </div>
+
+    <div class="exp-row">
+        <div>
+            <div class="exp-company">Odoo</div>
+            <div class="exp-role">Software Developer Intern</div>
+        </div>
+        <div class="exp-date">MAY 2024 — SEP 2024</div>
+    </div>
+
+    <div class="exp-row">
+        <div>
+            <div class="exp-company">Silent Info-tech Pvt. Ltd.</div>
+            <div class="exp-role">Research Analyst</div>
+        </div>
+        <div class="exp-date">JAN 2024 — APR 2024</div>
+    </div>
+
+    <footer>
+        &copy; 2026 // DHRUMIL RANA // BUILT FOR THE NEXT FRONTIER
+    </footer>
+</div>
+
+</body>
+</html>
