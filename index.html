@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DHRUMIL // SYSTEM_ACCESS</title>
+    <title>DHRUMIL RANA // VISUAL_MATRIX.v4.0</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,10 +11,10 @@
     
     <style>
         :root {
-            --bg: #050505;
-            --accent: #00d4ff; /* Electric Cyan */
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(0, 212, 255, 0.15);
+            --bg: #030303; /* Deeper Black */
+            --accent: #00e0ff; /* Super Cyan */
+            --glass: rgba(255, 255, 255, 0.04);
+            --border: rgba(0, 224, 255, 0.2);
             --text-main: #e0e0e0;
             --text-dim: #999;
         }
@@ -22,12 +22,12 @@
         * { box-sizing: border-box; }
 
         /* --- CYBER SCROLLBAR --- */
-        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { 
             background: var(--accent); 
             border-radius: 10px; 
-            box-shadow: 0 0 10px var(--accent);
+            box-shadow: 0 0 15px var(--accent);
         }
 
         ::selection { background: var(--accent); color: #000; }
@@ -50,13 +50,13 @@
             background-image: 
                 linear-gradient(var(--border) 1px, transparent 1px),
                 linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 60px 60px;
+            background-size: 80px 80px;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 40px 20px;
         }
 
         /* --- NAVIGATION --- */
@@ -64,7 +64,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 100px;
+            margin-bottom: 80px;
         }
 
         .logo {
@@ -73,6 +73,7 @@
             color: var(--accent);
             letter-spacing: 2px;
             font-size: 1.1rem;
+            text-shadow: 0 0 10px var(--accent);
         }
 
         .social-links a {
@@ -84,46 +85,53 @@
 
         .social-links a:hover {
             color: var(--accent);
-            text-shadow: 0 0 10px var(--accent);
+            text-shadow: 0 0 15px var(--accent);
         }
 
         /* --- HERO --- */
-        header { margin-bottom: 120px; }
+        header { margin-bottom: 120px; text-align: center; }
 
         .subtitle {
             color: var(--accent);
             font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
-            letter-spacing: 4px;
+            font-size: 0.85rem;
+            letter-spacing: 5px;
             margin-bottom: 15px;
             text-transform: uppercase;
         }
 
         h1 {
-            font-size: 4.5rem;
+            font-size: 5rem;
             font-weight: 600;
             margin: 0;
-            letter-spacing: -3px;
-            min-height: 1.2em; /* Prevents layout jump during typing */
+            letter-spacing: -4px;
+            min-height: 1.2em;
+            animation: text-pulse 6s infinite ease-in-out;
+        }
+
+        @keyframes text-pulse {
+            0%, 100% { text-shadow: 0 0 15px rgba(0, 224, 255, 0.1); }
+            50% { text-shadow: 0 0 30px rgba(0, 224, 255, 0.4); }
         }
 
         .bio {
-            max-width: 650px;
-            font-size: 1.15rem;
+            max-width: 700px;
+            font-size: 1.2rem;
             color: var(--text-dim);
-            margin-top: 25px;
+            margin: 30px auto;
         }
 
         /* --- SECTION HEADINGS --- */
         .section-label {
             font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--accent);
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             display: flex;
             align-items: center;
             gap: 20px;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .section-label::after {
@@ -134,135 +142,151 @@
         }
 
         /* --- PROJECT GRID --- */
-        .grid {
+        .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-bottom: 120px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 140px;
         }
 
-        .card {
+        .project-card {
             background: var(--glass);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             border: 1px solid var(--border);
-            padding: 40px;
             border-radius: 4px;
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
+        .project-card:hover {
+            transform: translateY(-12px);
             border-color: var(--accent);
-            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.1);
+            box-shadow: 0 15px 50px rgba(0, 224, 255, 0.15);
         }
 
-        .card h3 {
+        .project-image-header {
+            width: 100%;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid var(--border);
+            transition: 0.4s ease;
+        }
+
+        .project-card:hover .project-image-header {
+            transform: scale(1.05);
+            filter: saturate(1.2);
+        }
+
+        .project-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card h3 {
             margin-top: 0;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: #fff;
             letter-spacing: -0.5px;
         }
 
         .tech-list {
             font-family: 'Space Mono', monospace;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: var(--accent);
-            margin-top: 30px;
+            margin-top: 25px;
             display: flex;
+            flex-wrap: wrap;
             gap: 15px;
         }
 
-        /* --- SYSTEM SKILLS --- */
-        .skills-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 120px;
-        }
-
-        .skill-item {
-            background: var(--glass);
-            padding: 25px;
-            border: 1px solid var(--border);
-        }
-
-        .skill-info {
-            display: flex;
-            justify-content: space-between;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
-            margin-bottom: 12px;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: var(--accent);
-            box-shadow: 0 0 15px var(--accent);
-            width: 0%; /* Initial state for animation */
-            transition: 2s ease-out;
-        }
-
-        /* --- PROFESSIONAL TIMELINE --- */
-        .timeline { margin-bottom: 120px; }
+        /* --- VISUAL TIMELINE --- */
+        .visual-timeline { margin-bottom: 140px; }
 
         .timeline-item {
             display: grid;
-            grid-template-columns: 250px 1fr;
-            padding: 35px 0;
+            grid-template-columns: 300px 1fr;
+            padding: 40px 0;
             border-bottom: 1px solid var(--border);
+            align-items: center;
+            gap: 30px;
         }
 
         .time-date {
             font-family: 'Space Mono', monospace;
             color: var(--accent);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
         }
 
-        .time-company { font-weight: 600; font-size: 1.2rem; }
+        .time-company-container {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 4px;
+            filter: grayscale(1);
+            transition: 0.3s;
+        }
+
+        .timeline-item:hover .company-logo {
+            filter: grayscale(0);
+            box-shadow: 0 0 20px var(--accent);
+        }
+
+        .time-company { font-weight: 600; font-size: 1.3rem; }
         .time-role { color: var(--text-dim); margin-top: 5px; }
 
         /* --- BUTTONS --- */
         .btn {
             display: inline-block;
-            margin-top: 35px;
-            padding: 12px 28px;
+            margin-top: 40px;
+            padding: 14px 32px;
             border: 1px solid var(--accent);
             color: #fff;
             text-decoration: none;
             font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             transition: 0.3s;
             background: transparent;
+            letter-spacing: 1px;
         }
 
         .btn:hover {
             background: var(--accent);
             color: #000;
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
-            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(0, 224, 255, 0.6);
+            transform: scale(1.03);
         }
 
+        /* --- FOOTER --- */
         footer {
             text-align: center;
-            padding: 80px 0;
+            padding: 100px 0;
             border-top: 1px solid var(--border);
             font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--text-dim);
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            .timeline-item { grid-template-columns: 1fr; gap: 10px; }
-            .skills-container { grid-template-columns: 1fr; }
+        @media (max-width: 900px) {
+            h1 { font-size: 3.5rem; }
+            .timeline-item { grid-template-columns: 1fr; gap: 15px; }
+            .time-company-container { flex-direction: column; align-items: flex-start; text-align: left;}
         }
     </style>
 </head>
@@ -272,7 +296,7 @@
 
 <div class="container">
     <nav>
-        <div class="logo">DHRUMIL_RANA.OS</div>
+        <div class="logo">DHRUMIL_RANA.MATRIX</div>
         <div class="social-links">
             <a href="https://github.com/dhrumilrana25" target="_blank"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/dhrumil-rana-265316232/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -283,82 +307,81 @@
         <div class="subtitle">GRADUATE DATA SCIENTIST // MS @ UTA</div>
         <h1 id="typewriter"></h1>
         <p class="bio">
-            Engineering large-scale Graph Analytics and Neural Architectures. 
-            Focused on high-performance Machine Learning and predictive system modeling.
+            Specializing in Large-scale Graph Analytics and Predictive System Modeling. Engineering high-performance Neural Architectures to visualize the future of data connection.
         </p>
         <a href="Dhrumil_Rana_Resume.pdf" target="_blank" class="btn">
-            <i class="fa-solid fa-file-pdf"></i> DOWNLOAD_DOSSIER
+            <i class="fa-solid fa-file-pdf"></i> ACCESS_DOSSIER
         </a>
     </header>
 
     <div class="section-label">01 // REPOSITORY_MODULES</div>
-    <div class="grid">
-        <div class="card" onclick="window.open('https://github.com/dhrumilrana25', '_blank')">
-            <h3>Twitter-Scale Link Prediction</h3>
-            <p>Utilizing DeepWalk on a 1.2M node social graph to predict network evolution via high-fidelity graph embeddings.</p>
-            <div class="tech-list"><span>GRAPH_ML</span> <span>PYTHON</span> <span>DEEPWALK</span></div>
+    <div class="project-grid">
+        <div class="project-card" onclick="window.open('https://github.com/dhrumilrana25', '_blank')">
+            <div class="project-image-header" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('https://img.icons8.com/neon/96/000000/network.png')"></div>
+            <div class="project-content">
+                <h3>Twitter-Scale Link Prediction</h3>
+                <p>Graph-based predictive modeling utilizing DeepWalk on a 1.2M node user graph to analyze network evolution.</p>
+                <div class="tech-list"><span>GRAPH_ML</span> <span>PYTHON</span> <span>DEEPWALK</span></div>
+            </div>
         </div>
 
-        <div class="card" onclick="window.open('https://github.com/dhrumilrana25', '_blank')">
-            <h3>IoT Malware Detection</h3>
-            <p>Behavioral network analytics processing 1.1M active connections, achieving 95.38% classification accuracy.</p>
-            <div class="tech-list"><span>CYBER_SEC</span> <span>SCIKIT_LEARN</span> <span>ANALYTICS</span></div>
+        <div class="project-card" onclick="window.open('https://github.com/dhrumilrana25', '_blank')">
+            <div class="project-image-header" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('https://img.icons8.com/neon/96/000000/shield.png')"></div>
+            <div class="project-content">
+                <h3>IoT Malware Detection</h3>
+                <p>Behavioral network analytics processing 1.1M active connections, achieving 95.38% classification accuracy.</p>
+                <div class="tech-list"><span>CYBER_SEC</span> <span>SCIKIT_LEARN</span> <span>ANALYTICS</span></div>
+            </div>
         </div>
 
-        <div class="card" onclick="window.open('https://github.com/dhrumilrana25', '_blank')">
-            <h3>Hybrid Recommendation Engine</h3>
-            <p>Multi-stage filtering system leveraging Amazon E-commerce data to optimize user interaction forecasting.</p>
-            <div class="tech-list"><span>TENSORFLOW</span> <span>COLLAB_FILTERING</span></div>
+        <div class="project-card" onclick="window.open('https://github.com/dhrumilrana25', '_blank')">
+            <div class="project-image-header" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('https://img.icons8.com/neon/96/000000/product.png')"></div>
+            <div class="project-content">
+                <h3>Hybrid Recommendation Engine</h3>
+                <p>Multi-stage filtering system leveraging Amazon E-commerce data to optimize user interaction forecasting.</p>
+                <div class="tech-list"><span>TENSORFLOW</span> <span>COLLAB_FILTERING</span></div>
+            </div>
         </div>
     </div>
 
-    <div class="section-label">02 // SYSTEM_CAPABILITIES</div>
-    <div class="skills-container">
-        <div class="skill-item">
-            <div class="skill-info"><span>MACHINE_LEARNING_PROTOCOLS</span> <span>94%</span></div>
-            <div class="progress-bar"><div class="progress-fill" id="bar1"></div></div>
-        </div>
-        <div class="skill-item">
-            <div class="skill-info"><span>DATA_ARCHITECTURES (SQL/PYTHON)</span> <span>96%</span></div>
-            <div class="progress-bar"><div class="progress-fill" id="bar2"></div></div>
-        </div>
-        <div class="skill-item">
-            <div class="skill-info"><span>NEURAL_NETWORKS (PYTORCH)</span> <span>89%</span></div>
-            <div class="progress-bar"><div class="progress-fill" id="bar3"></div></div>
-        </div>
-        <div class="skill-item">
-            <div class="skill-info"><span>GRAPH_ANALYTICS</span> <span>91%</span></div>
-            <div class="progress-bar"><div class="progress-fill" id="bar4"></div></div>
-        </div>
-    </div>
-
-    <div class="section-label">03 // PROFESSIONAL_HISTORY</div>
-    <div class="timeline">
+    <div class="section-label">02 // PROFESSIONAL_HISTORY</div>
+    <div class="visual-timeline">
         <div class="timeline-item">
             <div class="time-date">MAR 2025 — PRESENT</div>
-            <div>
-                <div class="time-company">Maverick Activities Center (UTA)</div>
-                <div class="time-role">Building Manager // Operations & Medical Response</div>
+            <div class="time-company-container">
+                <div class="company-logo" style="background-image: url('https://img.icons8.com/neon/96/000000/university.png')"></div>
+                <div>
+                    <div class="time-company">Maverick Activities Center (UTA)</div>
+                    <div class="time-role">Building Manager // Operations & Security</div>
+                </div>
             </div>
         </div>
+
         <div class="timeline-item">
             <div class="time-date">MAY 2024 — SEP 2024</div>
-            <div>
-                <div class="time-company">Odoo</div>
-                <div class="time-role">Software Developer Intern // Backend Engineering</div>
+            <div class="time-company-container">
+                <div class="company-logo" style="background-image: url('https://img.icons8.com/neon/96/000000/code.png')"></div>
+                <div>
+                    <div class="time-company">Odoo</div>
+                    <div class="time-role">Software Developer Intern // Backend Engineering</div>
+                </div>
             </div>
         </div>
+
         <div class="timeline-item">
             <div class="time-date">JAN 2024 — APR 2024</div>
-            <div>
-                <div class="time-company">Silent Info-tech Pvt. Ltd.</div>
-                <div class="time-role">Research Analyst // Data Mining & Analytics</div>
+            <div class="time-company-container">
+                <div class="company-logo" style="background-image: url('https://img.icons8.com/neon/96/000000/search.png')"></div>
+                <div>
+                    <div class="time-company">Silent Info-tech Pvt. Ltd.</div>
+                    <div class="time-role">Research Analyst // Data Mining & Analytics</div>
+                </div>
             </div>
         </div>
     </div>
 
     <footer>
-        [ SYSTEM_STABLE ] // &copy; 2026 DHRUMIL RANA // BUILT_FOR_THE_NEXT_FRONTIER
+        [ SYSTEM_STABLE ] // &copy; 2026 DHRUMIL RANA // BUILT_FOR_SCALABILITY
     </footer>
 </div>
 
@@ -372,25 +395,19 @@
             document.getElementById("typewriter").innerHTML += text.charAt(i);
             i++;
             setTimeout(typeWriter, 120);
-        } else {
-            // Start progress bar animation after typing
-            document.getElementById('bar1').style.width = '94%';
-            document.getElementById('bar2').style.width = '96%';
-            document.getElementById('bar3').style.width = '89%';
-            document.getElementById('bar4').style.width = '91%';
         }
     }
 
     /* Particles Config */
     particlesJS("particles-js", {
         "particles": {
-            "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-            "color": { "value": "#00d4ff" },
+            "number": { "value": 70, "density": { "enable": true, "value_area": 900 } },
+            "color": { "value": "#00e0ff" },
             "shape": { "type": "circle" },
-            "opacity": { "value": 0.2, "random": false },
-            "size": { "value": 3, "random": true },
-            "line_linked": { "enable": true, "distance": 150, "color": "#00d4ff", "opacity": 0.2, "width": 1 },
-            "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            "opacity": { "value": 0.15, "random": false },
+            "size": { "value": 3.5, "random": true },
+            "line_linked": { "enable": true, "distance": 180, "color": "#00e0ff", "opacity": 0.15, "width": 1 },
+            "move": { "enable": true, "speed": 1.2, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
         },
         "interactivity": {
             "detect_on": "canvas",
