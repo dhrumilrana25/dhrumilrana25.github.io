@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DHRUMIL RANA // NEURAL_MATRIX.v6.0</title>
+    <title>DHRUMIL RANA // NEURAL_MATRIX.v7.0</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -173,15 +173,15 @@
         }
 
         .project-img {
-            height: 200px;
+            height: 220px;
             background-size: cover;
             background-position: center;
             border-bottom: 1px solid var(--border);
-            filter: grayscale(0.5);
+            filter: brightness(0.7);
             transition: 0.5s;
         }
 
-        .project-card:hover .project-img { filter: grayscale(0) brightness(1.2); }
+        .project-card:hover .project-img { filter: brightness(1.1); }
 
         .project-content { padding: 30px; }
         .project-card h3 { margin: 0 0 10px 0; color: #fff; font-size: 1.5rem; }
@@ -283,19 +283,29 @@
     <div class="section-label">01 // REPOSITORY_MODULES</div>
     <div class="project-grid">
         <div class="project-card" onclick="window.open('https://github.com/dhrumilrana25', '_blank')">
-            <div class="project-img" style="background-image: url('https://img.freepik.com/free-vector/abstract-connected-dots-global-connection-concept_1017-17210.jpg')"></div>
+            <div class="project-img" style="background-image: url('https://dist.neo4j.com/wp-content/uploads/20160520130638/twitter-graph-1.png')"></div>
             <div class="project-content">
                 <h3>Twitter Link Prediction</h3>
-                <p>DeepWalk graph embeddings on 1.2M nodes for network evolution analysis.</p>
-                <div class="tech"><span>#GRAPH_ML</span> <span>#PYTHON</span></div>
+                <p>Deploying DeepWalk graph embeddings on a 1.2M node user graph to analyze network evolution via high-fidelity visualizations.</p>
+                <div class="tech"><span>#GRAPH_ML</span> <span>#DEEPWALK</span></div>
             </div>
         </div>
+        
         <div class="project-card" onclick="window.open('https://github.com/dhrumilrana25', '_blank')">
-            <div class="project-img" style="background-image: url('https://img.freepik.com/free-photo/technology-security-hacker-concept-cyber-security-background_1150-51167.jpg')"></div>
+            <div class="project-img" style="background-image: url('https://blog.paessler.com/hubfs/new-malware-tries-to-destroy-iot-devices.png')"></div>
             <div class="project-content">
                 <h3>IoT Malware Defense</h3>
-                <p>95.38% classification accuracy for active network behavioral security.</p>
-                <div class="tech"><span>#CYBER_SEC</span> <span>#ANALYTICS</span></div>
+                <p>95.38% classification accuracy for active network behavioral security across 1.1M connection instances.</p>
+                <div class="tech"><span>#CYBER_SEC</span> <span>#IOT_ML</span></div>
+            </div>
+        </div>
+        
+        <div class="project-card" onclick="window.open('https://github.com/dhrumilrana25', '_blank')">
+            <div class="project-img" style="background-image: url('https://img.freepik.com/free-vector/abstract-connected-dots-global-connection-concept_1017-17210.jpg')"></div>
+            <div class="project-content">
+                <h3>Hybrid Recommendation Engine</h3>
+                <p>Multi-stage filtering system leveraging Amazon datasets to optimize user interaction forecasting.</p>
+                <div class="tech"><span>#TENSORFLOW</span> <span>#COLLAB_FILTERING</span></div>
             </div>
         </div>
     </div>
@@ -315,7 +325,7 @@
         <div class="exp-logo" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e0/Odoo_logo.png')"></div>
         <div class="exp-role">
             <h4>Odoo</h4>
-            <p>Software Developer Intern // Backend Engineering & Logic Architecture</p>
+            <p>Software Developer Intern // Backend Engineering</p>
         </div>
         <div class="exp-date">2024</div>
     </a>
@@ -324,7 +334,7 @@
         <div class="exp-logo" style="background-image: url('https://silentinfotech.com/wp-content/uploads/2021/08/logo-2.png')"></div>
         <div class="exp-role">
             <h4>Silent Infotech Pvt. Ltd.</h4>
-            <p>Research Analyst // Data Mining & Statistical Analysis</p>
+            <p>Research Analyst // Data Mining & Analytics</p>
         </div>
         <div class="exp-date">2024</div>
     </a>
@@ -334,7 +344,7 @@
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
-    /* Typewriter Boot */
+    /* Typewriter Boot Sequence */
     const text = "Dhrumil Rana"; let i = 0;
     function typeWriter() {
         if (i < text.length) {
@@ -344,7 +354,7 @@
         }
     }
 
-    /* Particle Engine */
+    /* Cinematic Particle Config */
     particlesJS("particles-js", {
         "particles": {
             "number": { "value": 70 },
