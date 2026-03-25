@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dhrumil Rana | Data Science Portfolio</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
             --bg: #050505;
-            --accent: #00d4ff; /* Cyber Blue */
+            --accent: #00d4ff; /* Electric Cyan */
             --glass: rgba(255, 255, 255, 0.03);
             --border: rgba(0, 212, 255, 0.15);
             --text-main: #e0e0e0;
             --text-dim: #999;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             background-color: var(--bg);
@@ -23,6 +26,15 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- BACKGROUND LAYER --- */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
             background-image: 
                 linear-gradient(var(--border) 1px, transparent 1px),
                 linear-gradient(90deg, var(--border) 1px, transparent 1px);
@@ -32,7 +44,7 @@
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 100px 20px;
+            padding: 60px 20px;
         }
 
         /* --- NAVIGATION --- */
@@ -40,13 +52,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 80px;
+            margin-bottom: 100px;
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-weight: bold;
+            color: var(--accent);
+            letter-spacing: 2px;
+            font-size: 1.2rem;
         }
 
         .social-links a {
             color: var(--text-main);
-            font-size: 1.5rem;
-            margin-left: 20px;
+            font-size: 1.4rem;
+            margin-left: 25px;
             transition: 0.3s;
         }
 
@@ -56,41 +76,48 @@
         }
 
         /* --- HERO --- */
-        header {
-            margin-bottom: 120px;
-        }
+        header { margin-bottom: 120px; }
 
         .subtitle {
             color: var(--accent);
             font-family: 'Space Mono', monospace;
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
         h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 600;
             margin: 0;
-            letter-spacing: -2px;
+            letter-spacing: -3px;
+            /* Subtle pulse animation for name */
+            animation: pulse-glow 4s infinite ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { text-shadow: 0 0 10px rgba(0, 212, 255, 0); }
+            50% { text-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
         }
 
         .bio {
-            max-width: 700px;
-            font-size: 1.1rem;
+            max-width: 650px;
+            font-size: 1.15rem;
             color: var(--text-dim);
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         /* --- SECTION HEADINGS --- */
         .section-label {
             font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--accent);
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
+            text-transform: uppercase;
         }
 
         .section-label::after {
@@ -105,165 +132,229 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
-            margin-bottom: 100px;
+            margin-bottom: 120px;
         }
 
         .card {
             background: var(--glass);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
             border: 1px solid var(--border);
             padding: 40px;
-            border-radius: 2px;
+            border-radius: 4px;
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
         }
 
         .card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
             border-color: var(--accent);
-            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.05);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.1);
         }
 
-        h3 {
+        .card h3 {
             margin-top: 0;
             font-size: 1.4rem;
             color: #fff;
+            letter-spacing: -0.5px;
         }
 
-        .tech {
+        .tech-list {
             font-family: 'Space Mono', monospace;
             font-size: 0.7rem;
             color: var(--accent);
-            margin-top: 25px;
-            letter-spacing: 1px;
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
         }
 
-        /* --- EXPERIENCE SECTION --- */
-        .exp-row {
+        /* --- SYSTEM SKILLS --- */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 120px;
+        }
+
+        .skill-item {
+            background: var(--glass);
+            padding: 25px;
+            border: 1px solid var(--border);
+        }
+
+        .skill-info {
             display: flex;
             justify-content: space-between;
-            padding: 30px 0;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent);
+            box-shadow: 0 0 15px var(--accent);
+        }
+
+        /* --- PROFESSIONAL TIMELINE --- */
+        .timeline { margin-bottom: 120px; }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            padding: 35px 0;
             border-bottom: 1px solid var(--border);
         }
 
-        .exp-company {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .exp-role {
-            color: var(--text-dim);
-            font-size: 0.9rem;
-        }
-
-        .exp-date {
+        .time-date {
             font-family: 'Space Mono', monospace;
             color: var(--accent);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
         }
 
-        /* --- BUTTONS --- */
-        .btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 24px;
-            border: 1px solid var(--accent);
-            color: #fff;
-            text-decoration: none;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
-            transition: 0.3s;
-        }
+        .time-company { font-weight: 600; font-size: 1.2rem; }
+        .time-role { color: var(--text-dim); margin-top: 5px; }
 
-        .btn:hover {
-            background: var(--accent);
-            color: #000;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
-        }
-
+        /* --- FOOTER --- */
         footer {
-            margin-top: 150px;
-            padding-bottom: 50px;
             text-align: center;
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
             font-family: 'Space Mono', monospace;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: var(--text-dim);
+            letter-spacing: 1px;
         }
 
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .timeline-item { grid-template-columns: 1fr; gap: 10px; }
+            .skills-container { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
+<div id="particles-js"></div>
+
 <div class="container">
     <nav>
-        <div style="font-family: 'Space Mono'; font-weight: bold; color: var(--accent);">D.RANA</div>
+        <div class="logo">DHRUMIL_RANA</div>
         <div class="social-links">
-            <a href="https://github.com/dhrumilrana25" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/dhrumil-rana-265316232/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/dhrumilrana25" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/dhrumil-rana-265316232/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
         </div>
     </nav>
 
     <header>
-        <div class="subtitle">DATA SCIENTIST // AI ENGINEER</div>
+        <div class="subtitle">GRADUATE DATA SCIENTIST // MS @ UTA</div>
         <h1>Dhrumil Rana</h1>
         <p class="bio">
-            Currently advancing the field of Data Science at the University of Texas at Arlington. 
-            Focused on Graph Analytics, Neural Architectures, and Large-scale Predictive Engines.
+            Specializing in Large-scale Graph Analytics, IoT Malware Detection, and Neural Recommendation Architectures. 
+            Currently engineering data solutions in Arlington, Texas.
         </p>
-        <a href="mailto:your-email@example.com" class="btn">SECURE_CONTACT</a>
     </header>
 
-    <div class="section-label">SELECTED_REPOSITORIES</div>
+    <div class="section-label">01 // REPOSITORY_MODULES</div>
     <div class="grid">
         <div class="card">
             <h3>Twitter-Scale Link Prediction</h3>
-            <p>Developed a Graph-based engine utilizing DeepWalk on a 1.2M node social graph to predict network evolution.</p>
-            <div class="tech">GRAPH THEORY / DEEPWALK / PYTHON</div>
+            <p>Utilizing DeepWalk on a 1.2M node social graph to predict network evolution with high-fidelity graph embeddings.</p>
+            <div class="tech-list">
+                <span>GRAPH_ML</span> <span>PYTHON</span> <span>DEEPWALK</span>
+            </div>
         </div>
 
         <div class="card">
             <h3>IoT Malware Detection</h3>
-            <p>Behavioral network analytics processing 1.1 million connections with a 95.38% classification accuracy.</p>
-            <div class="tech">CYBERSECURITY / ML / ANALYTICS</div>
+            <p>Behavioral network analytics processing 1.1M active connections, achieving 95.38% classification accuracy.</p>
+            <div class="tech-list">
+                <span>CYBER_SEC</span> <span>SCIKIT_LEARN</span> <span>ANALYTICS</span>
+            </div>
         </div>
 
         <div class="card">
             <h3>Hybrid Recommendation Engine</h3>
-            <p>Neural collaborative filtering system engineered for Amazon E-commerce behavioral forecasting.</p>
-            <div class="tech">TENSORFLOW / COLLABORATIVE FILTERING</div>
+            <p>A multi-stage filtering system leveraging Amazon E-commerce data to optimize user interaction forecasting.</p>
+            <div class="tech-list">
+                <span>TENSORFLOW</span> <span>COLLAB_FILTERING</span>
+            </div>
         </div>
     </div>
 
-    <div class="section-label">PROFESSIONAL_HISTORY</div>
-    
-    <div class="exp-row">
-        <div>
-            <div class="exp-company">Maverick Activities Center (UTA)</div>
-            <div class="exp-role">Building Manager</div>
+    <div class="section-label">02 // SYSTEM_CAPABILITIES</div>
+    <div class="skills-container">
+        <div class="skill-item">
+            <div class="skill-info"><span>MACHINE_LEARNING_PROTOCOLS</span> <span>94%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 94%;"></div></div>
         </div>
-        <div class="exp-date">MAR 2025 — PRESENT</div>
+        <div class="skill-item">
+            <div class="skill-info"><span>DATA_ARCHITECTURES (SQL/PYTHON)</span> <span>96%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 96%;"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>NEURAL_NETWORKS (PYTORCH)</span> <span>89%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 89%;"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>GRAPH_ANALYTICS</span> <span>91%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 91%;"></div></div>
+        </div>
     </div>
 
-    <div class="exp-row">
-        <div>
-            <div class="exp-company">Odoo</div>
-            <div class="exp-role">Software Developer Intern</div>
+    <div class="section-label">03 // PROFESSIONAL_HISTORY</div>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="time-date">MAR 2025 — PRESENT</div>
+            <div>
+                <div class="time-company">Maverick Activities Center (UTA)</div>
+                <div class="time-role">Building Manager // Operations & Security</div>
+            </div>
         </div>
-        <div class="exp-date">MAY 2024 — SEP 2024</div>
-    </div>
-
-    <div class="exp-row">
-        <div>
-            <div class="exp-company">Silent Info-tech Pvt. Ltd.</div>
-            <div class="exp-role">Research Analyst</div>
+        <div class="timeline-item">
+            <div class="time-date">MAY 2024 — SEP 2024</div>
+            <div>
+                <div class="time-company">Odoo</div>
+                <div class="time-role">Software Developer Intern // Backend Engineering</div>
+            </div>
         </div>
-        <div class="exp-date">JAN 2024 — APR 2024</div>
+        <div class="timeline-item">
+            <div class="time-date">JAN 2024 — APR 2024</div>
+            <div>
+                <div class="time-company">Silent Info-tech Pvt. Ltd.</div>
+                <div class="time-role">Research Analyst // Data Mining & Analytics</div>
+            </div>
+        </div>
     </div>
 
     <footer>
-        &copy; 2026 // DHRUMIL RANA // BUILT FOR THE NEXT FRONTIER
+        [ SYSTEM_STABLE ] // &copy; 2026 DHRUMIL RANA // BUILT_FOR_SCALABILITY
     </footer>
 </div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#00d4ff" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.2, "random": false },
+            "size": { "value": 3, "random": true },
+            "line_linked": { "enable": true, "distance": 150, "color": "#00d4ff", "opacity": 0.2, "width": 1 },
+            "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }
+        },
+        "retina_detect": true
+    });
+</script>
 
 </body>
 </html>
