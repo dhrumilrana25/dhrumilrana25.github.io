@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhrumil Rana | Data Science Portfolio</title>
+    <title>DHRUMIL // SYSTEM_ACCESS</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/neon/96/000000/processor.png">
     
     <style>
         :root {
@@ -19,6 +20,17 @@
         }
 
         * { box-sizing: border-box; }
+
+        /* --- CYBER SCROLLBAR --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { 
+            background: var(--accent); 
+            border-radius: 10px; 
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        ::selection { background: var(--accent); color: #000; }
 
         body {
             background-color: var(--bg);
@@ -60,7 +72,7 @@
             font-weight: bold;
             color: var(--accent);
             letter-spacing: 2px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .social-links a {
@@ -81,7 +93,7 @@
         .subtitle {
             color: var(--accent);
             font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             letter-spacing: 4px;
             margin-bottom: 15px;
             text-transform: uppercase;
@@ -92,13 +104,7 @@
             font-weight: 600;
             margin: 0;
             letter-spacing: -3px;
-            /* Subtle pulse animation for name */
-            animation: pulse-glow 4s infinite ease-in-out;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { text-shadow: 0 0 10px rgba(0, 212, 255, 0); }
-            50% { text-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
+            min-height: 1.2em; /* Prevents layout jump during typing */
         }
 
         .bio {
@@ -142,6 +148,7 @@
             padding: 40px;
             border-radius: 4px;
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
         }
 
         .card:hover {
@@ -198,6 +205,8 @@
             height: 100%;
             background: var(--accent);
             box-shadow: 0 0 15px var(--accent);
+            width: 0%; /* Initial state for animation */
+            transition: 2s ease-out;
         }
 
         /* --- PROFESSIONAL TIMELINE --- */
@@ -219,7 +228,27 @@
         .time-company { font-weight: 600; font-size: 1.2rem; }
         .time-role { color: var(--text-dim); margin-top: 5px; }
 
-        /* --- FOOTER --- */
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 12px 28px;
+            border: 1px solid var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            background: transparent;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+            transform: scale(1.05);
+        }
+
         footer {
             text-align: center;
             padding: 80px 0;
@@ -243,46 +272,43 @@
 
 <div class="container">
     <nav>
-        <div class="logo">DHRUMIL_RANA</div>
+        <div class="logo">DHRUMIL_RANA.OS</div>
         <div class="social-links">
-            <a href="https://github.com/dhrumilrana25" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/dhrumil-rana-265316232/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/dhrumilrana25" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/dhrumil-rana-265316232/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
         </div>
     </nav>
 
     <header>
         <div class="subtitle">GRADUATE DATA SCIENTIST // MS @ UTA</div>
-        <h1>Dhrumil Rana</h1>
+        <h1 id="typewriter"></h1>
         <p class="bio">
-            Specializing in Large-scale Graph Analytics, IoT Malware Detection, and Neural Recommendation Architectures. 
-            Currently engineering data solutions in Arlington, Texas.
+            Engineering large-scale Graph Analytics and Neural Architectures. 
+            Focused on high-performance Machine Learning and predictive system modeling.
         </p>
+        <a href="Dhrumil_Rana_Resume.pdf" target="_blank" class="btn">
+            <i class="fa-solid fa-file-pdf"></i> DOWNLOAD_DOSSIER
+        </a>
     </header>
 
     <div class="section-label">01 // REPOSITORY_MODULES</div>
     <div class="grid">
-        <div class="card">
+        <div class="card" onclick="window.open('https://github.com/dhrumilrana25', '_blank')">
             <h3>Twitter-Scale Link Prediction</h3>
-            <p>Utilizing DeepWalk on a 1.2M node social graph to predict network evolution with high-fidelity graph embeddings.</p>
-            <div class="tech-list">
-                <span>GRAPH_ML</span> <span>PYTHON</span> <span>DEEPWALK</span>
-            </div>
+            <p>Utilizing DeepWalk on a 1.2M node social graph to predict network evolution via high-fidelity graph embeddings.</p>
+            <div class="tech-list"><span>GRAPH_ML</span> <span>PYTHON</span> <span>DEEPWALK</span></div>
         </div>
 
-        <div class="card">
+        <div class="card" onclick="window.open('https://github.com/dhrumilrana25', '_blank')">
             <h3>IoT Malware Detection</h3>
             <p>Behavioral network analytics processing 1.1M active connections, achieving 95.38% classification accuracy.</p>
-            <div class="tech-list">
-                <span>CYBER_SEC</span> <span>SCIKIT_LEARN</span> <span>ANALYTICS</span>
-            </div>
+            <div class="tech-list"><span>CYBER_SEC</span> <span>SCIKIT_LEARN</span> <span>ANALYTICS</span></div>
         </div>
 
-        <div class="card">
+        <div class="card" onclick="window.open('https://github.com/dhrumilrana25', '_blank')">
             <h3>Hybrid Recommendation Engine</h3>
-            <p>A multi-stage filtering system leveraging Amazon E-commerce data to optimize user interaction forecasting.</p>
-            <div class="tech-list">
-                <span>TENSORFLOW</span> <span>COLLAB_FILTERING</span>
-            </div>
+            <p>Multi-stage filtering system leveraging Amazon E-commerce data to optimize user interaction forecasting.</p>
+            <div class="tech-list"><span>TENSORFLOW</span> <span>COLLAB_FILTERING</span></div>
         </div>
     </div>
 
@@ -290,19 +316,19 @@
     <div class="skills-container">
         <div class="skill-item">
             <div class="skill-info"><span>MACHINE_LEARNING_PROTOCOLS</span> <span>94%</span></div>
-            <div class="progress-bar"><div class="progress-fill" style="width: 94%;"></div></div>
+            <div class="progress-bar"><div class="progress-fill" id="bar1"></div></div>
         </div>
         <div class="skill-item">
             <div class="skill-info"><span>DATA_ARCHITECTURES (SQL/PYTHON)</span> <span>96%</span></div>
-            <div class="progress-bar"><div class="progress-fill" style="width: 96%;"></div></div>
+            <div class="progress-bar"><div class="progress-fill" id="bar2"></div></div>
         </div>
         <div class="skill-item">
             <div class="skill-info"><span>NEURAL_NETWORKS (PYTORCH)</span> <span>89%</span></div>
-            <div class="progress-bar"><div class="progress-fill" style="width: 89%;"></div></div>
+            <div class="progress-bar"><div class="progress-fill" id="bar3"></div></div>
         </div>
         <div class="skill-item">
             <div class="skill-info"><span>GRAPH_ANALYTICS</span> <span>91%</span></div>
-            <div class="progress-bar"><div class="progress-fill" style="width: 91%;"></div></div>
+            <div class="progress-bar"><div class="progress-fill" id="bar4"></div></div>
         </div>
     </div>
 
@@ -312,7 +338,7 @@
             <div class="time-date">MAR 2025 — PRESENT</div>
             <div>
                 <div class="time-company">Maverick Activities Center (UTA)</div>
-                <div class="time-role">Building Manager // Operations & Security</div>
+                <div class="time-role">Building Manager // Operations & Medical Response</div>
             </div>
         </div>
         <div class="timeline-item">
@@ -332,12 +358,30 @@
     </div>
 
     <footer>
-        [ SYSTEM_STABLE ] // &copy; 2026 DHRUMIL RANA // BUILT_FOR_SCALABILITY
+        [ SYSTEM_STABLE ] // &copy; 2026 DHRUMIL RANA // BUILT_FOR_THE_NEXT_FRONTIER
     </footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
+    /* Typewriter Effect */
+    const text = "Dhrumil Rana";
+    let i = 0;
+    function typeWriter() {
+        if (i < text.length) {
+            document.getElementById("typewriter").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 120);
+        } else {
+            // Start progress bar animation after typing
+            document.getElementById('bar1').style.width = '94%';
+            document.getElementById('bar2').style.width = '96%';
+            document.getElementById('bar3').style.width = '89%';
+            document.getElementById('bar4').style.width = '91%';
+        }
+    }
+
+    /* Particles Config */
     particlesJS("particles-js", {
         "particles": {
             "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
@@ -354,6 +398,8 @@
         },
         "retina_detect": true
     });
+
+    window.onload = typeWriter;
 </script>
 
 </body>
