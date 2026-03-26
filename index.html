@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DHRUMIL RANA // NEURAL_MATRIX.v8.1</title>
+    <title>DHRUMIL RANA // NEURAL_ARCHITECT.v8.2</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,7 +12,7 @@
     <style>
         :root {
             --bg: #010101;
-            --accent: #00f0ff; /* Electric Cyan */
+            --accent: #00f0ff;
             --glass: rgba(255, 255, 255, 0.03);
             --border: rgba(0, 240, 255, 0.15);
             --text-main: #f0f0f0;
@@ -34,14 +34,6 @@
             pointer-events: none;
         }
 
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { 
-            background: var(--accent); 
-            border-radius: 10px; 
-            box-shadow: 0 0 15px var(--accent);
-        }
-
         body {
             background-color: var(--bg);
             color: var(--text-main);
@@ -51,24 +43,31 @@
             line-height: 1.6;
         }
 
-        /* --- DATA MATRIX BACKGROUND LAYER --- */
         #bg-matrix {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            filter: blur(0.5px); /* Subtle blur for depth */
-            opacity: 0.6; /* Balanced brightness */
+            opacity: 0.5;
         }
 
         .container {
             position: relative;
-            z-index: 1; /* Ensure content is above the background matrix */
+            z-index: 1;
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
+        }
+
+        /* --- ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* --- NAVIGATION --- */
@@ -89,55 +88,68 @@
 
         .social-links a {
             color: var(--text-main);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-left: 25px;
             transition: 0.3s;
         }
 
         .social-links a:hover {
             color: var(--accent);
-            text-shadow: 0 0 20px var(--accent);
+            transform: scale(1.2);
+            display: inline-block;
         }
 
         /* --- HERO --- */
         header { 
             text-align: center; 
             margin-bottom: 120px; 
-            border-bottom: 1px solid var(--border); 
             padding-bottom: 80px; 
-            backdrop-filter: blur(5px); /* Clear contrast against matrix rain */
         }
 
         .subtitle {
             color: var(--accent);
             font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             letter-spacing: 6px;
             margin-bottom: 20px;
-            text-transform: uppercase;
         }
 
         h1 {
             font-size: 5rem;
             font-weight: 600;
             margin: 0;
-            letter-spacing: -4px;
-            min-height: 1.2em;
+            letter-spacing: -3px;
+            cursor: default;
+        }
+
+        /* Glitch Effect on Hover */
+        h1:hover {
+            text-shadow: 2px 0 red, -2px 0 blue;
+            animation: glitch 0.3s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
         }
 
         .bio {
             max-width: 750px;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--text-dim);
             margin: 30px auto;
         }
 
-        /* --- SECTION HEADINGS --- */
+        /* --- SECTIONS --- */
         .section-label {
             font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--accent);
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             display: flex;
             align-items: center;
             gap: 20px;
@@ -151,7 +163,7 @@
             background: var(--border);
         }
 
-        /* --- PROJECT GRID --- */
+        /* --- PROJECT CARDS --- */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -160,132 +172,98 @@
         }
 
         .project-card {
-            background: rgba(1, 1, 1, 0.7); /* Opaque for readability */
-            backdrop-filter: blur(12px);
+            background: rgba(1, 1, 1, 0.8);
             border: 1px solid var(--border);
             border-radius: 4px;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.4s;
             cursor: pointer;
             overflow: hidden;
+            text-decoration: none;
         }
 
         .project-card:hover {
-            transform: translateY(-12px);
             border-color: var(--accent);
-            box-shadow: 0 15px 50px rgba(0, 240, 255, 0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
         }
 
         .project-img {
-            height: 220px;
+            height: 200px;
             background-size: cover;
             background-position: center;
-            border-bottom: 1px solid var(--border);
-            filter: brightness(0.6);
+            filter: grayscale(0.5) brightness(0.7);
             transition: 0.5s;
         }
 
-        .project-card:hover .project-img { filter: brightness(1.1); }
+        .project-card:hover .project-img { filter: grayscale(0) brightness(1); }
 
-        .project-content { padding: 30px; }
-        .project-card h3 { margin: 0 0 10px 0; color: #fff; font-size: 1.5rem; }
-        .project-card p { color: var(--text-dim); font-size: 0.95rem; }
-        .tech { font-family: 'Space Mono'; color: var(--accent); font-size: 0.75rem; margin-top: 25px; display: flex; flex-wrap: wrap; gap: 15px; }
+        .project-content { padding: 25px; }
+        .project-card h3 { margin: 0; color: #fff; font-size: 1.4rem; }
+        .project-card p { color: var(--text-dim); font-size: 0.9rem; margin-top: 10px; }
+        
+        .tech-tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            font-family: 'Space Mono';
+            font-size: 0.7rem;
+            color: var(--accent);
+        }
 
         /* --- SKILL MATRIX --- */
         .skill-matrix {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
             margin-bottom: 100px;
         }
 
-        .skill-category {
-            padding: 20px;
-            background: rgba(1, 1, 1, 0.7); /* Opaque background */
-            backdrop-filter: blur(5px);
-            border-left: 2px solid var(--border);
-            transition: 0.3s;
+        .skill-box {
+            padding: 25px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
         }
 
-        .skill-category:hover { border-left-color: var(--accent); background: var(--glass); }
-        .skill-category h4 { font-family: 'Space Mono'; color: #fff; margin: 0 0 15px 0; font-size: 0.9rem; text-transform: uppercase; }
-        .skill-list { list-style: none; padding: 0; color: var(--text-dim); font-size: 0.85rem; }
-        .skill-list li::before { content: "> "; color: var(--accent); }
+        .skill-box h4 { font-family: 'Space Mono'; color: #fff; font-size: 0.8rem; margin: 0 0 15px 0; }
+        .skill-box ul { list-style: none; padding: 0; color: var(--text-dim); font-size: 0.85rem; }
+        .skill-box li::before { content: "• "; color: var(--accent); }
 
-        /* --- EXPERIENCE ITEMS --- */
-        .experience-item {
-            display: grid;
-            grid-template-columns: 80px 1fr 150px;
+        /* --- EXPERIENCE --- */
+        .experience-card {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 30px;
-            background: rgba(1, 1, 1, 0.7); /* Opaque background */
-            backdrop-filter: blur(5px);
-            border: 1px solid var(--border);
             padding: 25px;
+            background: var(--glass);
+            border: 1px solid var(--border);
             margin-bottom: 15px;
-            cursor: pointer;
-            transition: 0.3s;
             text-decoration: none;
             color: inherit;
-        }
-
-        .experience-item:hover {
-            border-color: var(--accent);
-            background: rgba(0, 240, 255, 0.08);
-            transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
-        }
-
-        .exp-logo {
-            width: 60px;
-            height: 60px;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: grayscale(1) invert(1);
-        }
-
-        .exp-role h4 { margin: 0; font-size: 1.3rem; color: #fff; }
-        .exp-role p { margin: 5px 0 0 0; color: var(--text-dim); }
-        .exp-date { font-family: 'Space Mono'; color: var(--accent); text-align: right; font-size: 0.85rem; }
-
-        /* --- BUTTONS --- */
-        .btn {
-            display: inline-block;
-            margin-top: 40px;
-            padding: 14px 40px;
-            border: 1px solid var(--accent);
-            color: #fff;
-            text-decoration: none;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.9rem;
             transition: 0.3s;
-            background: rgba(1,1,1,0.5); /* Semi-transparent btn background */
-            backdrop-filter: blur(2px);
         }
 
-        .btn:hover {
-            background: var(--accent);
-            color: #000;
-            box-shadow: 0 0 30px var(--accent);
+        .experience-card:hover {
+            background: rgba(0, 240, 255, 0.05);
+            border-color: var(--accent);
         }
+
+        .exp-main h4 { margin: 0; color: #fff; font-size: 1.2rem; }
+        .exp-main p { margin: 5px 0 0 0; color: var(--text-dim); font-size: 0.9rem; }
+        .exp-meta { font-family: 'Space Mono'; color: var(--accent); font-size: 0.8rem; }
 
         footer {
             text-align: center;
-            padding: 100px 0;
-            margin-top: 50px;
+            padding: 60px 0;
             border-top: 1px solid var(--border);
             font-family: 'Space Mono';
-            font-size: 0.75rem;
             color: var(--text-dim);
-            backdrop-filter: blur(5px); /* readability against rain */
+            font-size: 0.7rem;
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 3.2rem; }
-            .experience-item { grid-template-columns: 1fr; text-align: center; }
-            .exp-date { text-align: center; margin-top: 10px; }
-            .exp-logo { margin: 0 auto; }
+            h1 { font-size: 3rem; }
+            .experience-card { flex-direction: column; text-align: center; gap: 10px; }
         }
     </style>
 </head>
@@ -295,183 +273,140 @@
 
 <div class="container">
     <nav>
-        <div class="logo">DHRUMIL_RANA.v8.1</div>
+        <div class="logo">DHRUMIL_RANA.v8.2</div>
         <div class="social-links">
             <a href="https://github.com/dhrumilrana25" target="_blank"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/dhrumil-rana-25a774211/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
         </div>
     </nav>
 
-    <header>
-        <div class="subtitle">AGENTIC AI ARCHITECT // MS @ UT ARLINGTON</div>
+    <header class="reveal">
+        <div class="subtitle">AGENTIC AI & DATA ARCHITECT</div>
         <h1 id="typewriter"></h1>
-        <p class="bio">Data Science graduate student at UT Arlington specializing in <b>Agentic AI Orchestration</b> and Large-Scale Network Analytics. Expert in building self-healing autonomous workflows, graph neural architectures, and real-time behavioral security models.</p>
-        <a href="Dhrumil_Rana_Resume.pdf" target="_blank" class="btn">[ ACCESS_RESUME ]</a>
+        <p class="bio">MS Data Science @ UTA. Specialized in autonomous AI orchestration, graph neural networks, and behavioral malware detection. Building the future of self-healing software.</p>
+        <a href="Dhrumil_Rana_Resume.pdf" class="btn" style="border: 1px solid var(--accent); padding: 12px 30px; color: #fff; text-decoration: none; font-family: 'Space Mono'; font-size: 0.8rem;">[ DOWNLOAD_RESUME ]</a>
     </header>
 
-    <div class="section-label">01 // FEATURED_MODULES</div>
+    <div class="section-label reveal">01 // PROJECT_REPOS</div>
     <div class="project-grid">
         
-        <div class="project-card" onclick="window.open('https://github.com/dhrumilrana25/Agentic-Cleanse', '_blank')">
-            <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800')"></div>
+        <a href="https://github.com/dhrumilrana25/Agentic-Cleanse" class="project-card reveal" target="_blank">
+            <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4628c9757?q=80&w=800&auto=format&fit=crop')"></div>
             <div class="project-content">
                 <h3>Agentic-Cleanse Factory</h3>
-                <p>Autonomous multi-agent ETL system with recursive self-healing loops and real-time security sandboxing.</p>
-                <div class="tech"><span>#AGENTIC_AI</span> <span>#LANG_GRAPH</span> <span>#GROQ_API</span></div>
+                <p>Multi-agent ETL pipeline with self-healing code loops and security critics. Built with LangGraph & Groq.</p>
+                <div class="tech-tags"><span>#AGENTIC_AI</span> <span>#LANGGRAPH</span></div>
             </div>
-        </div>
+        </a>
 
-        <div class="project-card" onclick="window.open('https://github.com/dhrumilrana25/Twitter-Scale-Link-Prediction-Engine', '_blank')">
-            <div class="project-img" style="background-image: url('https://dist.neo4j.com/wp-content/uploads/20160520130638/twitter-graph-1.png')"></div>
+        <a href="https://github.com/dhrumilrana25/Twitter-Scale-Link-Prediction-Engine" class="project-card reveal" target="_blank">
+            <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop')"></div>
             <div class="project-content">
                 <h3>Twitter Link Prediction</h3>
-                <p>Processing 1.2M nodes using DeepWalk graph embeddings to model network growth and connectivity.</p>
-                <div class="tech"><span>#GRAPH_ML</span> <span>#DEEPWALK</span> <span>#SCALE</span></div>
+                <p>Social discovery engine processing 1.2M nodes using DeepWalk embeddings and graph heuristics.</p>
+                <div class="tech-tags"><span>#GRAPH_ML</span> <span>#SCALE</span></div>
             </div>
-        </div>
-        
-        <div class="project-card" onclick="window.open('https://github.com/dhrumilrana25/IoT-Malware-Detection-Network-Analytics', '_blank')">
-            <div class="project-img" style="background-image: url('https://blog.paessler.com/hubfs/new-malware-tries-to-destroy-iot-devices.png')"></div>
+        </a>
+
+        <a href="https://github.com/dhrumilrana25/IoT-Malware-Detection-Network-Analytics" class="project-card reveal" target="_blank">
+            <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop')"></div>
             <div class="project-content">
                 <h3>IoT Malware Defense</h3>
-                <p>Real-time intrusion detection across 1.1M instances using Information Theory for feature optimization.</p>
-                <div class="tech"><span>#CYBER_SEC</span> <span>#IOT_ML</span> <span>#NETWORK_X</span></div>
+                <p>Real-time behavioral analytics for IoT security. Achieved 95.38% accuracy via feature optimization.</p>
+                <div class="tech-tags"><span>#CYBER_SEC</span> <span>#ML</span></div>
             </div>
+        </a>
+    </div>
+
+    <div class="section-label reveal">02 // NEURAL_SKILLS</div>
+    <div class="skill-matrix reveal">
+        <div class="skill-box">
+            <h4>ORCHESTRATION</h4>
+            <ul><li>LangGraph</li><li>Agentic AI</li><li>LangSmith</li></ul>
+        </div>
+        <div class="skill-box">
+            <h4>LLM / NLP</h4>
+            <ul><li>Llama 3.3</li><li>Prompt Eng</li><li>Groq API</li></ul>
+        </div>
+        <div class="skill-box">
+            <h4>GRAPH / DATA</h4>
+            <ul><li>NetworkX</li><li>DeepWalk</li><li>Pandas</li></ul>
+        </div>
+        <div class="skill-box">
+            <h4>CORE</h4>
+            <ul><li>Python</li><li>Streamlit</li><li>SQL</li></ul>
         </div>
     </div>
 
-    <div class="section-label">02 // NEURAL_SKILL_MATRIX</div>
-    <div class="skill-matrix">
-        <div class="skill-category">
-            <h4>AI Orchestration</h4>
-            <ul class="skill-list">
-                <li>LangGraph</li>
-                <li>Agentic Workflows</li>
-                <li>LangSmith</li>
-            </ul>
+    <div class="section-label reveal">03 // HISTORY</div>
+    <div class="history-list reveal">
+        <div class="experience-card">
+            <div class="exp-main">
+                <h4>Maverick Activities Center</h4>
+                <p>Building Manager // Systems & Ops</p>
+            </div>
+            <div class="exp-meta">2025 - PRESENT</div>
         </div>
-        <div class="skill-category">
-            <h4>LLM Engineering</h4>
-            <ul class="skill-list">
-                <li>Llama 3.3 (Groq API)</li>
-                <li>Self-Healing Logic</li>
-                <li>Prompt Engineering</li>
-            </ul>
-        </div>
-        <div class="skill-category">
-            <h4>Graph & Data</h4>
-            <ul class="skill-list">
-                <li>Graph ML (DeepWalk)</li>
-                <li>Pandas (Big Data)</li>
-                <li>Network Analytics</li>
-            </ul>
-        </div>
-        <div class="skill-category">
-            <h4>Core Systems</h4>
-            <ul class="skill-list">
-                <li>Python (Backend)</li>
-                <li>Streamlit (Frontend)</li>
-                <li>Cyber-Security ML</li>
-            </ul>
+        <div class="experience-card">
+            <div class="exp-main">
+                <h4>Odoo</h4>
+                <p>Software Developer Intern</p>
+            </div>
+            <div class="exp-meta">2024</div>
         </div>
     </div>
 
-    <div class="section-label">03 // PROFESSIONAL_HISTORY</div>
-    
-    <a href="https://www.uta.edu/student-affairs/campus-recreation/facilities/mac" target="_blank" class="experience-item">
-        <div class="exp-logo" style="background-image: url('https://www.uta.edu/news/_documents/logos/uta_logo_v_4c.png')"></div>
-        <div class="exp-role">
-            <h4>Maverick Activities Center (UTA)</h4>
-            <p>Building Manager // Facility Ops & Emergency Response</p>
-        </div>
-        <div class="exp-date">2025 - PRESENT</div>
-    </a>
-
-    <a href="https://www.odoo.com" target="_blank" class="experience-item">
-        <div class="exp-logo" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e0/Odoo_logo.png')"></div>
-        <div class="exp-role">
-            <h4>Odoo</h4>
-            <p>Software Developer Intern // Backend Engineering</p>
-        </div>
-        <div class="exp-date">2024</div>
-    </a>
-
-    <a href="https://silentinfotech.com" target="_blank" class="experience-item">
-        <div class="exp-logo" style="background-image: url('https://silentinfotech.com/wp-content/uploads/2021/08/logo-2.png')"></div>
-        <div class="exp-role">
-            <h4>Silent Infotech Pvt. Ltd.</h4>
-            <p>Research Analyst // Data Mining & Network Analytics</p>
-        </div>
-        <div class="exp-date">2024</div>
-    </a>
-
-    <footer>[ SYSTEM_STABLE ] // &copy; 2026 DHRUMIL RANA // BUILT_FOR_AUTONOMY</footer>
+    <footer>[ SYSTEM_STABLE ] // &copy; 2026 DHRUMIL RANA</footer>
 </div>
 
 <script>
-    /* Typewriter Boot Sequence */
+    // Typewriter
     const text = "Dhrumil Rana"; let i = 0;
     function typeWriter() {
         if (i < text.length) {
             document.getElementById("typewriter").innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 140);
+            i++; setTimeout(typeWriter, 150);
         }
     }
 
-    /* --- Data Science & AI Background Matrix --- */
+    // Matrix Rain
     const canvas = document.getElementById('bg-matrix');
     const ctx = canvas.getContext('2d');
-
-    // Make canvas full screen
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    // AI/Data Science characters (Binary, Hex, Stats symbols)
-    const charInput = "01010101ABCDEFΣΔΩΠΦΨΞΛ√∫f(x)=λμ";
-    const chars = charInput.split('');
-    const font_size = 14;
-    const columns = canvas.width / font_size; // number of columns for the rain
-    const drops = []; // an array of drops - one per column
-    
-    // Initialize drops
+    const chars = "01ΣΔdf.fit()pd.read_csv∫model.predict0101λμ".split("");
+    const drops = [];
+    const fontSize = 15;
+    const columns = canvas.width / fontSize;
     for (let x = 0; x < columns; x++) drops[x] = 1;
 
-    // Drawing the characters
     function drawMatrix() {
-        // Semi-transparent black BG to create trail effect
-        ctx.fillStyle = "rgba(1, 1, 1, 0.04)"; // Matches var(--bg) exactly
+        ctx.fillStyle = "rgba(1, 1, 1, 0.05)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        // Character style (Neon Cyan)
-        ctx.fillStyle = "#00f0ff"; // Matches var(--accent)
-        ctx.font = font_size + "px Space Mono";
-        
-        // looping over drops
+        ctx.fillStyle = "#00f0ff";
+        ctx.font = fontSize + "px Space Mono";
         for (let i = 0; i < drops.length; i++) {
-            // Pick a random char
-            const text = chars[Math.floor(Math.random() * chars.length)];
-            // Draw it at x = i * font_size, y = drops[i] * font_size
-            ctx.fillText(text, i * font_size, drops[i] * font_size);
-            
-            // Increment drops[i] coordinate (move down), 
-            // Reset to top randomly when out of screen to create dispersion
-            if (drops[i] * font_size > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            const txt = chars[Math.floor(Math.random() * chars.length)];
+            ctx.fillText(txt, i * fontSize, drops[i] * fontSize);
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
             drops[i]++;
         }
     }
+    setInterval(drawMatrix, 50);
 
-    // Call draw frequentley
-    setInterval(drawMatrix, 45); // Slightly slower for less distraction
-
-    // Handle Resize
-    window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
-
-    // Boot system
-    window.onload = typeWriter;
+    // Scroll Reveal
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            if (elementTop < windowHeight - 100) reveals[i].classList.add("active");
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    
+    window.onload = () => { typeWriter(); reveal(); };
 </script>
 </body>
 </html>
