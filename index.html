@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DHRUMIL RANA // NEURAL_ARCHITECT.v8.2</title>
+    <title>DHRUMIL RANA // NEURAL_ARCHITECT.v8.3</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -122,7 +122,6 @@
             cursor: default;
         }
 
-        /* Glitch Effect on Hover */
         h1:hover {
             text-shadow: 2px 0 red, -2px 0 blue;
             animation: glitch 0.3s infinite;
@@ -184,7 +183,7 @@
         .project-card:hover {
             border-color: var(--accent);
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.15);
         }
 
         .project-img {
@@ -210,7 +209,7 @@
             color: var(--accent);
         }
 
-        /* --- SKILL MATRIX --- */
+        /* --- ANIMATED SKILL MATRIX --- */
         .skill-matrix {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -220,12 +219,34 @@
 
         .skill-box {
             padding: 25px;
-            background: var(--glass);
+            background: rgba(1, 1, 1, 0.6);
             border: 1px solid var(--border);
-            border-left: 3px solid var(--accent);
+            border-left: 3px solid var(--border);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .skill-box h4 { font-family: 'Space Mono'; color: #fff; font-size: 0.8rem; margin: 0 0 15px 0; }
+        .skill-box:hover {
+            border-left-color: var(--accent);
+            background: rgba(0, 240, 255, 0.05);
+            transform: scale(1.05);
+            box-shadow: -10px 0 20px rgba(0, 240, 255, 0.1);
+        }
+
+        .skill-box h4 { 
+            font-family: 'Space Mono'; 
+            color: #fff; 
+            font-size: 0.8rem; 
+            margin: 0 0 15px 0; 
+            transition: 0.3s;
+        }
+
+        .skill-box:hover h4 {
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--accent);
+        }
+
         .skill-box ul { list-style: none; padding: 0; color: var(--text-dim); font-size: 0.85rem; }
         .skill-box li::before { content: "• "; color: var(--accent); }
 
@@ -246,6 +267,7 @@
         .experience-card:hover {
             background: rgba(0, 240, 255, 0.05);
             border-color: var(--accent);
+            transform: translateX(10px);
         }
 
         .exp-main h4 { margin: 0; color: #fff; font-size: 1.2rem; }
@@ -273,7 +295,7 @@
 
 <div class="container">
     <nav>
-        <div class="logo">DHRUMIL_RANA.v8.2</div>
+        <div class="logo">DHRUMIL_RANA.v8.3</div>
         <div class="social-links">
             <a href="https://github.com/dhrumilrana25" target="_blank"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/dhrumil-rana-25a774211/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -281,14 +303,15 @@
     </nav>
 
     <header class="reveal">
-        <div class="subtitle">AGENTIC AI & DATA SCIENTIST</div>
+        <div class="subtitle">AGENTIC AI & DATA ARCHITECT</div>
         <h1 id="typewriter"></h1>
         <p class="bio">MS Data Science @ UTA. Specialized in autonomous AI orchestration, graph neural networks, and behavioral malware detection. Building the future of self-healing software.</p>
-        <a href="Dhrumil_Rana_Resume.pdf" class="btn" style="border: 1px solid var(--accent); padding: 12px 30px; color: #fff; text-decoration: none; font-family: 'Space Mono'; font-size: 0.8rem;">[ DOWNLOAD_RESUME ]</a>
+        <a href="Dhrumil_Rana_Resume.pdf" class="btn" style="border: 1px solid var(--accent); padding: 12px 30px; color: #fff; text-decoration: none; font-family: 'Space Mono'; font-size: 0.8rem; background: rgba(1,1,1,0.5);">[ DOWNLOAD_RESUME ]</a>
     </header>
 
     <div class="section-label reveal">01 // PROJECT_REPOS</div>
     <div class="project-grid">
+        
         <a href="https://github.com/dhrumilrana25/Agentic-Cleanse" class="project-card reveal" target="_blank">
             <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1551288049-bbda38a10ad5?q=80&w=800&auto=format&fit=crop')"></div>
             <div class="project-content">
@@ -297,6 +320,7 @@
                 <div class="tech-tags"><span>#AGENTIC_AI</span> <span>#LANGGRAPH</span></div>
             </div>
         </a>
+
         <a href="https://github.com/dhrumilrana25/Twitter-Scale-Link-Prediction-Engine" class="project-card reveal" target="_blank">
             <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop')"></div>
             <div class="project-content">
@@ -352,13 +376,19 @@
             </div>
             <div class="exp-meta">2024</div>
         </div>
+        <div class="experience-card">
+            <div class="exp-main">
+                <h4>Silent Infotech Pvt. Ltd.</h4>
+                <p>Research Analyst // Data Mining</p>
+            </div>
+            <div class="exp-meta">2024</div>
+        </div>
     </div>
 
     <footer>[ SYSTEM_STABLE ] // &copy; 2026 DHRUMIL RANA</footer>
 </div>
 
 <script>
-    // Typewriter
     const text = "Dhrumil Rana"; let i = 0;
     function typeWriter() {
         if (i < text.length) {
@@ -367,7 +397,6 @@
         }
     }
 
-    // Matrix Rain
     const canvas = document.getElementById('bg-matrix');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
@@ -393,7 +422,6 @@
     }
     setInterval(drawMatrix, 50);
 
-    // Scroll Reveal
     function reveal() {
         var reveals = document.querySelectorAll(".reveal");
         for (var i = 0; i < reveals.length; i++) {
@@ -403,7 +431,6 @@
         }
     }
     window.addEventListener("scroll", reveal);
-    
     window.onload = () => { typeWriter(); reveal(); };
 </script>
 </body>
