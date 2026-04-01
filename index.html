@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DHRUMIL RANA // NEURAL_ARCHITECT.v11.0</title>
+    <title>DHRUMIL RANA // NEURAL_ARCHITECT.v12.0</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/neon/96/000000/processor.png">
     
     <style>
         :root {
@@ -44,7 +45,7 @@
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; box-shadow: 0 0 10px var(--accent); }
         ::selection { background: var(--accent); color: #000; }
 
         #bg-matrix {
@@ -63,7 +64,7 @@
         }
 
         /* --- REVEAL ANIMATIONS --- */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.2, 1, 0.2, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; }
@@ -72,7 +73,7 @@
         .social-links a:hover { color: var(--accent); transform: scale(1.2) translateY(-3px); text-shadow: 0 0 20px var(--accent); }
 
         /* --- HERO --- */
-        header { text-align: center; margin-bottom: 120px; border-bottom: 1px solid var(--border); padding-bottom: 80px; }
+        header { text-align: center; margin-bottom: 140px; border-bottom: 1px solid var(--border); padding-bottom: 80px; }
         .subtitle { color: var(--accent); font-family: 'Space Mono', monospace; font-size: 0.85rem; letter-spacing: 6px; margin-bottom: 20px; text-transform: uppercase; }
         h1 { font-size: 5rem; font-weight: 600; margin: 0; letter-spacing: -3px; cursor: default; }
         h1:hover { text-shadow: 2px 0 red, -2px 0 blue; animation: glitch 0.2s infinite; }
@@ -100,52 +101,64 @@
             background: rgba(0, 240, 255, 0.05);
             backdrop-filter: blur(5px);
             transition: 0.4s;
+            position: relative;
+            overflow: hidden;
         }
         .btn-glow:hover { background: var(--accent); color: #000; box-shadow: 0 0 30px rgba(0, 240, 255, 0.6); transform: scale(1.05); }
 
-        .section-label { font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--accent); margin-bottom: 50px; display: flex; align-items: center; gap: 20px; text-transform: uppercase; }
+        .section-label { font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--accent); margin-bottom: 60px; display: flex; align-items: center; gap: 20px; text-transform: uppercase; }
         .section-label::after { content: ''; height: 1px; flex-grow: 1; background: var(--border); }
 
-        /* --- CLEAN PROJECT CARDS (NO IMAGES) --- */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 120px; }
-        
+        /* --- INTERACTIVE PROJECT CARDS --- */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 35px; margin-bottom: 140px; }
         .project-card {
             background: var(--glass);
             backdrop-filter: blur(10px);
             border: 1px solid var(--border);
-            border-top: 3px solid var(--border);
-            border-radius: 4px;
-            padding: 40px 30px;
-            transition: 0.4s ease;
+            border-radius: 6px;
+            transition: 0.5s cubic-bezier(0.2, 1, 0.2, 1);
             cursor: pointer;
+            overflow: hidden;
             text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            display: block;
+            position: relative;
         }
 
-        .project-card:hover { 
-            border-top-color: var(--accent);
-            border-color: var(--accent); 
-            transform: translateY(-10px); 
-            box-shadow: 0 15px 40px rgba(0, 240, 255, 0.1); 
-            background: rgba(0, 240, 255, 0.03);
+        .project-card::before {
+            content: "";
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(0,240,255,0.05) 0%, transparent 100%);
+            z-index: 1; pointer-events: none;
         }
 
-        .project-card h3 { margin: 0; color: #fff; font-size: 1.4rem; letter-spacing: -0.5px; }
-        .project-card p { color: var(--text-dim); font-size: 0.95rem; margin-top: 15px; flex-grow: 1; }
+        .project-card:hover { border-color: var(--accent); transform: translateY(-15px); box-shadow: 0 15px 50px rgba(0, 240, 255, 0.15); }
+
+        .project-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid var(--border);
+            filter: grayscale(0.8) contrast(1.2);
+            transition: 0.5s;
+        }
         
-        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; font-family: 'Space Mono'; font-size: 0.75rem; color: var(--accent); }
+        .project-card:hover .project-img { filter: grayscale(0) contrast(1.1) brightness(1.2); transform: scale(1.05); }
+
+        .project-content { padding: 30px; position: relative; z-index: 2; }
+        .project-card h3 { margin: 0; color: #fff; font-size: 1.5rem; letter-spacing: -0.5px; }
+        .project-card p { color: var(--text-dim); font-size: 0.95rem; margin-top: 15px; }
+        
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; font-family: 'Space Mono'; font-size: 0.75rem; color: var(--accent); }
         .tech-tags span { background: rgba(0, 240, 255, 0.1); padding: 4px 8px; border-radius: 2px; }
 
         /* --- 3D TILT SKILL MATRIX --- */
-        .skill-matrix { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-bottom: 120px; perspective: 1000px; }
+        .skill-matrix { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 140px; perspective: 1000px; }
         
         .skill-box {
-            padding: 30px 25px;
+            padding: 35px 25px;
             background: var(--glass);
             border: 1px solid var(--border);
-            border-left: 3px solid var(--accent);
+            border-top: 3px solid var(--accent);
             transform-style: preserve-3d;
             transition: transform 0.1s;
         }
@@ -156,7 +169,7 @@
         .skill-box li::before { content: "►"; color: var(--accent); font-size: 0.6rem; }
 
         /* --- ACTIVE SCROLL TIMELINE --- */
-        .timeline-container { position: relative; padding-left: 40px; margin-bottom: 120px; }
+        .timeline-container { position: relative; padding-left: 40px; margin-bottom: 140px; }
         .timeline-container::before { content: ''; position: absolute; top: 0; left: 10px; width: 2px; height: 100%; background: rgba(0, 240, 255, 0.1); }
         
         .timeline-progress {
@@ -166,7 +179,7 @@
             z-index: 1;
         }
 
-        .timeline-block { position: relative; margin-bottom: 30px; }
+        .timeline-block { position: relative; margin-bottom: 50px; }
         
         .timeline-node {
             position: absolute; top: 40px; left: -35px;
@@ -185,14 +198,44 @@
             gap: 20px;
         }
 
-        .experience-card:hover { background: rgba(0, 240, 255, 0.05); transform: translateX(15px); box-shadow: 0 0 30px rgba(0, 240, 255, 0.1); border-color: var(--accent); }
+        .experience-card:hover { background: rgba(0, 240, 255, 0.05); transform: translateX(15px); box-shadow: 0 0 30px rgba(0, 240, 255, 0.1); }
         .timeline-block.active .experience-card { border-left: 2px solid var(--accent); }
+
+        /* --- LOGO STYLES --- */
+        .exp-logo { 
+            width: 70px; height: 70px; 
+            background-size: contain; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            padding: 5px;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+            flex-shrink: 0; 
+        }
+
+        /* Fail-Proof CSS Badges */
+        .css-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-family: 'Space Mono', monospace;
+            font-weight: 900;
+            font-size: 1.6rem;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+            width: 70px; height: 70px;
+            flex-shrink: 0; 
+        }
 
         .exp-main { flex-grow: 1; }
         .exp-main h4 { margin: 0; color: #fff; font-size: 1.3rem; }
         .exp-main h5 { margin: 5px 0 10px 0; font-family: 'Space Mono'; color: var(--accent); font-size: 0.85rem; font-weight: normal; }
-        .exp-main p { margin: 0; color: var(--text-dim); font-size: 0.95rem; max-width: 700px; }
-        .exp-meta { font-family: 'Space Mono'; color: var(--accent); font-size: 0.85rem; text-align: right; min-width: 120px; }
+        .exp-main p { margin: 0; color: var(--text-dim); font-size: 0.95rem; max-width: 600px; }
+        .exp-meta { font-family: 'Space Mono'; color: var(--accent); font-size: 0.85rem; text-align: right; min-width: 140px; }
 
         footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--border); font-family: 'Space Mono'; color: var(--text-dim); font-size: 0.75rem; letter-spacing: 2px; }
 
@@ -212,7 +255,7 @@
 
 <div class="container">
     <nav>
-        <div class="logo">DHRUMIL_RANA.v11.0</div>
+        <div class="logo">DHRUMIL_RANA.v12.0</div>
         <div class="social-links">
             <a href="https://github.com/dhrumilrana25" target="_blank"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/dhrumil-rana-265316232/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -223,33 +266,36 @@
         <div class="subtitle">AI ENGINEER & DATA SCIENTIST</div>
         <h1 id="typewriter"></h1>
         <p class="bio">MS Data Science @ UTA. Specialized in autonomous AI orchestration, graph neural networks, and behavioral malware detection. Architecting the logic for self-healing software ecosystems.</p>
-        <a href="Dhrumil_Rana_Resume.pdf" target="_blank" class="btn-glow">[ DOWNLOAD_DOSSIER ]</a>
+        <a href="Dhrumil_Rana_Resume.pdf" target="_blank" class="btn-glow">[ DOWNLOAD_RESUME ]</a>
     </header>
 
     <div class="section-label reveal">01 // PROJECT_REPOS</div>
     <div class="project-grid">
         <a href="https://github.com/dhrumilrana25/Agentic-Cleanse" class="project-card reveal" target="_blank">
-            <div>
+            <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop')"></div>
+            <div class="project-content">
                 <h3>Agentic-Cleanse Factory</h3>
                 <p>Multi-agent ETL pipeline with self-healing code loops and security critics. Built with LangGraph & Groq.</p>
+                <div class="tech-tags"><span>AGENTIC_AI</span> <span>LANGGRAPH</span></div>
             </div>
-            <div class="tech-tags"><span>AGENTIC_AI</span> <span>LANGGRAPH</span></div>
         </a>
 
         <a href="https://github.com/dhrumilrana25/Twitter-Scale-Link-Prediction-Engine" class="project-card reveal" target="_blank">
-            <div>
+            <div class="project-img" style="background-image: url('https://dist.neo4j.com/wp-content/uploads/20160520130638/twitter-graph-1.png')"></div>
+            <div class="project-content">
                 <h3>Twitter Link Prediction</h3>
                 <p>Social discovery engine processing 1.2M nodes using DeepWalk embeddings and advanced graph heuristics.</p>
+                <div class="tech-tags"><span>GRAPH_ML</span> <span>DEEPWALK</span></div>
             </div>
-            <div class="tech-tags"><span>GRAPH_ML</span> <span>DEEPWALK</span></div>
         </a>
 
         <a href="https://github.com/dhrumilrana25/IoT-Malware-Detection-Network-Analytics" class="project-card reveal" target="_blank">
-            <div>
+            <div class="project-img" style="background-image: url('https://blog.paessler.com/hubfs/new-malware-tries-to-destroy-iot-devices.png')"></div>
+            <div class="project-content">
                 <h3>IoT Malware Defense</h3>
                 <p>Real-time behavioral analytics for IoT security protocols. Achieved a verified 95.38% classification accuracy.</p>
+                <div class="tech-tags"><span>CYBER_SEC</span> <span>ML_ANALYTICS</span></div>
             </div>
-            <div class="tech-tags"><span>CYBER_SEC</span> <span>ML_ANALYTICS</span></div>
         </a>
     </div>
 
@@ -279,37 +325,53 @@
 
         <div class="timeline-block reveal">
             <div class="timeline-node"></div>
+            <a href="https://www.novachat.io/" target="_blank" class="experience-card">
+                <div class="css-badge">NC</div>
+                <div class="exp-main">
+                    <h4>NovaChatAI</h4>
+                    <h5>AI Engineer Intern</h5>
+                    <p>Architecting autonomous AI agent workflows and complex conversational logic leveraging LangGraph and LangChain.</p>
+                </div>
+                <div class="exp-meta">APR 2026 - PRES</div>
+            </a>
+        </div>
+
+        <div class="timeline-block reveal">
+            <div class="timeline-node"></div>
             <a href="https://www.uta.edu/student-affairs/campus-recreation/facilities/mac" target="_blank" class="experience-card">
+                <div class="exp-logo" style="background-image: url('https://www.uta.edu/news/_documents/logos/uta_logo_v_4c.png');"></div>
                 <div class="exp-main">
                     <h4>Maverick Activities Center (UTA)</h4>
                     <h5>Building Manager // Systems & Ops</h5>
                     <p>Managing operational workflows, emergency response logistics, and facility security protocols.</p>
                 </div>
-                <div class="exp-meta">2025 - PRES</div>
+                <div class="exp-meta">MAR 2025 - JUL 2026</div>
             </a>
         </div>
 
         <div class="timeline-block reveal">
             <div class="timeline-node"></div>
             <a href="https://www.odoo.com" target="_blank" class="experience-card">
+                <div class="exp-logo" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e0/Odoo_logo.png');"></div>
                 <div class="exp-main">
                     <h4>Odoo</h4>
                     <h5>Software Developer Intern</h5>
                     <p>Engineered backend logic modules and optimized database architectures for global ERP integration.</p>
                 </div>
-                <div class="exp-meta">2024</div>
+                <div class="exp-meta">JUN 2024 - SEP 2024</div>
             </a>
         </div>
 
         <div class="timeline-block reveal">
             <div class="timeline-node"></div>
             <a href="https://silentinfotech.com" target="_blank" class="experience-card">
+                <div class="css-badge">SI</div>
                 <div class="exp-main">
                     <h4>Silent Infotech Pvt. Ltd.</h4>
                     <h5>Research Analyst</h5>
                     <p>Executed advanced data mining and statistical research to extract predictive insights from industry datasets.</p>
                 </div>
-                <div class="exp-meta">2024</div>
+                <div class="exp-meta">JAN 2024 - MAY 2024</div>
             </a>
         </div>
     </div>
@@ -327,15 +389,14 @@
         }
     }
 
-    /* --- BUG-FIXED Scroll Reveal & Timeline Tracker --- */
+    /* --- Scroll Reveal & Timeline Tracker --- */
     function reveal() {
         var reveals = document.querySelectorAll(".reveal");
         var windowHeight = window.innerHeight;
         
-        // Ensure reveal triggers as soon as item enters the bottom of the screen
         for (var i = 0; i < reveals.length; i++) {
             var elementTop = reveals[i].getBoundingClientRect().top;
-            if (elementTop < windowHeight - 10) reveals[i].classList.add("active");
+            if (elementTop < windowHeight - 50) reveals[i].classList.add("active");
         }
 
         const timeline = document.getElementById('timeline');
@@ -344,7 +405,7 @@
 
         if(timeline && progress) {
             const rect = timeline.getBoundingClientRect();
-            // Calculate progress based on an 85% screen depth (ensures bottom items trigger)
+            // Calculate progress based on screen depth to ensure bottom items trigger
             const scrolled = (windowHeight * 0.85) - rect.top;
             
             let scrollPercentage = (scrolled / rect.height) * 100;
@@ -353,7 +414,6 @@
 
             blocks.forEach(block => {
                 const blockRect = block.getBoundingClientRect();
-                // Block activates when it hits the bottom 15% of the viewport
                 if (blockRect.top < (windowHeight * 0.85)) {
                     block.classList.add('active');
                 } else {
