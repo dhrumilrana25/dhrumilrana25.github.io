@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DHRUMIL RANA // NEURAL_ARCHITECT.v9.1</title>
+    <title>DHRUMIL RANA // NEURAL_ARCHITECT.v9.2</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -42,6 +42,7 @@
             line-height: 1.6;
         }
 
+        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; box-shadow: 0 0 10px var(--accent); }
@@ -62,6 +63,7 @@
             padding: 40px 20px;
         }
 
+        /* --- REVEAL ANIMATIONS --- */
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.2, 1, 0.2, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
@@ -70,6 +72,7 @@
         .social-links a { color: var(--text-main); font-size: 1.4rem; margin-left: 25px; transition: 0.3s; display: inline-block; }
         .social-links a:hover { color: var(--accent); transform: scale(1.2) translateY(-3px); text-shadow: 0 0 20px var(--accent); }
 
+        /* --- HERO --- */
         header { text-align: center; margin-bottom: 140px; border-bottom: 1px solid var(--border); padding-bottom: 80px; }
         .subtitle { color: var(--accent); font-family: 'Space Mono', monospace; font-size: 0.85rem; letter-spacing: 6px; margin-bottom: 20px; text-transform: uppercase; }
         h1 { font-size: 5rem; font-weight: 600; margin: 0; letter-spacing: -3px; cursor: default; }
@@ -106,6 +109,7 @@
         .section-label { font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--accent); margin-bottom: 60px; display: flex; align-items: center; gap: 20px; text-transform: uppercase; }
         .section-label::after { content: ''; height: 1px; flex-grow: 1; background: var(--border); }
 
+        /* --- INTERACTIVE PROJECT CARDS --- */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 35px; margin-bottom: 140px; }
         .project-card {
             background: var(--glass);
@@ -147,6 +151,7 @@
         .tech-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; font-family: 'Space Mono'; font-size: 0.75rem; color: var(--accent); }
         .tech-tags span { background: rgba(0, 240, 255, 0.1); padding: 4px 8px; border-radius: 2px; }
 
+        /* --- 3D TILT SKILL MATRIX --- */
         .skill-matrix { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 140px; perspective: 1000px; }
         
         .skill-box {
@@ -196,16 +201,33 @@
         .experience-card:hover { background: rgba(0, 240, 255, 0.05); transform: translateX(15px); box-shadow: 0 0 30px rgba(0, 240, 255, 0.1); }
         .timeline-block.active .experience-card { border-left: 2px solid var(--accent); }
 
-        /* FIXED LOGOS: Added background-color so dark logos are visible on dark themes */
+        /* --- LOGO STYLES --- */
         .exp-logo { 
             width: 70px; height: 70px; 
             background-size: contain; 
             background-position: center; 
             background-repeat: no-repeat; 
-            background-color: rgba(255, 255, 255, 0.95); /* Fix for transparent dark logos */
+            background-color: rgba(255, 255, 255, 0.95);
             border-radius: 8px;
             padding: 5px;
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+            flex-shrink: 0; 
+        }
+
+        /* Special CSS Badge for Silent Infotech to prevent broken links */
+        .css-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-family: 'Space Mono', monospace;
+            font-weight: 900;
+            font-size: 1.6rem;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+            width: 70px; height: 70px;
             flex-shrink: 0; 
         }
 
@@ -233,7 +255,7 @@
 
 <div class="container">
     <nav>
-        <div class="logo">DHRUMIL_RANA.v9.1</div>
+        <div class="logo">DHRUMIL_RANA.v9.2</div>
         <div class="social-links">
             <a href="https://github.com/dhrumilrana25" target="_blank"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/dhrumil-rana-265316232/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -304,7 +326,7 @@
         <div class="timeline-block reveal">
             <div class="timeline-node"></div>
             <a href="https://www.uta.edu/student-affairs/campus-recreation/facilities/mac" target="_blank" class="experience-card">
-                <div class="exp-logo" style="background-image: url('https://www.uta.edu/news/_documents/logos/uta_logo_v_4c.png'); background-color: #fff;"></div>
+                <div class="exp-logo" style="background-image: url('https://www.uta.edu/news/_documents/logos/uta_logo_v_4c.png');"></div>
                 <div class="exp-main">
                     <h4>Maverick Activities Center (UTA)</h4>
                     <h5>Building Manager // Systems & Ops</h5>
@@ -317,7 +339,7 @@
         <div class="timeline-block reveal">
             <div class="timeline-node"></div>
             <a href="https://www.odoo.com" target="_blank" class="experience-card">
-                <div class="exp-logo" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e0/Odoo_logo.png'); background-color: #fff;"></div>
+                <div class="exp-logo" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e0/Odoo_logo.png');"></div>
                 <div class="exp-main">
                     <h4>Odoo</h4>
                     <h5>Software Developer Intern</h5>
@@ -330,7 +352,7 @@
         <div class="timeline-block reveal">
             <div class="timeline-node"></div>
             <a href="https://silentinfotech.com" target="_blank" class="experience-card">
-                <div class="exp-logo" style="background-image: url('https://silentinfotech.com/wp-content/uploads/2021/08/logo-2.png'); background-size: 80%; background-color: #fff;"></div>
+                <div class="css-badge">SI</div>
                 <div class="exp-main">
                     <h4>Silent Infotech Pvt. Ltd.</h4>
                     <h5>Research Analyst</h5>
