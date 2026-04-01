@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DHRUMIL RANA // NEURAL_ARCHITECT.v8.6</title>
+    <title>DHRUMIL RANA // NEURAL_ARCHITECT.v8.7</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,7 +13,7 @@
         :root {
             --bg: #010101;
             --accent: #00f0ff;
-            --glass: rgba(255, 255, 255, 0.03);
+            --glass: rgba(10, 10, 12, 0.7);
             --border: rgba(0, 240, 255, 0.15);
             --text-main: #f0f0f0;
             --text-dim: #888;
@@ -42,11 +42,17 @@
             line-height: 1.6;
         }
 
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; box-shadow: 0 0 10px var(--accent); }
+        ::selection { background: var(--accent); color: #000; }
+
         #bg-matrix {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            opacity: 0.7; /* Slightly higher for shape visibility */
+            opacity: 0.6;
         }
 
         .container {
@@ -57,72 +63,21 @@
             padding: 40px 20px;
         }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
+        /* --- REVEAL ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.2, 1, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; }
+        .logo { font-family: 'Space Mono', monospace; font-weight: bold; color: var(--accent); letter-spacing: 3px; text-shadow: 0 0 15px rgba(0, 240, 255, 0.5); }
+        .social-links a { color: var(--text-main); font-size: 1.4rem; margin-left: 25px; transition: 0.3s; display: inline-block; }
+        .social-links a:hover { color: var(--accent); transform: scale(1.2) translateY(-3px); text-shadow: 0 0 20px var(--accent); }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 80px;
-        }
-
-        .logo {
-            font-family: 'Space Mono', monospace;
-            font-weight: bold;
-            color: var(--accent);
-            letter-spacing: 3px;
-            text-shadow: 0 0 10px var(--accent);
-        }
-
-        .social-links a {
-            color: var(--text-main);
-            font-size: 1.3rem;
-            margin-left: 25px;
-            transition: 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--accent);
-            transform: scale(1.2);
-            display: inline-block;
-        }
-
-        header { 
-            text-align: center; 
-            margin-bottom: 120px; 
-            padding-bottom: 80px; 
-        }
-
-        .subtitle {
-            color: var(--accent);
-            font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
-            letter-spacing: 6px;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 5rem;
-            font-weight: 600;
-            margin: 0;
-            letter-spacing: -3px;
-            cursor: default;
-        }
-
-        h1:hover {
-            text-shadow: 2px 0 red, -2px 0 blue;
-            animation: glitch 0.3s infinite;
-        }
-
+        /* --- HERO --- */
+        header { text-align: center; margin-bottom: 140px; border-bottom: 1px solid var(--border); padding-bottom: 80px; }
+        .subtitle { color: var(--accent); font-family: 'Space Mono', monospace; font-size: 0.85rem; letter-spacing: 6px; margin-bottom: 20px; text-transform: uppercase; }
+        h1 { font-size: 5rem; font-weight: 600; margin: 0; letter-spacing: -3px; cursor: default; }
+        h1:hover { text-shadow: 2px 0 red, -2px 0 blue; animation: glitch 0.2s infinite; }
+        
         @keyframes glitch {
             0% { transform: translate(0); }
             20% { transform: translate(-2px, 2px); }
@@ -132,139 +87,134 @@
             100% { transform: translate(0); }
         }
 
-        .bio {
-            max-width: 750px;
-            font-size: 1.1rem;
-            color: var(--text-dim);
-            margin: 30px auto;
-        }
-
-        .section-label {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--accent);
-            margin-bottom: 50px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            text-transform: uppercase;
-        }
-
-        .section-label::after {
-            content: '';
-            height: 1px;
-            flex-grow: 1;
-            background: var(--border);
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 100px;
-        }
-
-        .project-card {
-            background: rgba(1, 1, 1, 0.85);
-            border: 1px solid var(--border);
-            border-radius: 4px;
+        .bio { max-width: 750px; font-size: 1.15rem; color: var(--text-dim); margin: 30px auto; }
+        
+        .btn-glow {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 35px;
+            border: 1px solid var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Space Mono';
+            font-size: 0.85rem;
+            background: rgba(0, 240, 255, 0.05);
+            backdrop-filter: blur(5px);
             transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-glow:hover { background: var(--accent); color: #000; box-shadow: 0 0 30px rgba(0, 240, 255, 0.6); transform: scale(1.05); }
+
+        .section-label { font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--accent); margin-bottom: 60px; display: flex; align-items: center; gap: 20px; text-transform: uppercase; }
+        .section-label::after { content: ''; height: 1px; flex-grow: 1; background: var(--border); }
+
+        /* --- INTERACTIVE PROJECT CARDS --- */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 35px; margin-bottom: 140px; }
+        .project-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            transition: 0.5s cubic-bezier(0.2, 1, 0.2, 1);
             cursor: pointer;
             overflow: hidden;
             text-decoration: none;
+            display: block;
+            position: relative;
         }
 
-        .project-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-10px);
-            box-shadow: 0 10px 40px rgba(0, 240, 255, 0.2);
+        .project-card::before {
+            content: "";
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(0,240,255,0.05) 0%, transparent 100%);
+            z-index: 1; pointer-events: none;
         }
+
+        .project-card:hover { border-color: var(--accent); transform: translateY(-15px); box-shadow: 0 15px 50px rgba(0, 240, 255, 0.15); }
 
         .project-img {
-            height: 200px;
+            height: 220px;
             background-size: cover;
             background-position: center;
-            filter: grayscale(0.4) brightness(0.7);
+            border-bottom: 1px solid var(--border);
+            filter: grayscale(0.8) contrast(1.2);
             transition: 0.5s;
         }
-
-        .project-card:hover .project-img { filter: grayscale(0) brightness(1); }
-
-        .project-content { padding: 25px; }
-        .project-card h3 { margin: 0; color: #fff; font-size: 1.4rem; }
-        .project-card p { color: var(--text-dim); font-size: 0.9rem; margin-top: 10px; }
         
-        .tech-tags {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            font-family: 'Space Mono';
-            font-size: 0.7rem;
-            color: var(--accent);
-        }
+        .project-card:hover .project-img { filter: grayscale(0) contrast(1.1) brightness(1.2); transform: scale(1.05); }
 
-        .skill-matrix {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-bottom: 100px;
-        }
+        .project-content { padding: 30px; position: relative; z-index: 2; }
+        .project-card h3 { margin: 0; color: #fff; font-size: 1.5rem; letter-spacing: -0.5px; }
+        .project-card p { color: var(--text-dim); font-size: 0.95rem; margin-top: 15px; }
+        
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; font-family: 'Space Mono'; font-size: 0.75rem; color: var(--accent); }
+        .tech-tags span { background: rgba(0, 240, 255, 0.1); padding: 4px 8px; border-radius: 2px; }
 
+        /* --- 3D TILT SKILL MATRIX --- */
+        .skill-matrix { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 140px; perspective: 1000px; }
+        
         .skill-box {
-            padding: 25px;
-            background: rgba(1, 1, 1, 0.6);
-            border: 1px solid var(--border);
-            border-left: 3px solid var(--border);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .skill-box:hover {
-            border-left-color: var(--accent);
-            background: rgba(0, 240, 255, 0.05);
-            transform: scale(1.05);
-            box-shadow: -10px 0 20px rgba(0, 240, 255, 0.1);
-        }
-
-        .skill-box h4 { font-family: 'Space Mono'; color: #fff; font-size: 0.8rem; margin: 0 0 15px 0; }
-        .skill-box:hover h4 { color: var(--accent); text-shadow: 0 0 10px var(--accent); }
-        .skill-box ul { list-style: none; padding: 0; color: var(--text-dim); font-size: 0.85rem; }
-        .skill-box li::before { content: "• "; color: var(--accent); }
-
-        .experience-card {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px;
+            padding: 35px 25px;
             background: var(--glass);
             border: 1px solid var(--border);
-            margin-bottom: 15px;
-            text-decoration: none;
-            color: inherit;
-            transition: 0.3s;
+            border-top: 3px solid var(--accent);
+            transform-style: preserve-3d;
+            transition: transform 0.1s;
         }
 
-        .experience-card:hover {
-            background: rgba(0, 240, 255, 0.05);
-            border-color: var(--accent);
-            transform: translateX(10px);
+        .skill-box h4 { font-family: 'Space Mono'; color: #fff; font-size: 0.9rem; margin: 0 0 20px 0; letter-spacing: 1px; transform: translateZ(30px); }
+        .skill-box ul { list-style: none; padding: 0; margin: 0; color: var(--text-dim); font-size: 0.9rem; transform: translateZ(20px); }
+        .skill-box li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .skill-box li::before { content: "►"; color: var(--accent); font-size: 0.6rem; }
+
+        /* --- ACTIVE SCROLL TIMELINE --- */
+        .timeline-container { position: relative; padding-left: 40px; margin-bottom: 140px; }
+        .timeline-container::before { content: ''; position: absolute; top: 0; left: 10px; width: 2px; height: 100%; background: rgba(0, 240, 255, 0.1); }
+        
+        .timeline-progress {
+            position: absolute; top: 0; left: 10px; width: 2px; height: 0%;
+            background: var(--accent);
+            box-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent);
+            z-index: 1;
+            transition: height 0.1s ease-out;
         }
 
-        .exp-main h4 { margin: 0; color: #fff; font-size: 1.2rem; }
-        .exp-main p { margin: 5px 0 0 0; color: var(--text-dim); font-size: 0.9rem; }
-        .exp-meta { font-family: 'Space Mono'; color: var(--accent); font-size: 0.8rem; }
-
-        footer {
-            text-align: center;
-            padding: 60px 0;
-            border-top: 1px solid var(--border);
-            font-family: 'Space Mono';
-            color: var(--text-dim);
-            font-size: 0.7rem;
+        .timeline-block { position: relative; margin-bottom: 50px; }
+        
+        .timeline-node {
+            position: absolute; top: 30px; left: -35px;
+            width: 12px; height: 12px; border-radius: 50%;
+            background: var(--bg); border: 2px solid rgba(0, 240, 255, 0.3);
+            z-index: 2; transition: 0.4s ease;
         }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            .experience-card { flex-direction: column; text-align: center; gap: 10px; }
+        .timeline-block.active .timeline-node { background: var(--accent); border-color: #fff; box-shadow: 0 0 20px var(--accent); transform: scale(1.2); }
+
+        .experience-card {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 30px; background: var(--glass);
+            border: 1px solid var(--border); border-radius: 4px;
+            text-decoration: none; color: inherit; transition: 0.4s;
+        }
+
+        .experience-card:hover { background: rgba(0, 240, 255, 0.05); transform: translateX(15px); box-shadow: 0 0 30px rgba(0, 240, 255, 0.1); }
+        .timeline-block.active .experience-card { border-left: 2px solid var(--accent); }
+
+        .exp-main h4 { margin: 0; color: #fff; font-size: 1.3rem; }
+        .exp-main h5 { margin: 5px 0 10px 0; font-family: 'Space Mono'; color: var(--accent); font-size: 0.85rem; font-weight: normal; }
+        .exp-main p { margin: 0; color: var(--text-dim); font-size: 0.95rem; max-width: 600px; }
+        .exp-meta { font-family: 'Space Mono'; color: var(--accent); font-size: 0.85rem; text-align: right; }
+
+        footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--border); font-family: 'Space Mono'; color: var(--text-dim); font-size: 0.75rem; letter-spacing: 2px; }
+
+        @media (max-width: 900px) {
+            h1 { font-size: 3.5rem; }
+            .timeline-container { padding-left: 20px; }
+            .timeline-container::before, .timeline-progress { left: 5px; }
+            .timeline-node { left: -19px; }
+            .experience-card { flex-direction: column; text-align: left; align-items: flex-start; gap: 15px; }
+            .exp-meta { text-align: left; }
         }
     </style>
 </head>
@@ -274,140 +224,207 @@
 
 <div class="container">
     <nav>
-        <div class="logo">DHRUMIL_RANA.v8.6</div>
+        <div class="logo">DHRUMIL_RANA.v8.7</div>
         <div class="social-links">
             <a href="https://github.com/dhrumilrana25" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/dhrumil-rana-25a774211/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.linkedin.com/in/dhrumil-rana-265316232/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
         </div>
     </nav>
 
     <header class="reveal">
-        <div class="subtitle">AGENTIC AI & DATA ARCHITECT</div>
+        <div class="subtitle">AI ENGINEER & DATA ARCHITECT</div>
         <h1 id="typewriter"></h1>
-        <p class="bio">MS Data Science @ UTA. Specialized in autonomous AI orchestration, graph neural networks, and behavioral malware detection. Building the future of self-healing software.</p>
-        <a href="Dhrumil_Rana_Resume.pdf" class="btn" style="border: 1px solid var(--accent); padding: 12px 30px; color: #fff; text-decoration: none; font-family: 'Space Mono'; font-size: 0.8rem; background: rgba(1,1,1,0.5);">[ DOWNLOAD_RESUME ]</a>
+        <p class="bio">MS Data Science @ UTA. Specialized in autonomous AI orchestration, graph neural networks, and behavioral malware detection. Architecting the logic for self-healing software ecosystems.</p>
+        <a href="Dhrumil_Rana_Resume.pdf" target="_blank" class="btn-glow">[ DOWNLOAD_DOSSIER ]</a>
     </header>
 
     <div class="section-label reveal">01 // PROJECT_REPOS</div>
     <div class="project-grid">
         <a href="https://github.com/dhrumilrana25/Agentic-Cleanse" class="project-card reveal" target="_blank">
-            <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop')"></div>
+            <div class="project-img" style="background-image: url('http://googleusercontent.com/image_collection/image_retrieval/18313791935788090939_0')"></div>
             <div class="project-content">
                 <h3>Agentic-Cleanse Factory</h3>
                 <p>Multi-agent ETL pipeline with self-healing code loops and security critics. Built with LangGraph & Groq.</p>
-                <div class="tech-tags"><span>#AGENTIC_AI</span> <span>#LANGGRAPH</span></div>
+                <div class="tech-tags"><span>AGENTIC_AI</span> <span>LANGGRAPH</span></div>
             </div>
         </a>
 
         <a href="https://github.com/dhrumilrana25/Twitter-Scale-Link-Prediction-Engine" class="project-card reveal" target="_blank">
-            <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800')"></div>
+            <div class="project-img" style="background-image: url('http://googleusercontent.com/image_collection/image_retrieval/10418842696266825742_0')"></div>
             <div class="project-content">
                 <h3>Twitter Link Prediction</h3>
-                <p>Social discovery engine processing 1.2M nodes using DeepWalk embeddings and graph heuristics.</p>
-                <div class="tech-tags"><span>#GRAPH_ML</span> <span>#SCALE</span></div>
+                <p>Social discovery engine processing 1.2M nodes using DeepWalk embeddings and advanced graph heuristics.</p>
+                <div class="tech-tags"><span>GRAPH_ML</span> <span>DEEPWALK</span></div>
             </div>
         </a>
 
         <a href="https://github.com/dhrumilrana25/IoT-Malware-Detection-Network-Analytics" class="project-card reveal" target="_blank">
-            <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop')"></div>
+            <div class="project-img" style="background-image: url('http://googleusercontent.com/image_collection/image_retrieval/17011713444866508766_0')"></div>
             <div class="project-content">
                 <h3>IoT Malware Defense</h3>
-                <p>Real-time behavioral analytics for IoT security. Achieved 95.38% accuracy via feature optimization.</p>
-                <div class="tech-tags"><span>#CYBER_SEC</span> <span>#ML</span></div>
+                <p>Real-time behavioral analytics for IoT security protocols. Achieved a verified 95.38% classification accuracy.</p>
+                <div class="tech-tags"><span>CYBER_SEC</span> <span>ML_ANALYTICS</span></div>
             </div>
         </a>
     </div>
 
     <div class="section-label reveal">02 // NEURAL_SKILLS</div>
     <div class="skill-matrix reveal">
-        <div class="skill-box">
+        <div class="skill-box tilt-card">
             <h4>ORCHESTRATION</h4>
             <ul><li>LangGraph</li><li>Agentic AI</li><li>LangSmith</li></ul>
         </div>
-        <div class="skill-box">
+        <div class="skill-box tilt-card">
             <h4>LLM / NLP</h4>
-            <ul><li>Llama 3.3</li><li>Prompt Eng</li><li>Groq API</li></ul>
+            <ul><li>Llama 3.3</li><li>Prompt Engineering</li><li>Groq API</li></ul>
         </div>
-        <div class="skill-box">
+        <div class="skill-box tilt-card">
             <h4>GRAPH / DATA</h4>
             <ul><li>NetworkX</li><li>DeepWalk</li><li>Pandas</li></ul>
         </div>
-        <div class="skill-box">
-            <h4>CORE</h4>
+        <div class="skill-box tilt-card">
+            <h4>CORE LOGIC</h4>
             <ul><li>Python</li><li>Streamlit</li><li>SQL</li></ul>
         </div>
     </div>
 
-    <div class="section-label reveal">03 // HISTORY</div>
-    <div class="history-list reveal">
-        <div class="experience-card">
-            <div class="exp-main">
-                <h4>Maverick Activities Center</h4>
-                <p>Building Manager // Systems & Ops</p>
-            </div>
-            <div class="exp-meta">2025 - PRESENT</div>
+    <div class="section-label reveal">03 // PROFESSIONAL_TIMELINE</div>
+    <div class="timeline-container" id="timeline">
+        <div class="timeline-progress" id="timeline-progress"></div>
+
+        <div class="timeline-block reveal">
+            <div class="timeline-node"></div>
+            <a href="https://www.uta.edu/university-operations/campus-recreation/facilities/maverick-activities-center" target="_blank" class="experience-card">
+                <div class="exp-main">
+                    <h4>Maverick Activities Center (UTA)</h4>
+                    <h5>Building Manager // Systems & Ops</h5>
+                    <p>Managing operational workflows, emergency response logistics, and facility security protocols.</p>
+                </div>
+                <div class="exp-meta">2025 - PRES</div>
+            </a>
         </div>
-        <div class="experience-card">
-            <div class="exp-main">
-                <h4>Odoo</h4>
-                <p>Software Developer Intern</p>
-            </div>
-            <div class="exp-meta">2024</div>
+
+        <div class="timeline-block reveal">
+            <div class="timeline-node"></div>
+            <a href="https://www.odoo.com" target="_blank" class="experience-card">
+                <div class="exp-main">
+                    <h4>Odoo</h4>
+                    <h5>Software Developer Intern</h5>
+                    <p>Engineered backend logic modules and optimized database architectures for global ERP integration.</p>
+                </div>
+                <div class="exp-meta">2024</div>
+            </a>
         </div>
-        <div class="experience-card">
-            <div class="exp-main">
-                <h4>Silent Infotech Pvt. Ltd.</h4>
-                <p>Research Analyst // Data Mining</p>
-            </div>
-            <div class="exp-meta">2024</div>
+
+        <div class="timeline-block reveal">
+            <div class="timeline-node"></div>
+            <a href="https://silentinfotech.com" target="_blank" class="experience-card">
+                <div class="exp-main">
+                    <h4>Silent Infotech Pvt. Ltd.</h4>
+                    <h5>Research Analyst</h5>
+                    <p>Executed advanced data mining and statistical research to extract predictive insights from industry datasets.</p>
+                </div>
+                <div class="exp-meta">2024</div>
+            </a>
         </div>
     </div>
 
-    <footer>[ SYSTEM_STABLE ] // &copy; 2026 DHRUMIL RANA</footer>
+    <footer>[ SYSTEM_STABLE ] // &copy; 2026 DHRUMIL RANA // BUILT_FOR_SCALABILITY</footer>
 </div>
 
 <script>
+    /* --- Typewriter --- */
     const text = "Dhrumil Rana"; let i = 0;
     function typeWriter() {
         if (i < text.length) {
             document.getElementById("typewriter").innerHTML += text.charAt(i);
-            i++; setTimeout(typeWriter, 150);
+            i++; setTimeout(typeWriter, 120);
         }
     }
+
+    /* --- Scroll Reveal & Timeline Tracker --- */
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        var windowHeight = window.innerHeight;
+        
+        // Standard Reveal
+        for (var i = 0; i < reveals.length; i++) {
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            if (elementTop < windowHeight - 100) reveals[i].classList.add("active");
+        }
+
+        // Timeline Progress
+        const timeline = document.getElementById('timeline');
+        const progress = document.getElementById('timeline-progress');
+        const blocks = document.querySelectorAll('.timeline-block');
+
+        if(timeline) {
+            const rect = timeline.getBoundingClientRect();
+            let scrollPercentage = ((windowHeight / 1.5) - rect.top) / rect.height * 100;
+            scrollPercentage = Math.max(0, Math.min(100, scrollPercentage));
+            progress.style.height = scrollPercentage + '%';
+
+            blocks.forEach(block => {
+                const blockRect = block.getBoundingClientRect();
+                if (blockRect.top < (windowHeight / 1.5)) {
+                    block.classList.add('active');
+                } else {
+                    block.classList.remove('active');
+                }
+            });
+        }
+    }
+
+    window.addEventListener("scroll", reveal);
+
+    /* --- 3D Tilt Effect for Skills --- */
+    const cards = document.querySelectorAll('.tilt-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -10; // Max tilt 10deg
+            const rotateY = ((x - centerX) / centerX) * 10;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+            card.style.borderColor = "var(--accent)";
+            card.style.boxShadow = "0 10px 30px rgba(0,240,255,0.1)";
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            card.style.borderColor = "var(--border)";
+            card.style.boxShadow = "none";
+        });
+    });
 
     /* --- Ganesha Matrix Logic --- */
     const canvas = document.getElementById('bg-matrix');
     const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth; canvas.height = window.innerHeight;
 
-    // Offscreen canvas to draw Ganesha shape for bitmasking
     const shapeCanvas = document.createElement('canvas');
     const sCtx = shapeCanvas.getContext('2d');
-    shapeCanvas.width = canvas.width;
-    shapeCanvas.height = canvas.height;
+    shapeCanvas.width = canvas.width; shapeCanvas.height = canvas.height;
 
     function drawGaneshaShape() {
         sCtx.clearRect(0, 0, shapeCanvas.width, shapeCanvas.height);
         sCtx.fillStyle = "white";
-        const cx = shapeCanvas.width / 2;
-        const cy = shapeCanvas.height / 2;
+        const cx = shapeCanvas.width / 2; const cy = shapeCanvas.height / 2;
         const scale = Math.min(canvas.width, canvas.height) / 1000;
 
         sCtx.beginPath();
-        // Artistic Head/Trunk Curve
-        sCtx.arc(cx, cy - 100 * scale, 80 * scale, 0, Math.PI * 2); // Head
+        sCtx.arc(cx, cy - 100 * scale, 80 * scale, 0, Math.PI * 2); 
         sCtx.moveTo(cx - 100 * scale, cy - 150 * scale);
-        sCtx.quadraticCurveTo(cx - 250 * scale, cy - 100 * scale, cx - 100 * scale, cy + 50 * scale); // Left Ear
+        sCtx.quadraticCurveTo(cx - 250 * scale, cy - 100 * scale, cx - 100 * scale, cy + 50 * scale); 
         sCtx.moveTo(cx + 100 * scale, cy - 150 * scale);
-        sCtx.quadraticCurveTo(cx + 250 * scale, cy - 100 * scale, cx + 100 * scale, cy + 50 * scale); // Right Ear
-        
-        // Trunk
+        sCtx.quadraticCurveTo(cx + 250 * scale, cy - 100 * scale, cx + 100 * scale, cy + 50 * scale); 
         sCtx.moveTo(cx, cy - 50 * scale);
         sCtx.bezierCurveTo(cx - 20 * scale, cy + 150 * scale, cx + 150 * scale, cy + 180 * scale, cx + 80 * scale, cy + 250 * scale);
-        sCtx.lineWidth = 40 * scale;
-        sCtx.stroke();
-        sCtx.fill();
+        sCtx.lineWidth = 40 * scale; sCtx.stroke(); sCtx.fill();
     }
 
     const chars = "01ΣΔॐpd.read_csv∫model.predict0101λμ".split("");
@@ -419,22 +436,18 @@
     function drawMatrix() {
         ctx.fillStyle = "rgba(1, 1, 1, 0.08)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
-        // Check mask at current drop positions
         const shapeData = sCtx.getImageData(0, 0, shapeCanvas.width, shapeCanvas.height).data;
 
         for (let i = 0; i < drops.length; i++) {
             const x = Math.floor(i * fontSize);
             const y = Math.floor(drops[i] * fontSize);
-            
-            // Safety check for bounds
-            const pixelIndex = (y * shapeCanvas.width + x) * 4;
-            const isInside = shapeData[pixelIndex] > 0;
+            if(y < 0) { drops[i]++; continue; } // Skip offscreen calculations
 
-            // Inside shape = Brighter, Outside = Dimmer
+            const pixelIndex = (y * shapeCanvas.width + x) * 4;
+            const isInside = pixelIndex < shapeData.length && shapeData[pixelIndex] > 0;
+
             ctx.fillStyle = isInside ? "#00f0ff" : "rgba(0, 240, 255, 0.15)";
             ctx.font = isInside ? "bold " + fontSize + "px Space Mono" : fontSize + "px Space Mono";
-            
             const txt = isInside ? "ॐ" : chars[Math.floor(Math.random() * chars.length)];
             ctx.fillText(txt, x, y);
 
@@ -444,28 +457,15 @@
     }
 
     window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        shapeCanvas.width = canvas.width;
-        shapeCanvas.height = canvas.height;
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        shapeCanvas.width = canvas.width; shapeCanvas.height = canvas.height;
         drawGaneshaShape();
     });
 
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            if (elementTop < windowHeight - 100) reveals[i].classList.add("active");
-        }
-    }
-
-    window.addEventListener("scroll", reveal);
     window.onload = () => { 
-        drawGaneshaShape();
-        typeWriter(); 
-        reveal();
-        setInterval(drawMatrix, 50);
+        drawGaneshaShape(); typeWriter(); reveal(); 
+        setInterval(drawMatrix, 50); 
+        window.dispatchEvent(new Event('scroll'));
     };
 </script>
 </body>
