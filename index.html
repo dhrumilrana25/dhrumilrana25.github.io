@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DHRUMIL RANA // NEURAL_ARCHITECT.v8.7</title>
+    <title>DHRUMIL RANA // NEURAL_ARCHITECT.v9.0</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -177,34 +177,36 @@
             background: var(--accent);
             box-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent);
             z-index: 1;
-            transition: height 0.1s ease-out;
         }
 
         .timeline-block { position: relative; margin-bottom: 50px; }
         
         .timeline-node {
-            position: absolute; top: 30px; left: -35px;
-            width: 12px; height: 12px; border-radius: 50%;
+            position: absolute; top: 40px; left: -35px;
+            width: 14px; height: 14px; border-radius: 50%;
             background: var(--bg); border: 2px solid rgba(0, 240, 255, 0.3);
             z-index: 2; transition: 0.4s ease;
         }
 
-        .timeline-block.active .timeline-node { background: var(--accent); border-color: #fff; box-shadow: 0 0 20px var(--accent); transform: scale(1.2); }
+        .timeline-block.active .timeline-node { background: var(--accent); border-color: #fff; box-shadow: 0 0 20px var(--accent); transform: scale(1.3); }
 
         .experience-card {
             display: flex; justify-content: space-between; align-items: center;
             padding: 30px; background: var(--glass);
             border: 1px solid var(--border); border-radius: 4px;
             text-decoration: none; color: inherit; transition: 0.4s;
+            gap: 20px;
         }
 
         .experience-card:hover { background: rgba(0, 240, 255, 0.05); transform: translateX(15px); box-shadow: 0 0 30px rgba(0, 240, 255, 0.1); }
         .timeline-block.active .experience-card { border-left: 2px solid var(--accent); }
 
+        .exp-logo { width: 60px; height: 60px; background-size: contain; background-position: center; background-repeat: no-repeat; filter: brightness(1.2); flex-shrink: 0; }
+        .exp-main { flex-grow: 1; }
         .exp-main h4 { margin: 0; color: #fff; font-size: 1.3rem; }
         .exp-main h5 { margin: 5px 0 10px 0; font-family: 'Space Mono'; color: var(--accent); font-size: 0.85rem; font-weight: normal; }
         .exp-main p { margin: 0; color: var(--text-dim); font-size: 0.95rem; max-width: 600px; }
-        .exp-meta { font-family: 'Space Mono'; color: var(--accent); font-size: 0.85rem; text-align: right; }
+        .exp-meta { font-family: 'Space Mono'; color: var(--accent); font-size: 0.85rem; text-align: right; min-width: 120px; }
 
         footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--border); font-family: 'Space Mono'; color: var(--text-dim); font-size: 0.75rem; letter-spacing: 2px; }
 
@@ -224,7 +226,7 @@
 
 <div class="container">
     <nav>
-        <div class="logo">DHRUMIL_RANA.v8.7</div>
+        <div class="logo">DHRUMIL_RANA.v9.0</div>
         <div class="social-links">
             <a href="https://github.com/dhrumilrana25" target="_blank"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/dhrumil-rana-265316232/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -232,7 +234,7 @@
     </nav>
 
     <header class="reveal">
-        <div class="subtitle">AI ENGINEER & DATA ARCHITECT</div>
+        <div class="subtitle">AI ENGINEER & DATA SCIENTIST</div>
         <h1 id="typewriter"></h1>
         <p class="bio">MS Data Science @ UTA. Specialized in autonomous AI orchestration, graph neural networks, and behavioral malware detection. Architecting the logic for self-healing software ecosystems.</p>
         <a href="Dhrumil_Rana_Resume.pdf" target="_blank" class="btn-glow">[ DOWNLOAD_DOSSIER ]</a>
@@ -241,7 +243,7 @@
     <div class="section-label reveal">01 // PROJECT_REPOS</div>
     <div class="project-grid">
         <a href="https://github.com/dhrumilrana25/Agentic-Cleanse" class="project-card reveal" target="_blank">
-            <div class="project-img" style="background-image: url('http://googleusercontent.com/image_collection/image_retrieval/18313791935788090939_0')"></div>
+            <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop')"></div>
             <div class="project-content">
                 <h3>Agentic-Cleanse Factory</h3>
                 <p>Multi-agent ETL pipeline with self-healing code loops and security critics. Built with LangGraph & Groq.</p>
@@ -250,7 +252,7 @@
         </a>
 
         <a href="https://github.com/dhrumilrana25/Twitter-Scale-Link-Prediction-Engine" class="project-card reveal" target="_blank">
-            <div class="project-img" style="background-image: url('http://googleusercontent.com/image_collection/image_retrieval/10418842696266825742_0')"></div>
+            <div class="project-img" style="background-image: url('https://dist.neo4j.com/wp-content/uploads/20160520130638/twitter-graph-1.png')"></div>
             <div class="project-content">
                 <h3>Twitter Link Prediction</h3>
                 <p>Social discovery engine processing 1.2M nodes using DeepWalk embeddings and advanced graph heuristics.</p>
@@ -259,7 +261,7 @@
         </a>
 
         <a href="https://github.com/dhrumilrana25/IoT-Malware-Detection-Network-Analytics" class="project-card reveal" target="_blank">
-            <div class="project-img" style="background-image: url('http://googleusercontent.com/image_collection/image_retrieval/17011713444866508766_0')"></div>
+            <div class="project-img" style="background-image: url('https://blog.paessler.com/hubfs/new-malware-tries-to-destroy-iot-devices.png')"></div>
             <div class="project-content">
                 <h3>IoT Malware Defense</h3>
                 <p>Real-time behavioral analytics for IoT security protocols. Achieved a verified 95.38% classification accuracy.</p>
@@ -294,7 +296,8 @@
 
         <div class="timeline-block reveal">
             <div class="timeline-node"></div>
-            <a href="https://www.uta.edu/university-operations/campus-recreation/facilities/maverick-activities-center" target="_blank" class="experience-card">
+            <a href="https://www.uta.edu/student-affairs/campus-recreation/facilities/mac" target="_blank" class="experience-card">
+                <div class="exp-logo" style="background-image: url('https://www.uta.edu/news/_documents/logos/uta_logo_v_4c.png')"></div>
                 <div class="exp-main">
                     <h4>Maverick Activities Center (UTA)</h4>
                     <h5>Building Manager // Systems & Ops</h5>
@@ -307,6 +310,7 @@
         <div class="timeline-block reveal">
             <div class="timeline-node"></div>
             <a href="https://www.odoo.com" target="_blank" class="experience-card">
+                <div class="exp-logo" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e0/Odoo_logo.png')"></div>
                 <div class="exp-main">
                     <h4>Odoo</h4>
                     <h5>Software Developer Intern</h5>
@@ -319,6 +323,7 @@
         <div class="timeline-block reveal">
             <div class="timeline-node"></div>
             <a href="https://silentinfotech.com" target="_blank" class="experience-card">
+                <div class="exp-logo" style="background-image: url('https://silentinfotech.com/wp-content/uploads/2021/08/logo-2.png')"></div>
                 <div class="exp-main">
                     <h4>Silent Infotech Pvt. Ltd.</h4>
                     <h5>Research Analyst</h5>
@@ -353,20 +358,27 @@
             if (elementTop < windowHeight - 100) reveals[i].classList.add("active");
         }
 
-        // Timeline Progress
+        // Timeline Progress (Fixed dynamically based on scroll)
         const timeline = document.getElementById('timeline');
         const progress = document.getElementById('timeline-progress');
         const blocks = document.querySelectorAll('.timeline-block');
 
-        if(timeline) {
+        if(timeline && progress) {
             const rect = timeline.getBoundingClientRect();
-            let scrollPercentage = ((windowHeight / 1.5) - rect.top) / rect.height * 100;
+            // Calculate how far the top of the timeline is from the middle of the screen
+            const scrolled = (windowHeight / 2) - rect.top;
+            
+            // Map that distance to a percentage of the timeline's total height
+            let scrollPercentage = (scrolled / rect.height) * 100;
             scrollPercentage = Math.max(0, Math.min(100, scrollPercentage));
+            
+            // Apply height dynamically
             progress.style.height = scrollPercentage + '%';
 
+            // Light up individual nodes
             blocks.forEach(block => {
                 const blockRect = block.getBoundingClientRect();
-                if (blockRect.top < (windowHeight / 1.5)) {
+                if (blockRect.top < (windowHeight / 2) + 20) {
                     block.classList.add('active');
                 } else {
                     block.classList.remove('active');
@@ -386,7 +398,7 @@
             const y = e.clientY - rect.top;
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -10; // Max tilt 10deg
+            const rotateX = ((y - centerY) / centerY) * -10;
             const rotateY = ((x - centerX) / centerX) * 10;
             
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
@@ -441,7 +453,7 @@
         for (let i = 0; i < drops.length; i++) {
             const x = Math.floor(i * fontSize);
             const y = Math.floor(drops[i] * fontSize);
-            if(y < 0) { drops[i]++; continue; } // Skip offscreen calculations
+            if(y < 0) { drops[i]++; continue; } 
 
             const pixelIndex = (y * shapeCanvas.width + x) * 4;
             const isInside = pixelIndex < shapeData.length && shapeData[pixelIndex] > 0;
