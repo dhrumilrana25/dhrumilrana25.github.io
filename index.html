@@ -3,598 +3,527 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DHRUMIL RANA // NEURAL_ARCHITECT</title>
+    <title>DHRUMIL RANA // QUANTUM_NEXUS.v2.0</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/neon/96/000000/processor.png">
     
     <style>
         :root {
-            --bg: #030305;
             --accent: #00f0ff;
-            --accent-glow: rgba(0, 240, 255, 0.4);
-            --paper-color: #b500ff; /* Secondary neon for the research paper */
-            --glass: rgba(12, 12, 16, 0.7);
-            --border: rgba(0, 240, 255, 0.2);
+            --accent-alt: #b500ff;
+            --bg: #020204;
+            --glass: rgba(10, 10, 15, 0.45);
+            --border: rgba(0, 240, 255, 0.25);
             --text-main: #ffffff;
-            --text-dim: #8b8b9e;
+            --text-dim: #9aa0a6;
         }
 
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* --- CUSTOM CYBER CURSORS --- */
+        /* --- ADVANCED CYBER CURSOR --- */
         html, body {
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2" fill="%2300f0ff"/><circle cx="12" cy="12" r="10" fill="none" stroke="%2300f0ff" stroke-width="1" opacity="0.6"/></svg>') 12 12, auto;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="2" fill="%2300f0ff"/><circle cx="15" cy="15" r="12" fill="none" stroke="%2300f0ff" stroke-width="1" stroke-dasharray="4 2" opacity="0.8"><animateTransform attributeName="transform" type="rotate" from="0 15 15" to="360 15 15" dur="4s" repeatCount="indefinite"/></circle></svg>') 15 15, auto;
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
-        a, button, .magnetic {
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="%23ffffff"/><circle cx="12" cy="12" r="11" fill="none" stroke="%23ffffff" stroke-width="1.5"/></svg>') 12 12, pointer !important;
-        }
-
-        /* --- CRT SCANLINE & VIGNETTE --- */
-        body::before {
-            content: " "; display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-            z-index: 9999; background-size: 100% 2px, 3px 100%; pointer-events: none;
-        }
-        body::after {
-            content: ""; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            box-shadow: inset 0 0 150px rgba(0,0,0,0.9); z-index: 9998; pointer-events: none;
+        
+        a, button, .glass-card {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="4" fill="%23ffffff"/><circle cx="15" cy="15" r="14" fill="none" stroke="%23ffffff" stroke-width="2" opacity="0.9"/></svg>') 15 15, pointer !important;
         }
 
-        body {
-            background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif;
-            margin: 0; overflow-x: hidden; line-height: 1.6;
-        }
-
-        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar { width: 3px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; box-shadow: 0 0 15px var(--accent); }
-        ::selection { background: var(--accent); color: #000; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, var(--accent), var(--accent-alt)); }
+        ::selection { background: var(--accent-alt); color: #fff; }
 
-        /* --- SYSTEM HUD --- */
-        #system-hud {
-            position: fixed; bottom: 20px; left: 20px; z-index: 10000;
-            font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--accent);
-            opacity: 0.6; pointer-events: none;
+        /* --- BOOT SEQUENCE HUD --- */
+        #boot-screen {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: #000; z-index: 100000; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; color: var(--accent);
+            font-family: 'Space Mono', monospace; transition: opacity 0.8s ease-in-out;
         }
-        #system-hud span { color: #fff; }
+        .boot-text { font-size: 1.2rem; margin-bottom: 20px; text-shadow: 0 0 10px var(--accent); }
+        .progress-bar-container { width: 300px; height: 2px; background: rgba(0,240,255,0.2); position: relative; }
+        .progress-fill { position: absolute; top: 0; left: 0; height: 100%; background: var(--accent); width: 0%; box-shadow: 0 0 20px var(--accent); }
 
-        /* --- TOP PROGRESS BAR --- */
-        #top-progress-bar {
-            position: fixed; top: 0; left: 0; height: 2px; background: var(--accent); width: 0%; z-index: 10000;
-            box-shadow: 0 0 15px var(--accent), 0 0 5px #fff; transition: width 0.1s ease-out;
-        }
-
-        #bg-matrix { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.45; filter: contrast(1.3); }
-
-        .container { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-
-        /* --- ANIMATIONS --- */
-        .reveal { opacity: 0; transform: translateY(40px) scale(0.98); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0) scale(1); }
-        
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-8px); } 100% { transform: translateY(0px); } }
-        @keyframes pulse-border { 0% { box-shadow: 0 0 0 0 var(--accent-glow); } 70% { box-shadow: 0 0 0 10px rgba(0, 240, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0); } }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-        
-        .cursor-blink { display: inline-block; width: 12px; height: 1em; background-color: var(--accent); animation: blink 1s step-end infinite; vertical-align: bottom; margin-left: 5px;}
-
-        /* --- NAVIGATION --- */
-        nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 100px; }
-        .logo { font-family: 'Space Mono', monospace; font-weight: 700; color: var(--accent); letter-spacing: 4px; text-shadow: 0 0 15px var(--accent-glow); }
-        .social-links a { color: var(--text-main); font-size: 1.3rem; margin-left: 30px; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: inline-block; }
-        .social-links a:hover { color: var(--accent); transform: scale(1.3) rotate(5deg); text-shadow: 0 0 20px var(--accent); }
-
-        /* --- HERO --- */
-        header { text-align: center; margin-bottom: 140px; border-bottom: 1px solid rgba(0,240,255,0.1); padding-bottom: 80px; position: relative; }
-        header::after { content: ''; position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%); width: 100px; height: 2px; background: var(--accent); box-shadow: 0 0 15px var(--accent); }
-        
-        .subtitle { color: var(--accent); font-family: 'Space Mono', monospace; font-size: 0.85rem; letter-spacing: 8px; margin-bottom: 25px; text-transform: uppercase; font-weight: 700;}
-        h1 { font-size: 5.5rem; font-weight: 600; margin: 0; color: #ffffff; letter-spacing: -4px; line-height: 1.1; }
-        .bio { max-width: 700px; font-size: 1.2rem; color: var(--text-dim); margin: 35px auto; font-weight: 300; }
-        
-        .btn-glow {
-            display: inline-block; margin-top: 10px; padding: 16px 40px; border: 1px solid var(--accent);
-            color: #ffffff; text-decoration: none; font-family: 'Space Mono'; font-size: 0.9rem; font-weight: 700;
-            background: rgba(0, 240, 255, 0.05); backdrop-filter: blur(5px); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative; overflow: hidden; letter-spacing: 2px;
-        }
-        .btn-glow:hover { background: var(--accent); color: #000; box-shadow: 0 0 40px var(--accent-glow); transform: scale(1.05); }
-
-        .section-label { font-family: 'Space Mono', monospace; font-size: 0.85rem; color: var(--accent); margin-bottom: 60px; display: flex; align-items: center; gap: 20px; text-transform: uppercase; letter-spacing: 3px; font-weight: 700;}
-        .section-label::after { content: ''; height: 1px; flex-grow: 1; background: linear-gradient(90deg, var(--border), transparent); }
-
-        /* --- PROJECT CARDS & DYNAMIC GLARE --- */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-bottom: 160px; }
-        
-        .project-card {
-            background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.05); border-top: 2px solid var(--border); border-radius: 8px;
-            padding: 40px 30px 30px; transition: 0.5s cubic-bezier(0.2, 1, 0.2, 1);
-            display: flex; flex-direction: column; justify-content: space-between;
-            position: relative; overflow: hidden; transform-style: preserve-3d;
+        /* --- CRT OVERLAY --- */
+        #crt-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15) 0px, rgba(0,0,0,0.15) 1px, transparent 1px, transparent 2px);
+            z-index: 9999; pointer-events: none; opacity: 0.7;
         }
 
-        /* The dynamic shine effect */
-        .glare {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;
-            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent 50%);
-            opacity: 0; transition: opacity 0.3s; z-index: 10;
-        }
-        .project-card:hover .glare { opacity: 1; }
-
-        .project-card:hover { 
-            border-top-color: var(--accent); border-color: rgba(0,240,255,0.3); 
-            transform: translateY(-12px); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0,240,255,0.05); 
-            background: rgba(15, 15, 20, 0.85);
+        /* --- 3D CANVAS --- */
+        #webgl-canvas {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 0; pointer-events: none; filter: contrast(1.2) brightness(1.1);
         }
 
-        .project-info { position: relative; z-index: 2; flex-grow: 1; }
-        .project-card h3 { margin: 0; color: #ffffff; font-size: 1.5rem; letter-spacing: -0.5px; }
-        .project-card p { color: var(--text-dim); font-size: 0.95rem; margin-top: 15px; line-height: 1.7; }
-        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; font-family: 'Space Mono'; font-size: 0.7rem; color: var(--accent); }
-        .tech-tags span { background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0,240,255,0.1); padding: 4px 10px; border-radius: 4px; }
+        /* --- CONTENT WRAPPER --- */
+        #scroll-container { position: relative; z-index: 10; width: 100%; display: flex; flex-direction: column; align-items: center; }
 
-        /* Action Bar */
-        .card-actions { display: flex; gap: 15px; margin-top: 35px; position: relative; z-index: 12; }
-        .action-btn { 
-            flex: 1; text-align: center; padding: 10px 0; border: 1px solid rgba(255,255,255,0.1); 
-            color: #fff; text-decoration: none; font-family: 'Space Mono'; font-size: 0.75rem; 
-            border-radius: 4px; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 8px;
-            background: rgba(255,255,255,0.02);
+        section {
+            min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+            padding: 100px 5%; max-width: 1200px; width: 100%;
         }
-        .action-btn:hover { background: #fff; color: #000; }
-        
-        .action-demo { border-color: var(--accent); color: var(--accent); background: rgba(0,240,255,0.05); animation: pulse-border 2s infinite; }
-        .action-demo:hover { background: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent-glow); animation: none;}
 
-        /* Specialized Paper Button */
-        .action-paper { border-color: var(--paper-color); color: var(--paper-color); background: rgba(181, 0, 255, 0.05); }
-        .action-paper:hover { background: var(--paper-color); color: #fff; box-shadow: 0 0 20px rgba(181, 0, 255, 0.5); }
+        #hero { min-height: 100vh; align-items: flex-start; justify-content: center; margin-bottom: 30vh;}
+        #projects { min-height: 120vh; align-items: flex-end; margin-bottom: 30vh;}
+        #experience { min-height: 150vh; align-items: flex-start; padding-bottom: 20vh; }
 
-        /* --- SKILL MATRIX --- */
-        .skill-matrix { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin-bottom: 160px; perspective: 1000px; }
-        .skill-box { 
-            padding: 35px 25px; background: var(--glass); border: 1px solid rgba(255,255,255,0.05); 
-            border-left: 3px solid var(--accent); border-radius: 4px; position: relative; overflow: hidden;
-            transform-style: preserve-3d; transition: transform 0.1s ease-out; 
-            animation: float 6s ease-in-out infinite;
+        /* --- HOLOGRAPHIC GLASS CARDS --- */
+        .glass-card {
+            background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.05); border-top: 1px solid var(--border); border-left: 1px solid var(--border);
+            border-radius: 16px; padding: 50px; position: relative; overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 0 20px rgba(255,255,255,0.02);
+            transform-style: preserve-3d; perspective: 1000px; max-width: 650px; width: 100%;
+            transition: border-color 0.4s, box-shadow 0.4s;
         }
-        .skill-box:hover .glare { opacity: 1; }
+
+        /* Glare effect inside the card */
+        .glass-card::after {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 50%);
+            opacity: 0; pointer-events: none; transition: opacity 0.3s; mix-blend-mode: overlay;
+        }
+        .glass-card:hover::after { opacity: 1; }
+        .glass-card:hover { border-color: var(--accent); box-shadow: 0 20px 80px rgba(0,240,255,0.15), inset 0 0 20px rgba(0,240,255,0.05); }
+
+        .system-tag {
+            font-family: 'Space Mono', monospace; color: var(--accent); font-size: 0.85rem;
+            letter-spacing: 5px; margin-bottom: 25px; text-transform: uppercase; font-weight: 700;
+            display: inline-block; transform: translateZ(30px);
+        }
+
+        /* Typography */
+        h1 { font-size: 6vw; font-weight: 900; line-height: 1; margin-bottom: 25px; letter-spacing: -4px; transform: translateZ(50px); text-transform: uppercase; }
+        h1 .glitch-text { position: relative; display: inline-block; color: #fff; text-shadow: 0 0 30px rgba(0,240,255,0.4); }
+        h2 { font-size: 2.8rem; font-weight: 700; margin-bottom: 15px; letter-spacing: -2px; transform: translateZ(40px); color: #fff; }
+        h3 { font-size: 1.6rem; margin-bottom: 5px; color: #fff; transform: translateZ(30px); }
+        p { color: var(--text-dim); font-size: 1.15rem; margin-bottom: 25px; line-height: 1.7; transform: translateZ(20px); font-weight: 300; }
         
-        .skill-box:nth-child(1) { animation-delay: 0s; } .skill-box:nth-child(2) { animation-delay: -1.5s; }
-        .skill-box:nth-child(3) { animation-delay: -3s; } .skill-box:nth-child(4) { animation-delay: -4.5s; }
+        .tech-stack { transform: translateZ(25px); margin-bottom: 10px; }
+        .tech-stack span {
+            font-family: 'Space Mono'; font-size: 0.75rem; color: var(--text-main); font-weight: 700;
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 12px; border-radius: 4px; margin-right: 8px; display: inline-block; margin-bottom: 8px;
+            transition: 0.3s;
+        }
+        .glass-card:hover .tech-stack span { border-color: rgba(0,240,255,0.3); color: var(--accent); background: rgba(0,240,255,0.05); }
 
-        .skill-box h4 { font-family: 'Space Mono'; color: #ffffff; font-size: 0.95rem; margin: 0 0 20px 0; letter-spacing: 1px; transform: translateZ(30px); }
-        .skill-box ul { list-style: none; padding: 0; margin: 0; color: var(--text-dim); font-size: 0.9rem; transform: translateZ(20px); }
-        .skill-box li { margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
-        .skill-box li::before { content: "►"; color: var(--accent); font-size: 0.6rem; opacity: 0.7; }
-
-        /* --- SCROLL TIMELINE --- */
-        .timeline-container { position: relative; padding-left: 50px; margin-bottom: 140px; }
-        .timeline-container::before { content: ''; position: absolute; top: 0; left: 15px; width: 2px; height: 100%; background: rgba(255,255,255,0.05); }
+        /* Elite Buttons */
+        .btn-group { display: flex; gap: 15px; margin-top: 35px; transform: translateZ(40px); }
+        .action-btn {
+            padding: 14px 30px; border: 1px solid rgba(255,255,255,0.15); color: #fff;
+            text-decoration: none; font-family: 'Space Mono'; font-size: 0.85rem; font-weight: 700; border-radius: 4px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: inline-flex; align-items: center; gap: 10px;
+            background: rgba(0,0,0,0.3); position: relative; overflow: hidden;
+        }
+        .action-btn::before { content:''; position: absolute; top:0; left:-100%; width:100%; height:100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: 0.5s; }
+        .action-btn:hover::before { left: 100%; }
+        .action-btn:hover { background: #fff; color: #000; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
         
-        .timeline-progress { position: absolute; top: 0; left: 15px; width: 2px; height: 0%; background: var(--accent); box-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent); z-index: 1; }
-        .timeline-block { position: relative; margin-bottom: 50px; }
+        .btn-accent { border-color: var(--accent); color: var(--accent); background: rgba(0,240,255,0.05); text-shadow: 0 0 10px var(--accent); }
+        .btn-accent:hover { background: var(--accent); color: #000; box-shadow: 0 0 30px var(--accent); text-shadow: none; }
         
-        .timeline-node { position: absolute; top: 40px; left: -41px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid rgba(255,255,255,0.2); z-index: 2; transition: 0.4s ease; }
-        .timeline-block.active .timeline-node { background: var(--accent); border-color: #fff; box-shadow: 0 0 20px var(--accent); transform: scale(1.4); }
+        .btn-purple { border-color: var(--accent-alt); color: var(--accent-alt); background: rgba(181,0,255,0.05); text-shadow: 0 0 10px var(--accent-alt); }
+        .btn-purple:hover { background: var(--accent-alt); color: #fff; box-shadow: 0 0 30px var(--accent-alt); text-shadow: none; }
 
-        .experience-card { display: flex; justify-content: space-between; align-items: center; padding: 35px 30px; background: var(--glass); border: 1px solid rgba(255,255,255,0.05); border-radius: 6px; text-decoration: none; color: inherit; transition: 0.4s; gap: 25px; position: relative; overflow: hidden; }
-        .experience-card::after { content:''; position: absolute; top:0; left:0; width: 2px; height: 100%; background: var(--accent); transform: scaleY(0); transition: 0.4s; transform-origin: bottom; }
-        .experience-card:hover { transform: translateX(15px); box-shadow: 0 15px 40px rgba(0,0,0,0.5); background: rgba(15,15,20,0.9); border-color: rgba(255,255,255,0.1); }
-        .experience-card:hover::after { transform: scaleY(1); }
-        .timeline-block.active .experience-card { border-left: 1px solid var(--accent); }
+        /* Experience Rows */
+        .exp-container { display: flex; flex-direction: column; width: 100%; }
+        .exp-row { 
+            display: flex; gap: 30px; padding: 40px 0; border-bottom: 1px solid rgba(255,255,255,0.05); 
+            text-decoration: none; color: inherit; transition: 0.4s; transform: translateZ(20px);
+        }
+        .exp-row:hover { transform: translateZ(30px) translateX(20px); }
+        
+        .exp-badge { 
+            display: flex; align-items: center; justify-content: center; width: 70px; height: 70px; 
+            background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255,255,255,0.1); color: #fff; 
+            font-family: 'Space Mono'; font-size: 1.5rem; font-weight: 900; border-radius: 12px; 
+            flex-shrink: 0; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .exp-row:hover .exp-badge { background: var(--accent); border-color: var(--accent); color: #000; box-shadow: 0 0 30px var(--accent); transform: scale(1.1) rotate(5deg); }
+        
+        .exp-date { font-family: 'Space Mono'; color: var(--accent); font-size: 0.85rem; margin-bottom: 8px; font-weight: 700; letter-spacing: 1px; }
 
-        .css-badge { display: flex; align-items: center; justify-content: center; background: rgba(0, 240, 255, 0.03); border: 1px solid rgba(0,240,255,0.2); color: var(--accent); font-family: 'Space Mono', monospace; font-weight: 900; font-size: 1.6rem; letter-spacing: -1px; border-radius: 8px; box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.05); width: 75px; height: 75px; flex-shrink: 0; transition: 0.4s ease; }
-        .experience-card:hover .css-badge { background: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent-glow); border-color: var(--accent); }
+        /* Scroll Animations */
+        .reveal-3d { opacity: 0; transform: translateY(100px) scale(0.9) rotateX(-10deg); transition: opacity 1s ease-out, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-3d.visible { opacity: 1; transform: translateY(0) scale(1) rotateX(0); }
 
-        .exp-main { flex-grow: 1; }
-        .exp-main h4 { margin: 0; color: #ffffff; font-size: 1.35rem; letter-spacing: -0.5px; }
-        .exp-main h5 { margin: 6px 0 12px 0; font-family: 'Space Mono'; color: var(--accent); font-size: 0.85rem; font-weight: normal; }
-        .exp-main p { margin: 0; color: var(--text-dim); font-size: 0.95rem; max-width: 650px; }
-        .exp-meta { font-family: 'Space Mono'; color: rgba(255,255,255,0.4); font-size: 0.85rem; text-align: right; min-width: 140px; }
+        /* Navigation */
+        nav { position: fixed; top: 0; left: 0; width: 100%; padding: 40px 5%; display: flex; justify-content: space-between; z-index: 100; pointer-events: none; }
+        .nav-logo { font-family: 'Space Mono'; font-weight: 900; color: #fff; letter-spacing: 4px; pointer-events: auto; font-size: 1.2rem; }
+        .nav-logo span { color: var(--accent); animation: pulse-text 2s infinite; }
+        .nav-links a { color: #fff; font-size: 1.5rem; margin-left: 30px; transition: 0.3s; pointer-events: auto; display: inline-block;}
+        .nav-links a:hover { color: var(--accent); transform: scale(1.3) translateY(-5px); text-shadow: 0 0 20px var(--accent); }
 
-        footer { text-align: center; padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); font-family: 'Space Mono'; color: rgba(255,255,255,0.3); font-size: 0.75rem; letter-spacing: 2px; }
+        @keyframes pulse-text { 0%, 100% { text-shadow: 0 0 10px var(--accent); } 50% { text-shadow: 0 0 30px var(--accent), 0 0 10px #fff; } }
 
         @media (max-width: 900px) {
-            h1 { font-size: 3.5rem; }
-            .timeline-container { padding-left: 20px; }
-            .timeline-container::before, .timeline-progress { left: 5px; }
-            .timeline-node { left: -19px; }
-            .experience-card { flex-direction: column; text-align: left; align-items: flex-start; gap: 15px; }
-            .exp-meta { text-align: left; }
+            h1 { font-size: 4rem; }
+            .glass-card { padding: 30px 20px; }
+            section { align-items: center !important; text-align: left; }
+            .exp-row { flex-direction: column; gap: 15px; padding: 30px 0;}
+            .btn-group { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-<div id="system-hud">SYS.LOAD: <span id="hud-load">42</span>% | OPS/S: <span id="hud-ops">104</span> | MEM: <span id="hud-mem">2.4</span>GB</div>
-<div id="top-progress-bar"></div>
-<canvas id="bg-matrix"></canvas>
-
-<div class="container">
-    <nav>
-        <div class="logo">DHRUMIL_RANA.v16</div>
-        <div class="social-links">
-            <a href="https://github.com/dhrumilrana25" target="_blank" class="magnetic"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/dhrumil-rana-265316232/" target="_blank" class="magnetic"><i class="fa-brands fa-linkedin-in"></i></a>
-        </div>
-    </nav>
-
-    <header class="reveal">
-        <div class="subtitle">AI ENGINEER & DATA SCIENTIST</div>
-        <h1><span id="typewriter"></span><span class="cursor-blink"></span></h1>
-        <p class="bio">MS Data Science @ UTA. Specialized in autonomous AI orchestration, graph neural networks, and behavioral malware detection. Architecting the logic for self-healing software ecosystems.</p>
-        <a href="Dhrumil_Rana_Resume.pdf" target="_blank" class="btn-glow magnetic">[ DOWNLOAD_RESUME ]</a>
-    </header>
-
-    <div class="section-label reveal scramble-text" data-text="01 // PROJECT_REPOS">01 // PROJECT_REPOS</div>
-    <div class="project-grid">
-        
-        <div class="project-card reveal tilt-card magnetic-box">
-            <div class="glare"></div>
-            <div class="project-info">
-                <h3>Agentic-Cleanse Factory</h3>
-                <p>Multi-agent ETL pipeline with self-healing code loops and security critics. Built with LangGraph & Groq to fully automate data sanitation.</p>
-                <div class="tech-tags"><span>AGENTIC_AI</span> <span>LANGGRAPH</span> <span>STREAMLIT</span></div>
-            </div>
-            <div class="card-actions">
-                <a href="https://github.com/dhrumilrana25/Agentic-Cleanse" target="_blank" class="action-btn">
-                    <i class="fa-brands fa-github"></i> REPO
-                </a>
-                <a href="https://dhrumil-cleanse.streamlit.app/" target="_blank" class="action-btn action-demo">
-                    <i class="fa-solid fa-bolt"></i> LIVE_DEMO
-                </a>
-            </div>
-        </div>
-
-        <div class="project-card reveal tilt-card magnetic-box" style="transition-delay: 0.1s;">
-            <div class="glare"></div>
-            <div class="project-info">
-                <h3>Twitter Link Prediction</h3>
-                <p>Social discovery engine processing 1.2M nodes using DeepWalk embeddings and advanced graph heuristics to map network topology.</p>
-                <div class="tech-tags"><span>GRAPH_ML</span> <span>DEEPWALK</span> <span>NETWORKX</span></div>
-            </div>
-            <div class="card-actions">
-                <a href="https://github.com/dhrumilrana25/Twitter-Scale-Link-Prediction-Engine" target="_blank" class="action-btn">
-                    <i class="fa-brands fa-github"></i> REPO
-                </a>
-                <a href="Link_Prediction_Embeddings.pdf" target="_blank" class="action-btn action-paper">
-                    <i class="fa-solid fa-file-pdf"></i> RESEARCH_PAPER
-                </a>
-            </div>
-        </div>
-
-        <div class="project-card reveal tilt-card magnetic-box" style="transition-delay: 0.2s;">
-            <div class="glare"></div>
-            <div class="project-info">
-                <h3>IoT Malware Defense</h3>
-                <p>Real-time behavioral analytics for IoT security protocols. Engineered feature extraction resulting in a verified 95.38% classification accuracy.</p>
-                <div class="tech-tags"><span>CYBER_SEC</span> <span>ML_ANALYTICS</span> <span>ANOMALY</span></div>
-            </div>
-            <div class="card-actions">
-                <a href="https://github.com/dhrumilrana25/IoT-Malware-Detection-Network-Analytics" target="_blank" class="action-btn">
-                    <i class="fa-brands fa-github"></i> VIEW_REPOSITORY
-                </a>
-            </div>
-        </div>
+<div id="boot-screen">
+    <div class="boot-text">INITIALIZING NEURAL KERNEL... <span id="boot-pct">0</span>%</div>
+    <div class="progress-bar-container">
+        <div class="progress-fill" id="boot-fill"></div>
     </div>
-
-    <div class="section-label reveal scramble-text" data-text="02 // NEURAL_SKILLS">02 // NEURAL_SKILLS</div>
-    <div class="skill-matrix reveal">
-        <div class="skill-box tilt-card magnetic-box">
-            <div class="glare"></div>
-            <h4>ORCHESTRATION</h4>
-            <ul><li>LangGraph</li><li>Agentic AI</li><li>LangSmith</li></ul>
-        </div>
-        <div class="skill-box tilt-card magnetic-box">
-            <div class="glare"></div>
-            <h4>LLM / NLP</h4>
-            <ul><li>Llama 3.3</li><li>Prompt Engineering</li><li>Groq API</li></ul>
-        </div>
-        <div class="skill-box tilt-card magnetic-box">
-            <div class="glare"></div>
-            <h4>GRAPH / DATA</h4>
-            <ul><li>NetworkX</li><li>DeepWalk</li><li>Pandas</li></ul>
-        </div>
-        <div class="skill-box tilt-card magnetic-box">
-            <div class="glare"></div>
-            <h4>CORE LOGIC</h4>
-            <ul><li>Python</li><li>Streamlit</li><li>SQL</li></ul>
-        </div>
-    </div>
-
-    <div class="section-label reveal scramble-text" data-text="03 // PROFESSIONAL_TIMELINE">03 // PROFESSIONAL_TIMELINE</div>
-    <div class="timeline-container" id="timeline">
-        <div class="timeline-progress" id="timeline-progress"></div>
-
-        <div class="timeline-block reveal">
-            <div class="timeline-node"></div>
-            <a href="https://www.novachat.io/" target="_blank" class="experience-card">
-                <div class="css-badge">NC</div>
-                <div class="exp-main">
-                    <h4>NovaChatAI</h4>
-                    <h5>AI Engineer Intern</h5>
-                    <p>Architecting autonomous AI agent workflows and complex conversational logic leveraging LangGraph and LangChain.</p>
-                </div>
-                <div class="exp-meta">APR 2026 - PRES</div>
-            </a>
-        </div>
-
-        <div class="timeline-block reveal" style="transition-delay: 0.1s;">
-            <div class="timeline-node"></div>
-            <a href="https://www.uta.edu/student-affairs/campus-recreation/facilities/mac" target="_blank" class="experience-card">
-                <div class="css-badge">MC</div>
-                <div class="exp-main">
-                    <h4>Maverick Activities Center (UTA)</h4>
-                    <h5>Building Manager // Systems & Ops</h5>
-                    <p>Managing operational workflows, emergency response logistics, and facility security protocols.</p>
-                </div>
-                <div class="exp-meta">MAR 2025 - JUL 2026</div>
-            </a>
-        </div>
-
-        <div class="timeline-block reveal" style="transition-delay: 0.2s;">
-            <div class="timeline-node"></div>
-            <a href="https://www.odoo.com" target="_blank" class="experience-card">
-                <div class="css-badge">OD</div>
-                <div class="exp-main">
-                    <h4>Odoo</h4>
-                    <h5>Software Developer Intern</h5>
-                    <p>Engineered backend logic modules and optimized database architectures for global ERP integration.</p>
-                </div>
-                <div class="exp-meta">JUN 2024 - SEP 2024</div>
-            </a>
-        </div>
-
-        <div class="timeline-block reveal" style="transition-delay: 0.3s;">
-            <div class="timeline-node"></div>
-            <a href="https://silentinfotech.com" target="_blank" class="experience-card">
-                <div class="css-badge">SI</div>
-                <div class="exp-main">
-                    <h4>Silent Infotech Pvt. Ltd.</h4>
-                    <h5>Research Analyst</h5>
-                    <p>Executed advanced data mining and statistical research to extract predictive insights from industry datasets.</p>
-                </div>
-                <div class="exp-meta">JAN 2024 - MAY 2024</div>
-            </a>
-        </div>
-    </div>
-
-    <footer>[ SYSTEM_STABLE ] // &copy; 2026 DHRUMIL RANA // BUILT_FOR_SCALABILITY</footer>
 </div>
 
-<script>
-    /* --- Cyberpunk Text Scramble Effect --- */
-    class TextScramble {
-        constructor(el) {
-            this.el = el;
-            this.chars = '!<>-_\\/[]{}—=+*^?#________';
-            this.update = this.update.bind(this);
-        }
-        setText(newText) {
-            const oldText = this.el.innerText;
-            const length = Math.max(oldText.length, newText.length);
-            const promise = new Promise((resolve) => this.resolve = resolve);
-            this.queue = [];
-            for (let i = 0; i < length; i++) {
-                const from = oldText[i] || '';
-                const to = newText[i] || '';
-                const start = Math.floor(Math.random() * 40);
-                const end = start + Math.floor(Math.random() * 40);
-                this.queue.push({ from, to, start, end });
-            }
-            cancelAnimationFrame(this.frameRequest);
-            this.frame = 0; this.update(); return promise;
-        }
-        update() {
-            let output = ''; let complete = 0;
-            for (let i = 0, n = this.queue.length; i < n; i++) {
-                let { from, to, start, end, char } = this.queue[i];
-                if (this.frame >= end) { complete++; output += to; } 
-                else if (this.frame >= start) {
-                    if (!char || Math.random() < 0.28) { char = this.randomChar(); this.queue[i].char = char; }
-                    output += `<span style="color:var(--text-dim)">${char}</span>`;
-                } else { output += from; }
-            }
-            this.el.innerHTML = output;
-            if (complete === this.queue.length) { this.resolve(); } 
-            else { this.frameRequest = requestAnimationFrame(this.update); this.frame++; }
-        }
-        randomChar() { return this.chars[Math.floor(Math.random() * this.chars.length)]; }
-    }
+<div id="crt-overlay"></div>
+<canvas id="webgl-canvas"></canvas>
 
-    /* --- Advanced Typewriter --- */
-    const text = "Dhrumil Rana"; let i = 0;
-    function typeWriter() {
-        if (i < text.length) {
-            document.getElementById("typewriter").innerHTML += text.charAt(i);
-            i++; setTimeout(typeWriter, 100 + Math.random() * 80);
-        }
-    }
+<nav>
+    <div class="nav-logo">DHRUMIL<span>_</span>RANA</div>
+    <div class="nav-links">
+        <a href="https://github.com/dhrumilrana25" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/dhrumil-rana-265316232/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+</nav>
 
-    /* --- System HUD Logic --- */
-    setInterval(() => {
-        document.getElementById('hud-load').innerText = Math.floor(Math.random() * 30 + 20);
-        document.getElementById('hud-ops').innerText = Math.floor(Math.random() * 50 + 80);
-        document.getElementById('hud-mem').innerText = (Math.random() * 0.5 + 2.0).toFixed(2);
-    }, 1500);
+<div id="scroll-container">
+    
+    <section id="hero">
+        <div class="glass-card reveal-3d magnetic-glass">
+            <span class="system-tag">SYS.STATUS // ONLINE</span>
+            <h1><span class="glitch-text">Data<br>Scientist</span></h1>
+            <p>Architecting autonomous multi-agent systems, massive-scale graph neural networks, and zero-day threat detection logic.</p>
+            <div style="font-family: 'Space Mono'; color: #fff; font-size: 0.85rem; margin-top: 10px; font-weight: 700; transform: translateZ(20px);">
+                <i class="fa-solid fa-satellite-dish" style="color: var(--accent); margin-right: 10px; animation: pulse-text 2s infinite;"></i> MS DATA SCIENCE @ UT ARLINGTON
+            </div>
+            <div class="btn-group">
+                <a href="Dhrumil_Rana_Resume.pdf" target="_blank" class="action-btn btn-accent"><i class="fa-solid fa-download"></i> SECURE_DOSSIER</a>
+            </div>
+        </div>
+    </section>
 
-    /* --- Scroll Logic (Reveal, Scramble, Timeline, Top Progress) --- */
-    const scramblers = [];
-    document.querySelectorAll('.scramble-text').forEach(el => scramblers.push({el: el, fx: new TextScramble(el), triggered: false}));
-
-    function handleScroll() {
-        var reveals = document.querySelectorAll(".reveal");
-        var windowHeight = window.innerHeight;
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        
-        // 1. Top Progress
-        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrollPercent = (scrollTop / scrollHeight) * 100;
-        document.getElementById('top-progress-bar').style.width = scrollPercent + '%';
-
-        // 2. Staggered Element Reveals & Text Scramble
-        for (var i = 0; i < reveals.length; i++) {
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            if (elementTop < windowHeight - 50) {
-                reveals[i].classList.add("active");
-                
-                // Trigger Scramble if it's a section label
-                if(reveals[i].classList.contains('scramble-text')) {
-                    const scObj = scramblers.find(s => s.el === reveals[i]);
-                    if(scObj && !scObj.triggered) {
-                        scObj.triggered = true;
-                        scObj.fx.setText(reveals[i].getAttribute('data-text'));
-                    }
-                }
-            }
-        }
-
-        // 3. Timeline Tracker
-        const timeline = document.getElementById('timeline');
-        const progress = document.getElementById('timeline-progress');
-        const blocks = document.querySelectorAll('.timeline-block');
-
-        if(timeline && progress) {
-            const rect = timeline.getBoundingClientRect();
-            const scrolled = (windowHeight * 0.85) - rect.top;
-            let scrollPercentage = (scrolled / rect.height) * 100;
-            scrollPercentage = Math.max(0, Math.min(100, scrollPercentage));
-            progress.style.height = scrollPercentage + '%';
-
-            blocks.forEach(block => {
-                const blockRect = block.getBoundingClientRect();
-                if (blockRect.top < (windowHeight * 0.85)) {
-                    block.classList.add('active');
-                } else {
-                    block.classList.remove('active');
-                }
-            });
-        }
-    }
-    window.addEventListener("scroll", handleScroll);
-
-    /* --- Magnetic Physics & Dynamic Glare for Cards --- */
-    const magnetics = document.querySelectorAll('.magnetic, .magnetic-box');
-    magnetics.forEach(btn => {
-        btn.addEventListener('mousemove', function(e) {
-            const rect = this.getBoundingClientRect();
-            const h = rect.width / 2; const w = rect.height / 2;
-            const x = e.clientX - rect.left - h; const y = e.clientY - rect.top - w;
+    <section id="projects">
+        <div style="display: flex; flex-direction: column; gap: 60px; width: 100%; align-items: flex-end;">
             
-            const multiplier = this.classList.contains('magnetic-box') ? 0.05 : 0.3;
-            this.style.transform = `translate(${x * multiplier}px, ${y * multiplier}px)`;
-        });
+            <div class="glass-card reveal-3d magnetic-glass">
+                <span class="system-tag">DEPLOYMENT // 01</span>
+                <h2>Agentic-Cleanse Factory</h2>
+                <p>Autonomous ETL pipeline engineered with self-healing code execution and security logic loops. Powered by LangGraph & Groq AI.</p>
+                <div class="tech-stack"><span>AGENTIC_AI</span> <span>LANGGRAPH</span> <span>STREAMLIT</span></div>
+                <div class="btn-group">
+                    <a href="https://github.com/dhrumilrana25/Agentic-Cleanse" target="_blank" class="action-btn"><i class="fa-brands fa-github"></i> REPO</a>
+                    <a href="https://dhrumil-cleanse.streamlit.app/" target="_blank" class="action-btn btn-accent"><i class="fa-solid fa-bolt"></i> LIVE_DEMO</a>
+                </div>
+            </div>
 
-        btn.addEventListener('mouseleave', function() {
-            this.style.transform = `translate(0px, 0px)`;
-            if(this.classList.contains('tilt-card')) { this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)'; }
-        });
+            <div class="glass-card reveal-3d magnetic-glass">
+                <span class="system-tag">DEPLOYMENT // 02</span>
+                <h2>Twitter Link Prediction</h2>
+                <p>Social discovery engine mapping network topology. Processed 1.2M+ nodes using DeepWalk embeddings and advanced graph heuristics.</p>
+                <div class="tech-stack"><span>GRAPH_ML</span> <span>DEEPWALK</span> <span>NETWORKX</span></div>
+                <div class="btn-group">
+                    <a href="https://github.com/dhrumilrana25/Twitter-Scale-Link-Prediction-Engine" target="_blank" class="action-btn"><i class="fa-brands fa-github"></i> REPO</a>
+                    <a href="Link_Prediction_Embeddings.pdf" target="_blank" class="action-btn btn-purple"><i class="fa-solid fa-file-pdf"></i> RESEARCH_PAPER</a>
+                </div>
+            </div>
+
+            <div class="glass-card reveal-3d magnetic-glass">
+                <span class="system-tag">DEPLOYMENT // 03</span>
+                <h2>IoT Malware Defense</h2>
+                <p>Real-time behavioral analytics for IoT security protocols. Engineered high-dimensional feature extraction resulting in 95.38% verified accuracy.</p>
+                <div class="tech-stack"><span>CYBER_SEC</span> <span>ML_ANALYTICS</span> <span>ANOMALY</span></div>
+                <div class="btn-group">
+                    <a href="https://github.com/dhrumilrana25/IoT-Malware-Detection-Network-Analytics" target="_blank" class="action-btn"><i class="fa-brands fa-github"></i> VIEW_REPO</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="glass-card reveal-3d magnetic-glass" style="max-width: 900px;">
+            <span class="system-tag">ARCHIVE // PROFESSIONAL_TIMELINE</span>
+            
+            <div class="exp-container">
+                <a href="https://www.novachat.io/" target="_blank" class="exp-row">
+                    <div class="exp-badge">NC</div>
+                    <div>
+                        <div class="exp-date">APR 2026 — PRESENT</div>
+                        <h3>NovaChatAI</h3>
+                        <p>AI Engineer Intern // Architecting autonomous AI agent workflows and complex conversational logic leveraging LangGraph and LangChain.</p>
+                    </div>
+                </a>
+
+                <a href="https://www.uta.edu/student-affairs/campus-recreation/facilities/mac" target="_blank" class="exp-row">
+                    <div class="exp-badge">MC</div>
+                    <div>
+                        <div class="exp-date">MAR 2025 — JUL 2026</div>
+                        <h3>Maverick Activities Center (UTA)</h3>
+                        <p>Building Manager // Managing operational workflows, emergency response logistics, and facility security protocols.</p>
+                    </div>
+                </a>
+
+                <a href="https://www.odoo.com" target="_blank" class="exp-row">
+                    <div class="exp-badge">OD</div>
+                    <div>
+                        <div class="exp-date">JUN 2024 — SEP 2024</div>
+                        <h3>Odoo</h3>
+                        <p>Software Developer Intern // Engineered backend logic modules and optimized database architectures for global ERP integration.</p>
+                    </div>
+                </a>
+
+                <a href="https://silentinfotech.com" target="_blank" class="exp-row" style="border: none; padding-bottom: 0;">
+                    <div class="exp-badge">SI</div>
+                    <div>
+                        <div class="exp-date">JAN 2024 — MAY 2024</div>
+                        <h3>Silent Infotech Pvt. Ltd.</h3>
+                        <p>Research Analyst // Executed advanced data mining and statistical research to extract predictive insights from complex industry datasets.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+    /* =========================================================================
+       0. BOOT SEQUENCE LOGIC
+       ========================================================================= */
+    let bootPct = 0;
+    const bootText = document.getElementById('boot-pct');
+    const bootFill = document.getElementById('boot-fill');
+    const bootScreen = document.getElementById('boot-screen');
+
+    const bootInterval = setInterval(() => {
+        bootPct += Math.floor(Math.random() * 15) + 5;
+        if(bootPct > 100) bootPct = 100;
+        
+        bootText.innerText = bootPct;
+        bootFill.style.width = bootPct + '%';
+
+        if(bootPct === 100) {
+            clearInterval(bootInterval);
+            setTimeout(() => {
+                bootScreen.style.opacity = '0';
+                setTimeout(() => bootScreen.style.display = 'none', 800);
+            }, 400);
+        }
+    }, 150);
+
+    /* =========================================================================
+       1. THREE.JS ULTIMATE ENVIRONMENT SETUP
+       ========================================================================= */
+    const canvas = document.getElementById('webgl-canvas');
+    const scene = new THREE.Scene();
+    
+    // Dynamic Fog that shifts color later
+    scene.fog = new THREE.FogExp2(0x020204, 0.0012);
+
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 3000);
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Performance optimization
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // Initial Camera Position
+    camera.position.set(0, 150, 400);
+    camera.lookAt(0, 0, 0);
+
+    /* --- 2. THE NEURAL LOSS-SURFACE (WAVING TERRAIN) --- */
+    const planeGeom = new THREE.PlaneGeometry(3000, 3000, 60, 60);
+    // Rotate to lay flat
+    planeGeom.rotateX(-Math.PI / 2);
+    
+    // Store original Y positions for sine wave animation
+    const vertices = planeGeom.attributes.position.array;
+    const originalY = [];
+    for(let i = 1; i < vertices.length; i+=3) {
+        originalY.push(vertices[i]);
+    }
+
+    const terrainMaterial = new THREE.PointsMaterial({
+        size: 2.5,
+        color: 0x00f0ff,
+        transparent: true,
+        opacity: 0.6,
+        blending: THREE.AdditiveBlending
     });
 
-    const cards = document.querySelectorAll('.tilt-card');
-    cards.forEach(card => {
+    const terrain = new THREE.Points(planeGeom, terrainMaterial);
+    terrain.position.y = -100;
+    scene.add(terrain);
+
+    /* --- 3. THE QUANTUM CORE (MULTI-LAYERED ANOMALY) --- */
+    const coreGroup = new THREE.Group();
+    
+    // Outer Shell (Icosahedron Wireframe)
+    const shellGeom = new THREE.IcosahedronGeometry(60, 2);
+    const shellMat = new THREE.MeshBasicMaterial({ color: 0x00f0ff, wireframe: true, transparent: true, opacity: 0.15 });
+    const shell = new THREE.Mesh(shellGeom, shellMat);
+    coreGroup.add(shell);
+
+    // Inner Core (Solid Octahedron)
+    const innerGeom = new THREE.OctahedronGeometry(35, 0);
+    const innerMat = new THREE.MeshBasicMaterial({ color: 0xb500ff, wireframe: true, transparent: true, opacity: 0.8 });
+    const innerCore = new THREE.Mesh(innerGeom, innerMat);
+    coreGroup.add(innerCore);
+
+    // Orbiting Particles
+    const orbitGeom = new THREE.BufferGeometry();
+    const orbitPos = new Float32Array(300 * 3);
+    for(let i=0; i<300*3; i+=3) {
+        const r = 70 + Math.random() * 30;
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(2 * Math.random() - 1);
+        orbitPos[i] = r * Math.sin(phi) * Math.cos(theta);
+        orbitPos[i+1] = r * Math.sin(phi) * Math.sin(theta);
+        orbitPos[i+2] = r * Math.cos(phi);
+    }
+    orbitGeom.setAttribute('position', new THREE.BufferAttribute(orbitPos, 3));
+    const orbitMat = new THREE.PointsMaterial({ size: 2, color: 0xffffff, transparent: true, opacity: 0.8 });
+    const orbitSystem = new THREE.Points(orbitGeom, orbitMat);
+    coreGroup.add(orbitSystem);
+
+    scene.add(coreGroup);
+
+    /* =========================================================================
+       SCROLL & PARALLAX PHYSICS
+       ========================================================================= */
+    let currentScroll = 0;
+    let targetScroll = 0;
+    let mouseX = 0; let mouseY = 0;
+    let targetMouseX = 0; let targetMouseY = 0;
+
+    window.addEventListener('scroll', () => {
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        targetScroll = window.scrollY / scrollHeight; // 0 to 1
+    });
+
+    document.addEventListener('mousemove', (event) => {
+        targetMouseX = (event.clientX / window.innerWidth) * 2 - 1;
+        targetMouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+    });
+
+    /* =========================================================================
+       ANIMATION LOOP (THE ENGINE)
+       ========================================================================= */
+    const clock = new THREE.Clock();
+    const colorCyan = new THREE.Color(0x00f0ff);
+    const colorPurple = new THREE.Color(0xb500ff);
+
+    function animate() {
+        requestAnimationFrame(animate);
+        const time = clock.getElapsedTime();
+
+        // 1. Smooth Interpolation
+        currentScroll += (targetScroll - currentScroll) * 0.05;
+        mouseX += (targetMouseX - mouseX) * 0.05;
+        mouseY += (targetMouseY - mouseY) * 0.05;
+
+        // 2. Dynamic Color Shifting based on Scroll
+        // Interpolate terrain and core colors from Cyan to Purple as you scroll down
+        const lerpFactor = Math.min(currentScroll * 1.5, 1); // Max out color shift at 66% scroll
+        const currentColor = colorCyan.clone().lerp(colorPurple, lerpFactor);
+        terrainMaterial.color = currentColor;
+        shellMat.color = currentColor;
+
+        // 3. Camera Flight Physics
+        // Start high, fly low and forward into the core, then past it
+        camera.position.z = 400 - (currentScroll * 1200); 
+        camera.position.y = 150 - (currentScroll * 100);
+        
+        // Add mouse parallax to camera
+        camera.position.x = mouseX * 50;
+        camera.lookAt(0, currentScroll * 100, camera.position.z - 200);
+
+        // 4. Wave Animation for Terrain (Loss Surface)
+        const positions = terrain.geometry.attributes.position.array;
+        let yIndex = 0;
+        for(let i = 1; i < positions.length; i+=3) {
+            const x = positions[i-1];
+            const z = positions[i+1];
+            // Complex wave math mimicking gradient loss surfaces
+            positions[i] = originalY[yIndex] + Math.sin(x * 0.005 + time) * 30 + Math.cos(z * 0.005 + time * 0.8) * 30;
+            yIndex++;
+        }
+        terrain.geometry.attributes.position.needsUpdate = true;
+
+        // 5. Quantum Core Rotation & Expansion
+        // As you scroll closer, it spins faster and expands
+        coreGroup.rotation.y = time * (0.2 + currentScroll * 0.5);
+        coreGroup.rotation.x = time * 0.1;
+        innerCore.rotation.y = -time * 0.4;
+        innerCore.rotation.z = time * 0.2;
+        
+        const scale = 1 + (currentScroll * 0.5);
+        coreGroup.scale.set(scale, scale, scale);
+        
+        // Push core back slightly as we scroll so we don't clip through it too early
+        coreGroup.position.z = -200 - (currentScroll * 200);
+
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    // Resize Handler
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    /* =========================================================================
+       HTML INTERSECTION OBSERVER & MAGNETIC GLASS
+       ========================================================================= */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal-3d').forEach((el) => observer.observe(el));
+
+    // Magnetic Glass 3D Hover Physics
+    const glassCards = document.querySelectorAll('.magnetic-glass');
+    glassCards.forEach(card => {
         card.addEventListener('mousemove', e => {
             const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left; const y = e.clientY - rect.top;
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
             
-            // Glare logic
-            const glare = card.querySelector('.glare');
-            if(glare) {
-                const xp = (x / rect.width) * 100;
-                const yp = (y / rect.height) * 100;
-                glare.style.background = `radial-gradient(circle at ${xp}% ${yp}%, rgba(255,255,255,0.15), transparent 50%)`;
-            }
-
-            // Tilt logic
-            const centerX = rect.width / 2; const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -12;
-            const rotateY = ((x - centerX) / centerX) * 12;
+            // 3D Tilt calculation
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -8;
+            const rotateY = ((x - centerX) / centerX) * 8;
+            
+            // Dynamic Glare Positioning
+            const glareX = (x / rect.width) * 100;
+            const glareY = (y / rect.height) * 100;
             
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-            card.style.borderColor = "var(--accent)";
-            card.style.boxShadow = "0 15px 35px rgba(0,240,255,0.15)";
+            card.style.setProperty('--glare-x', `${glareX}%`);
+            card.style.setProperty('--glare-y', `${glareY}%`);
         });
 
         card.addEventListener('mouseleave', () => {
-            card.style.borderColor = "rgba(255,255,255,0.05)";
-            card.style.boxShadow = "none";
-            const glare = card.querySelector('.glare');
-            if(glare) { glare.style.background = 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent 50%)'; }
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
         });
     });
 
-    /* --- Optimized Ganesha Matrix Logic --- */
-    const canvas = document.getElementById('bg-matrix');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-
-    const shapeCanvas = document.createElement('canvas');
-    const sCtx = shapeCanvas.getContext('2d');
-    shapeCanvas.width = canvas.width; shapeCanvas.height = canvas.height;
-
-    function drawGaneshaShape() {
-        sCtx.clearRect(0, 0, shapeCanvas.width, shapeCanvas.height);
-        sCtx.fillStyle = "white";
-        const cx = shapeCanvas.width / 2; const cy = shapeCanvas.height / 2;
-        const scale = Math.min(canvas.width, canvas.height) / 1000;
-
-        sCtx.beginPath();
-        sCtx.arc(cx, cy - 100 * scale, 80 * scale, 0, Math.PI * 2); 
-        sCtx.moveTo(cx - 100 * scale, cy - 150 * scale);
-        sCtx.quadraticCurveTo(cx - 250 * scale, cy - 100 * scale, cx - 100 * scale, cy + 50 * scale); 
-        sCtx.moveTo(cx + 100 * scale, cy - 150 * scale);
-        sCtx.quadraticCurveTo(cx + 250 * scale, cy - 100 * scale, cx + 100 * scale, cy + 50 * scale); 
-        sCtx.moveTo(cx, cy - 50 * scale);
-        sCtx.bezierCurveTo(cx - 20 * scale, cy + 150 * scale, cx + 150 * scale, cy + 180 * scale, cx + 80 * scale, cy + 250 * scale);
-        sCtx.lineWidth = 40 * scale; sCtx.stroke(); sCtx.fill();
-    }
-
-    const chars = "01ΣΔॐpd.read_csv∫model.predict0101λμ".split("");
-    const fontSize = 16;
-    let columns = Math.floor(canvas.width / fontSize);
-    let drops = [];
-    for (let x = 0; x < columns; x++) drops[x] = Math.random() * -100;
-
-    function drawMatrix() {
-        ctx.fillStyle = "rgba(3, 3, 5, 0.08)";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        const shapeData = sCtx.getImageData(0, 0, shapeCanvas.width, shapeCanvas.height).data;
-
-        for (let i = 0; i < drops.length; i++) {
-            const x = Math.floor(i * fontSize);
-            const y = Math.floor(drops[i] * fontSize);
-            if(y < 0) { drops[i]++; continue; } 
-
-            const pixelIndex = (y * shapeCanvas.width + x) * 4;
-            const isInside = pixelIndex < shapeData.length && shapeData[pixelIndex] > 0;
-
-            ctx.fillStyle = isInside ? "#00f0ff" : "rgba(0, 240, 255, 0.15)";
-            ctx.font = isInside ? "bold " + fontSize + "px Space Mono" : fontSize + "px Space Mono";
-            const txt = isInside ? "ॐ" : chars[Math.floor(Math.random() * chars.length)];
-            ctx.fillText(txt, x, y);
-
-            if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
-            drops[i]++;
-        }
-    }
-
-    window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-        shapeCanvas.width = canvas.width; shapeCanvas.height = canvas.height;
-        columns = Math.floor(canvas.width / fontSize); drops = [];
-        for (let x = 0; x < columns; x++) drops[x] = Math.random() * -100;
-        drawGaneshaShape();
-    });
-
-    window.onload = () => { 
-        drawGaneshaShape(); typeWriter(); handleScroll(); 
-        setInterval(drawMatrix, 50); 
-    };
 </script>
 </body>
 </html>
