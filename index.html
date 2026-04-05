@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DHRUMIL RANA // NEURAL_ARCHITECT.v15.0</title>
+    <title>DHRUMIL RANA // NEURAL_ARCHITECT</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,10 +11,11 @@
     
     <style>
         :root {
-            --bg: #010101;
+            --bg: #030305;
             --accent: #00f0ff;
             --accent-glow: rgba(0, 240, 255, 0.4);
-            --glass: rgba(8, 8, 12, 0.75);
+            --paper-color: #b500ff; /* Secondary neon for the research paper */
+            --glass: rgba(12, 12, 16, 0.7);
             --border: rgba(0, 240, 255, 0.2);
             --text-main: #ffffff;
             --text-dim: #8b8b9e;
@@ -24,7 +25,7 @@
 
         /* --- CUSTOM CYBER CURSORS --- */
         html, body {
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="%2300f0ff"/><circle cx="12" cy="12" r="10" fill="none" stroke="%2300f0ff" stroke-width="1" opacity="0.6"/></svg>') 12 12, auto;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2" fill="%2300f0ff"/><circle cx="12" cy="12" r="10" fill="none" stroke="%2300f0ff" stroke-width="1" opacity="0.6"/></svg>') 12 12, auto;
         }
         a, button, .magnetic {
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="%23ffffff"/><circle cx="12" cy="12" r="11" fill="none" stroke="%23ffffff" stroke-width="1.5"/></svg>') 12 12, pointer !important;
@@ -33,7 +34,7 @@
         /* --- CRT SCANLINE & VIGNETTE --- */
         body::before {
             content: " "; display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), 
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%), 
                         linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
             z-index: 9999; background-size: 100% 2px, 3px 100%; pointer-events: none;
         }
@@ -47,10 +48,18 @@
             margin: 0; overflow-x: hidden; line-height: 1.6;
         }
 
-        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; box-shadow: 0 0 15px var(--accent); }
         ::selection { background: var(--accent); color: #000; }
+
+        /* --- SYSTEM HUD --- */
+        #system-hud {
+            position: fixed; bottom: 20px; left: 20px; z-index: 10000;
+            font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--accent);
+            opacity: 0.6; pointer-events: none;
+        }
+        #system-hud span { color: #fff; }
 
         /* --- TOP PROGRESS BAR --- */
         #top-progress-bar {
@@ -58,28 +67,19 @@
             box-shadow: 0 0 15px var(--accent), 0 0 5px #fff; transition: width 0.1s ease-out;
         }
 
-        #bg-matrix { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.5; filter: contrast(1.2); }
+        #bg-matrix { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.45; filter: contrast(1.3); }
 
         .container { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
 
         /* --- ANIMATIONS --- */
-        .reveal { opacity: 0; transform: translateY(50px) scale(0.98); transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal { opacity: 0; transform: translateY(40px) scale(0.98); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0) scale(1); }
         
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-            100% { transform: translateY(0px); }
-        }
-
-        @keyframes pulse-border {
-            0% { box-shadow: 0 0 0 0 var(--accent-glow); }
-            70% { box-shadow: 0 0 0 10px rgba(0, 240, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0); }
-        }
-
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-8px); } 100% { transform: translateY(0px); } }
+        @keyframes pulse-border { 0% { box-shadow: 0 0 0 0 var(--accent-glow); } 70% { box-shadow: 0 0 0 10px rgba(0, 240, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0); } }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-        .cursor-blink { display: inline-block; width: 10px; height: 1em; background-color: var(--accent); animation: blink 1s step-end infinite; vertical-align: bottom; margin-left: 5px;}
+        
+        .cursor-blink { display: inline-block; width: 12px; height: 1em; background-color: var(--accent); animation: blink 1s step-end infinite; vertical-align: bottom; margin-left: 5px;}
 
         /* --- NAVIGATION --- */
         nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 100px; }
@@ -103,10 +103,10 @@
         }
         .btn-glow:hover { background: var(--accent); color: #000; box-shadow: 0 0 40px var(--accent-glow); transform: scale(1.05); }
 
-        .section-label { font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--accent); margin-bottom: 60px; display: flex; align-items: center; gap: 20px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700;}
+        .section-label { font-family: 'Space Mono', monospace; font-size: 0.85rem; color: var(--accent); margin-bottom: 60px; display: flex; align-items: center; gap: 20px; text-transform: uppercase; letter-spacing: 3px; font-weight: 700;}
         .section-label::after { content: ''; height: 1px; flex-grow: 1; background: linear-gradient(90deg, var(--border), transparent); }
 
-        /* --- PROJECT CARDS --- */
+        /* --- PROJECT CARDS & DYNAMIC GLARE --- */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-bottom: 160px; }
         
         .project-card {
@@ -114,18 +114,19 @@
             border: 1px solid rgba(255,255,255,0.05); border-top: 2px solid var(--border); border-radius: 8px;
             padding: 40px 30px 30px; transition: 0.5s cubic-bezier(0.2, 1, 0.2, 1);
             display: flex; flex-direction: column; justify-content: space-between;
-            position: relative; overflow: hidden;
+            position: relative; overflow: hidden; transform-style: preserve-3d;
         }
 
-        .project-card::before {
-            content: ""; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-            transform: skewX(-20deg); transition: 0.7s; z-index: 1; pointer-events: none;
+        /* The dynamic shine effect */
+        .glare {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent 50%);
+            opacity: 0; transition: opacity 0.3s; z-index: 10;
         }
-        .project-card:hover::before { left: 150%; }
+        .project-card:hover .glare { opacity: 1; }
 
         .project-card:hover { 
-            border-top-color: var(--accent); border-color: var(--border); 
+            border-top-color: var(--accent); border-color: rgba(0,240,255,0.3); 
             transform: translateY(-12px); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0,240,255,0.05); 
             background: rgba(15, 15, 20, 0.85);
         }
@@ -136,8 +137,8 @@
         .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; font-family: 'Space Mono'; font-size: 0.7rem; color: var(--accent); }
         .tech-tags span { background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0,240,255,0.1); padding: 4px 10px; border-radius: 4px; }
 
-        /* Action Bar for Projects */
-        .card-actions { display: flex; gap: 15px; margin-top: 35px; position: relative; z-index: 2; }
+        /* Action Bar */
+        .card-actions { display: flex; gap: 15px; margin-top: 35px; position: relative; z-index: 12; }
         .action-btn { 
             flex: 1; text-align: center; padding: 10px 0; border: 1px solid rgba(255,255,255,0.1); 
             color: #fff; text-decoration: none; font-family: 'Space Mono'; font-size: 0.75rem; 
@@ -146,27 +147,25 @@
         }
         .action-btn:hover { background: #fff; color: #000; }
         
-        .action-demo { 
-            border-color: var(--accent); color: var(--accent); background: rgba(0,240,255,0.05); 
-            animation: pulse-border 2s infinite; 
-        }
+        .action-demo { border-color: var(--accent); color: var(--accent); background: rgba(0,240,255,0.05); animation: pulse-border 2s infinite; }
         .action-demo:hover { background: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent-glow); animation: none;}
+
+        /* Specialized Paper Button */
+        .action-paper { border-color: var(--paper-color); color: var(--paper-color); background: rgba(181, 0, 255, 0.05); }
+        .action-paper:hover { background: var(--paper-color); color: #fff; box-shadow: 0 0 20px rgba(181, 0, 255, 0.5); }
 
         /* --- SKILL MATRIX --- */
         .skill-matrix { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin-bottom: 160px; perspective: 1000px; }
         .skill-box { 
             padding: 35px 25px; background: var(--glass); border: 1px solid rgba(255,255,255,0.05); 
-            border-left: 3px solid var(--accent); border-radius: 4px;
-            transform-style: preserve-3d; transition: transform 0.2s ease-out; 
-            /* Floating Animation */
+            border-left: 3px solid var(--accent); border-radius: 4px; position: relative; overflow: hidden;
+            transform-style: preserve-3d; transition: transform 0.1s ease-out; 
             animation: float 6s ease-in-out infinite;
         }
+        .skill-box:hover .glare { opacity: 1; }
         
-        /* Stagger the floating */
-        .skill-box:nth-child(1) { animation-delay: 0s; }
-        .skill-box:nth-child(2) { animation-delay: -1.5s; }
-        .skill-box:nth-child(3) { animation-delay: -3s; }
-        .skill-box:nth-child(4) { animation-delay: -4.5s; }
+        .skill-box:nth-child(1) { animation-delay: 0s; } .skill-box:nth-child(2) { animation-delay: -1.5s; }
+        .skill-box:nth-child(3) { animation-delay: -3s; } .skill-box:nth-child(4) { animation-delay: -4.5s; }
 
         .skill-box h4 { font-family: 'Space Mono'; color: #ffffff; font-size: 0.95rem; margin: 0 0 20px 0; letter-spacing: 1px; transform: translateZ(30px); }
         .skill-box ul { list-style: none; padding: 0; margin: 0; color: var(--text-dim); font-size: 0.9rem; transform: translateZ(20px); }
@@ -189,14 +188,7 @@
         .experience-card:hover::after { transform: scaleY(1); }
         .timeline-block.active .experience-card { border-left: 1px solid var(--accent); }
 
-        /* UNIFORM CSS BADGES */
-        .css-badge {
-            display: flex; align-items: center; justify-content: center;
-            background: rgba(0, 240, 255, 0.03); border: 1px solid rgba(0,240,255,0.2); color: var(--accent);
-            font-family: 'Space Mono', monospace; font-weight: 900; font-size: 1.6rem; letter-spacing: -1px;
-            border-radius: 8px; box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.05);
-            width: 75px; height: 75px; flex-shrink: 0; transition: 0.4s ease;
-        }
+        .css-badge { display: flex; align-items: center; justify-content: center; background: rgba(0, 240, 255, 0.03); border: 1px solid rgba(0,240,255,0.2); color: var(--accent); font-family: 'Space Mono', monospace; font-weight: 900; font-size: 1.6rem; letter-spacing: -1px; border-radius: 8px; box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.05); width: 75px; height: 75px; flex-shrink: 0; transition: 0.4s ease; }
         .experience-card:hover .css-badge { background: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent-glow); border-color: var(--accent); }
 
         .exp-main { flex-grow: 1; }
@@ -219,12 +211,13 @@
 </head>
 <body>
 
+<div id="system-hud">SYS.LOAD: <span id="hud-load">42</span>% | OPS/S: <span id="hud-ops">104</span> | MEM: <span id="hud-mem">2.4</span>GB</div>
 <div id="top-progress-bar"></div>
 <canvas id="bg-matrix"></canvas>
 
 <div class="container">
     <nav>
-        <div class="logo">DHRUMIL_RANA.v15</div>
+        <div class="logo">DHRUMIL_RANA.v16</div>
         <div class="social-links">
             <a href="https://github.com/dhrumilrana25" target="_blank" class="magnetic"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/dhrumil-rana-265316232/" target="_blank" class="magnetic"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -238,10 +231,11 @@
         <a href="Dhrumil_Rana_Resume.pdf" target="_blank" class="btn-glow magnetic">[ DOWNLOAD_RESUME ]</a>
     </header>
 
-    <div class="section-label reveal">01 // PROJECT_REPOS</div>
+    <div class="section-label reveal scramble-text" data-text="01 // PROJECT_REPOS">01 // PROJECT_REPOS</div>
     <div class="project-grid">
         
-        <div class="project-card reveal">
+        <div class="project-card reveal tilt-card magnetic-box">
+            <div class="glare"></div>
             <div class="project-info">
                 <h3>Agentic-Cleanse Factory</h3>
                 <p>Multi-agent ETL pipeline with self-healing code loops and security critics. Built with LangGraph & Groq to fully automate data sanitation.</p>
@@ -257,7 +251,8 @@
             </div>
         </div>
 
-        <div class="project-card reveal" style="transition-delay: 0.1s;">
+        <div class="project-card reveal tilt-card magnetic-box" style="transition-delay: 0.1s;">
+            <div class="glare"></div>
             <div class="project-info">
                 <h3>Twitter Link Prediction</h3>
                 <p>Social discovery engine processing 1.2M nodes using DeepWalk embeddings and advanced graph heuristics to map network topology.</p>
@@ -265,12 +260,16 @@
             </div>
             <div class="card-actions">
                 <a href="https://github.com/dhrumilrana25/Twitter-Scale-Link-Prediction-Engine" target="_blank" class="action-btn">
-                    <i class="fa-brands fa-github"></i> VIEW_REPOSITORY
+                    <i class="fa-brands fa-github"></i> REPO
+                </a>
+                <a href="Link_Prediction_Embeddings.pdf" target="_blank" class="action-btn action-paper">
+                    <i class="fa-solid fa-file-pdf"></i> RESEARCH_PAPER
                 </a>
             </div>
         </div>
 
-        <div class="project-card reveal" style="transition-delay: 0.2s;">
+        <div class="project-card reveal tilt-card magnetic-box" style="transition-delay: 0.2s;">
+            <div class="glare"></div>
             <div class="project-info">
                 <h3>IoT Malware Defense</h3>
                 <p>Real-time behavioral analytics for IoT security protocols. Engineered feature extraction resulting in a verified 95.38% classification accuracy.</p>
@@ -284,27 +283,31 @@
         </div>
     </div>
 
-    <div class="section-label reveal">02 // NEURAL_SKILLS</div>
+    <div class="section-label reveal scramble-text" data-text="02 // NEURAL_SKILLS">02 // NEURAL_SKILLS</div>
     <div class="skill-matrix reveal">
         <div class="skill-box tilt-card magnetic-box">
+            <div class="glare"></div>
             <h4>ORCHESTRATION</h4>
             <ul><li>LangGraph</li><li>Agentic AI</li><li>LangSmith</li></ul>
         </div>
         <div class="skill-box tilt-card magnetic-box">
+            <div class="glare"></div>
             <h4>LLM / NLP</h4>
             <ul><li>Llama 3.3</li><li>Prompt Engineering</li><li>Groq API</li></ul>
         </div>
         <div class="skill-box tilt-card magnetic-box">
+            <div class="glare"></div>
             <h4>GRAPH / DATA</h4>
             <ul><li>NetworkX</li><li>DeepWalk</li><li>Pandas</li></ul>
         </div>
         <div class="skill-box tilt-card magnetic-box">
+            <div class="glare"></div>
             <h4>CORE LOGIC</h4>
             <ul><li>Python</li><li>Streamlit</li><li>SQL</li></ul>
         </div>
     </div>
 
-    <div class="section-label reveal">03 // PROFESSIONAL_TIMELINE</div>
+    <div class="section-label reveal scramble-text" data-text="03 // PROFESSIONAL_TIMELINE">03 // PROFESSIONAL_TIMELINE</div>
     <div class="timeline-container" id="timeline">
         <div class="timeline-progress" id="timeline-progress"></div>
 
@@ -365,16 +368,65 @@
 </div>
 
 <script>
+    /* --- Cyberpunk Text Scramble Effect --- */
+    class TextScramble {
+        constructor(el) {
+            this.el = el;
+            this.chars = '!<>-_\\/[]{}—=+*^?#________';
+            this.update = this.update.bind(this);
+        }
+        setText(newText) {
+            const oldText = this.el.innerText;
+            const length = Math.max(oldText.length, newText.length);
+            const promise = new Promise((resolve) => this.resolve = resolve);
+            this.queue = [];
+            for (let i = 0; i < length; i++) {
+                const from = oldText[i] || '';
+                const to = newText[i] || '';
+                const start = Math.floor(Math.random() * 40);
+                const end = start + Math.floor(Math.random() * 40);
+                this.queue.push({ from, to, start, end });
+            }
+            cancelAnimationFrame(this.frameRequest);
+            this.frame = 0; this.update(); return promise;
+        }
+        update() {
+            let output = ''; let complete = 0;
+            for (let i = 0, n = this.queue.length; i < n; i++) {
+                let { from, to, start, end, char } = this.queue[i];
+                if (this.frame >= end) { complete++; output += to; } 
+                else if (this.frame >= start) {
+                    if (!char || Math.random() < 0.28) { char = this.randomChar(); this.queue[i].char = char; }
+                    output += `<span style="color:var(--text-dim)">${char}</span>`;
+                } else { output += from; }
+            }
+            this.el.innerHTML = output;
+            if (complete === this.queue.length) { this.resolve(); } 
+            else { this.frameRequest = requestAnimationFrame(this.update); this.frame++; }
+        }
+        randomChar() { return this.chars[Math.floor(Math.random() * this.chars.length)]; }
+    }
+
     /* --- Advanced Typewriter --- */
     const text = "Dhrumil Rana"; let i = 0;
     function typeWriter() {
         if (i < text.length) {
             document.getElementById("typewriter").innerHTML += text.charAt(i);
-            i++; setTimeout(typeWriter, 120 + Math.random() * 50); // Added random delay for realism
+            i++; setTimeout(typeWriter, 100 + Math.random() * 80);
         }
     }
 
-    /* --- Scroll Logic (Reveal, Timeline, Top Progress) --- */
+    /* --- System HUD Logic --- */
+    setInterval(() => {
+        document.getElementById('hud-load').innerText = Math.floor(Math.random() * 30 + 20);
+        document.getElementById('hud-ops').innerText = Math.floor(Math.random() * 50 + 80);
+        document.getElementById('hud-mem').innerText = (Math.random() * 0.5 + 2.0).toFixed(2);
+    }, 1500);
+
+    /* --- Scroll Logic (Reveal, Scramble, Timeline, Top Progress) --- */
+    const scramblers = [];
+    document.querySelectorAll('.scramble-text').forEach(el => scramblers.push({el: el, fx: new TextScramble(el), triggered: false}));
+
     function handleScroll() {
         var reveals = document.querySelectorAll(".reveal");
         var windowHeight = window.innerHeight;
@@ -385,10 +437,21 @@
         const scrollPercent = (scrollTop / scrollHeight) * 100;
         document.getElementById('top-progress-bar').style.width = scrollPercent + '%';
 
-        // 2. Staggered Element Reveals
+        // 2. Staggered Element Reveals & Text Scramble
         for (var i = 0; i < reveals.length; i++) {
             var elementTop = reveals[i].getBoundingClientRect().top;
-            if (elementTop < windowHeight - 50) reveals[i].classList.add("active");
+            if (elementTop < windowHeight - 50) {
+                reveals[i].classList.add("active");
+                
+                // Trigger Scramble if it's a section label
+                if(reveals[i].classList.contains('scramble-text')) {
+                    const scObj = scramblers.find(s => s.el === reveals[i]);
+                    if(scObj && !scObj.triggered) {
+                        scObj.triggered = true;
+                        scObj.fx.setText(reveals[i].getAttribute('data-text'));
+                    }
+                }
+            }
         }
 
         // 3. Timeline Tracker
@@ -413,46 +476,45 @@
             });
         }
     }
-
     window.addEventListener("scroll", handleScroll);
 
-    /* --- Magnetic Physics for Buttons & Cards --- */
+    /* --- Magnetic Physics & Dynamic Glare for Cards --- */
     const magnetics = document.querySelectorAll('.magnetic, .magnetic-box');
     magnetics.forEach(btn => {
         btn.addEventListener('mousemove', function(e) {
             const rect = this.getBoundingClientRect();
-            const h = rect.width / 2;
-            const w = rect.height / 2;
-            const x = e.clientX - rect.left - h;
-            const y = e.clientY - rect.top - w;
+            const h = rect.width / 2; const w = rect.height / 2;
+            const x = e.clientX - rect.left - h; const y = e.clientY - rect.top - w;
             
-            // Smaller movement for larger boxes, larger for small buttons
             const multiplier = this.classList.contains('magnetic-box') ? 0.05 : 0.3;
             this.style.transform = `translate(${x * multiplier}px, ${y * multiplier}px)`;
         });
 
         btn.addEventListener('mouseleave', function() {
             this.style.transform = `translate(0px, 0px)`;
-            // If it's also a tilt card, reset that too
-            if(this.classList.contains('tilt-card')) {
-                this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-            }
+            if(this.classList.contains('tilt-card')) { this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)'; }
         });
     });
 
-    /* --- 3D Tilt Effect for Skills --- */
     const cards = document.querySelectorAll('.tilt-card');
     cards.forEach(card => {
         card.addEventListener('mousemove', e => {
             const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -15; // Increased tilt
-            const rotateY = ((x - centerX) / centerX) * 15;
+            const x = e.clientX - rect.left; const y = e.clientY - rect.top;
             
-            // Combine with magnetic translate if active
+            // Glare logic
+            const glare = card.querySelector('.glare');
+            if(glare) {
+                const xp = (x / rect.width) * 100;
+                const yp = (y / rect.height) * 100;
+                glare.style.background = `radial-gradient(circle at ${xp}% ${yp}%, rgba(255,255,255,0.15), transparent 50%)`;
+            }
+
+            // Tilt logic
+            const centerX = rect.width / 2; const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -12;
+            const rotateY = ((x - centerX) / centerX) * 12;
+            
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
             card.style.borderColor = "var(--accent)";
             card.style.boxShadow = "0 15px 35px rgba(0,240,255,0.15)";
@@ -461,10 +523,12 @@
         card.addEventListener('mouseleave', () => {
             card.style.borderColor = "rgba(255,255,255,0.05)";
             card.style.boxShadow = "none";
+            const glare = card.querySelector('.glare');
+            if(glare) { glare.style.background = 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent 50%)'; }
         });
     });
 
-    /* --- Ganesha Matrix Logic (Optimized) --- */
+    /* --- Optimized Ganesha Matrix Logic --- */
     const canvas = document.getElementById('bg-matrix');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth; canvas.height = window.innerHeight;
@@ -497,7 +561,7 @@
     for (let x = 0; x < columns; x++) drops[x] = Math.random() * -100;
 
     function drawMatrix() {
-        ctx.fillStyle = "rgba(1, 1, 1, 0.08)";
+        ctx.fillStyle = "rgba(3, 3, 5, 0.08)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         const shapeData = sCtx.getImageData(0, 0, shapeCanvas.width, shapeCanvas.height).data;
 
@@ -509,16 +573,10 @@
             const pixelIndex = (y * shapeCanvas.width + x) * 4;
             const isInside = pixelIndex < shapeData.length && shapeData[pixelIndex] > 0;
 
-            // Adding a slight glow effect to matrix characters
-            ctx.shadowBlur = isInside ? 5 : 0;
-            ctx.shadowColor = "#00f0ff";
-            
             ctx.fillStyle = isInside ? "#00f0ff" : "rgba(0, 240, 255, 0.15)";
             ctx.font = isInside ? "bold " + fontSize + "px Space Mono" : fontSize + "px Space Mono";
             const txt = isInside ? "ॐ" : chars[Math.floor(Math.random() * chars.length)];
             ctx.fillText(txt, x, y);
-            
-            ctx.shadowBlur = 0; // Reset for performance
 
             if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
             drops[i]++;
@@ -528,8 +586,7 @@
     window.addEventListener('resize', () => {
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
         shapeCanvas.width = canvas.width; shapeCanvas.height = canvas.height;
-        columns = Math.floor(canvas.width / fontSize);
-        drops = [];
+        columns = Math.floor(canvas.width / fontSize); drops = [];
         for (let x = 0; x < columns; x++) drops[x] = Math.random() * -100;
         drawGaneshaShape();
     });
