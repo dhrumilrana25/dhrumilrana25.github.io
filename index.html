@@ -515,21 +515,13 @@
     }
 
     .project {
-      grid-column: span 6;
-      padding: 28px;
-      min-height: 320px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .project.featured {
       grid-column: span 12;
+      padding: 28px;
+      min-height: 360px;
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: 22px;
       align-items: stretch;
-      min-height: 360px;
     }
 
     .project-kicker {
@@ -607,6 +599,13 @@
       margin-top: auto;
     }
 
+    .project-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: 0;
+    }
+
     .project-visual {
       border-radius: 20px;
       position: relative;
@@ -632,7 +631,6 @@
       opacity: 0.22;
     }
 
-    /* ---------- Agentic Cleanse Visual ---------- */
     .agentic-visual {
       background:
         radial-gradient(circle at 18% 25%, rgba(94,242,255,0.14), transparent 28%),
@@ -641,10 +639,7 @@
         linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
     }
 
-    .agentic-system {
-      position: absolute;
-      inset: 0;
-    }
+    .agentic-system { position: absolute; inset: 0; }
 
     .agentic-box {
       position: absolute;
@@ -706,11 +701,7 @@
       animation: spin 16s linear infinite;
     }
 
-    .agent-core-ring {
-      width: 130px;
-      height: 130px;
-    }
-
+    .agent-core-ring { width: 130px; height: 130px; }
     .agent-core-ring-2 {
       width: 180px;
       height: 180px;
@@ -764,7 +755,6 @@
     .agent-data-chip.c3 { bottom: 28%; left: 31%; animation: dataPulse 2.8s ease-in-out infinite 1.4s; }
     .agent-data-chip.c4 { bottom: 28%; right: 31%; animation: dataPulse 2.8s ease-in-out infinite 2.1s; }
 
-    /* ---------- Aegis Visual ---------- */
     .aegis-visual {
       background:
         radial-gradient(circle at 20% 20%, rgba(94,242,255,0.14), transparent 28%),
@@ -773,10 +763,7 @@
         linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
     }
 
-    .federated-network {
-      position: absolute;
-      inset: 0;
-    }
+    .federated-network { position: absolute; inset: 0; }
 
     .client-node {
       position: absolute;
@@ -789,9 +776,7 @@
       font-size: 1.2rem;
       background: rgba(8, 12, 20, 0.78);
       border: 1px solid rgba(94,242,255,0.2);
-      box-shadow:
-        0 0 25px rgba(94,242,255,0.10),
-        inset 0 1px 0 rgba(255,255,255,0.06);
+      box-shadow: 0 0 25px rgba(94,242,255,0.10), inset 0 1px 0 rgba(255,255,255,0.06);
       backdrop-filter: blur(10px);
       animation: floatNode 5s ease-in-out infinite;
       z-index: 2;
@@ -859,24 +844,19 @@
       box-shadow: 0 0 50px rgba(94,242,255,0.20);
     }
 
-    /* ---------- Twitter Graph Visual ---------- */
     .twitter-visual {
-      min-height: 220px;
       background:
         radial-gradient(circle at 18% 22%, rgba(94,242,255,0.12), transparent 28%),
         radial-gradient(circle at 84% 76%, rgba(177,104,255,0.14), transparent 32%),
         linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
     }
 
-    .graph-network {
-      position: absolute;
-      inset: 0;
-    }
+    .graph-network { position: absolute; inset: 0; }
 
     .graph-node {
       position: absolute;
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       background: linear-gradient(135deg, rgba(94,242,255,0.95), rgba(177,104,255,0.75));
       box-shadow: 0 0 18px rgba(94,242,255,0.25);
@@ -884,80 +864,113 @@
       z-index: 2;
     }
 
-    .graph-node.large {
-      width: 28px;
-      height: 28px;
-    }
+    .graph-node.large { width: 28px; height: 28px; }
 
-    .graph-node.g1 { top: 20%; left: 16%; animation-delay: 0s; }
-    .graph-node.g2 { top: 14%; left: 43%; animation-delay: 0.5s; }
-    .graph-node.g3 { top: 24%; right: 18%; animation-delay: 1s; }
-    .graph-node.g4 { top: 48%; left: 28%; animation-delay: 1.5s; }
-    .graph-node.g5 { top: 50%; left: 55%; animation-delay: 2s; }
-    .graph-node.g6 { bottom: 22%; left: 18%; animation-delay: 0.8s; }
-    .graph-node.g7 { bottom: 16%; left: 44%; animation-delay: 1.8s; }
-    .graph-node.g8 { bottom: 20%; right: 18%; animation-delay: 2.4s; }
+    .graph-node.g1 { top: 18%; left: 14%; animation-delay: 0s; }
+    .graph-node.g2 { top: 14%; left: 36%; animation-delay: 0.4s; }
+    .graph-node.g3 { top: 20%; left: 58%; animation-delay: 0.9s; }
+    .graph-node.g4 { top: 16%; right: 14%; animation-delay: 1.3s; }
+
+    .graph-node.g5 { top: 44%; left: 24%; animation-delay: 1.8s; }
+    .graph-node.g6 { top: 50%; left: 48%; animation-delay: 2.2s; }
+    .graph-node.g7 { top: 46%; right: 20%; animation-delay: 2.5s; }
+
+    .graph-node.g8 { bottom: 16%; left: 16%; animation-delay: 0.7s; }
+    .graph-node.g9 { bottom: 14%; left: 40%; animation-delay: 1.5s; }
+    .graph-node.g10 { bottom: 16%; right: 16%; animation-delay: 2.1s; }
 
     .graph-edge {
       position: absolute;
-      height: 1.8px;
+      height: 2px;
       transform-origin: left center;
-      background: linear-gradient(90deg, rgba(94,242,255,0.35), rgba(177,104,255,0.16));
-      opacity: 0.8;
+      background: linear-gradient(90deg, rgba(94,242,255,0.4), rgba(177,104,255,0.18));
+      opacity: 0.82;
       z-index: 1;
     }
 
-    .e1 { top: 23%; left: 18%; width: 132px; transform: rotate(-6deg); }
-    .e2 { top: 18%; left: 45%; width: 122px; transform: rotate(15deg); }
-    .e3 { top: 30%; left: 21%; width: 110px; transform: rotate(26deg); }
-    .e4 { top: 28%; left: 47%; width: 105px; transform: rotate(36deg); }
-    .e5 { top: 53%; left: 30%; width: 110px; transform: rotate(6deg); }
-    .e6 { top: 56%; left: 57%; width: 92px; transform: rotate(-20deg); }
-    .e7 { bottom: 25%; left: 20%; width: 118px; transform: rotate(-6deg); }
-    .e8 { bottom: 24%; left: 46%; width: 120px; transform: rotate(6deg); }
-    .e9 { top: 38%; left: 18%; width: 160px; transform: rotate(54deg); }
-    .e10 { top: 38%; left: 58%; width: 112px; transform: rotate(66deg); }
+    .ge1 { top: 21%; left: 16%; width: 110px; transform: rotate(-5deg); }
+    .ge2 { top: 18%; left: 38%; width: 110px; transform: rotate(6deg); }
+    .ge3 { top: 21%; left: 60%; width: 94px; transform: rotate(-4deg); }
 
-    .graph-core {
+    .ge4 { top: 28%; left: 17%; width: 136px; transform: rotate(34deg); }
+    .ge5 { top: 27%; left: 39%; width: 112px; transform: rotate(38deg); }
+    .ge6 { top: 28%; left: 63%; width: 92px; transform: rotate(42deg); }
+
+    .ge7 { top: 52%; left: 26%; width: 112px; transform: rotate(8deg); }
+    .ge8 { top: 52%; left: 50%; width: 88px; transform: rotate(-10deg); }
+
+    .ge9 { top: 58%; left: 28%; width: 116px; transform: rotate(36deg); }
+    .ge10 { top: 56%; left: 50%; width: 116px; transform: rotate(24deg); }
+
+    .graph-center {
       position: absolute;
-      inset: 0;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 90px;
+      height: 90px;
       display: grid;
       place-items: center;
       z-index: 3;
-      pointer-events: none;
+    }
+
+    .graph-ring {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 1px solid rgba(94,242,255,0.18);
+      animation: spin 15s linear infinite;
+    }
+
+    .graph-ring.r2 {
+      width: 170px;
+      height: 170px;
+      border-color: rgba(177,104,255,0.16);
+      animation-direction: reverse;
+      animation-duration: 21s;
     }
 
     .graph-core-badge {
-      width: 66px;
-      height: 66px;
-      border-radius: 20px;
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
       display: grid;
       place-items: center;
       background: linear-gradient(135deg, rgba(94,242,255,0.88), rgba(177,104,255,0.8));
       box-shadow: 0 0 40px rgba(94,242,255,0.18);
       color: white;
-      font-size: 1.35rem;
+      font-size: 1.45rem;
       animation: pulse 3.6s ease-in-out infinite;
     }
 
-    /* ---------- IoT Security Visual ---------- */
     .iot-visual {
-      min-height: 220px;
       background:
         radial-gradient(circle at 20% 20%, rgba(94,242,255,0.12), transparent 30%),
         radial-gradient(circle at 80% 80%, rgba(177,104,255,0.14), transparent 34%),
         linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
     }
 
-    .iot-security {
+    .iot-security { position: absolute; inset: 0; }
+
+    .iot-alert {
       position: absolute;
-      inset: 0;
+      top: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9fffd8;
+      opacity: 0.72;
+      z-index: 4;
     }
 
     .iot-device {
       position: absolute;
-      width: 56px;
-      height: 56px;
+      width: 58px;
+      height: 58px;
       border-radius: 18px;
       display: grid;
       place-items: center;
@@ -970,10 +983,10 @@
       animation: floatNode 5s ease-in-out infinite;
     }
 
-    .iot-d1 { top: 16%; left: 12%; animation-delay: 0s; }
+    .iot-d1 { top: 20%; left: 14%; animation-delay: 0s; }
     .iot-d2 { top: 20%; right: 14%; animation-delay: 0.8s; }
     .iot-d3 { bottom: 18%; left: 18%; animation-delay: 1.6s; }
-    .iot-d4 { bottom: 16%; right: 16%; animation-delay: 2.2s; }
+    .iot-d4 { bottom: 18%; right: 18%; animation-delay: 2.2s; }
 
     .iot-link {
       position: absolute;
@@ -986,10 +999,10 @@
       z-index: 1;
     }
 
-    .iot-l1 { width: 150px; transform: translate(0, 0) rotate(-148deg); }
-    .iot-l2 { width: 146px; transform: translate(0, 0) rotate(-30deg); }
-    .iot-l3 { width: 144px; transform: translate(0, 0) rotate(148deg); }
-    .iot-l4 { width: 144px; transform: translate(0, 0) rotate(30deg); }
+    .iot-l1 { width: 142px; transform: translate(0, 0) rotate(-146deg); }
+    .iot-l2 { width: 142px; transform: translate(0, 0) rotate(-34deg); }
+    .iot-l3 { width: 138px; transform: translate(0, 0) rotate(146deg); }
+    .iot-l4 { width: 138px; transform: translate(0, 0) rotate(34deg); }
 
     .iot-core {
       position: absolute;
@@ -1003,6 +1016,22 @@
       z-index: 3;
     }
 
+    .iot-wave,
+    .iot-wave.w2 {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(124,255,200,0.18);
+      animation: securePulse 3.2s ease-in-out infinite;
+    }
+
+    .iot-wave { width: 120px; height: 120px; }
+    .iot-wave.w2 {
+      width: 168px;
+      height: 168px;
+      border-color: rgba(94,242,255,0.16);
+      animation-delay: 1.1s;
+    }
+
     .iot-shield {
       width: 84px;
       height: 84px;
@@ -1014,40 +1043,6 @@
       background: linear-gradient(135deg, rgba(124,255,200,0.85), rgba(94,242,255,0.75));
       box-shadow: 0 0 42px rgba(124,255,200,0.18);
       animation: shieldGlow 3.4s ease-in-out infinite;
-    }
-
-    .iot-wave,
-    .iot-wave.w2 {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(124,255,200,0.18);
-      animation: securePulse 3.2s ease-in-out infinite;
-    }
-
-    .iot-wave {
-      width: 120px;
-      height: 120px;
-    }
-
-    .iot-wave.w2 {
-      width: 168px;
-      height: 168px;
-      border-color: rgba(94,242,255,0.16);
-      animation-delay: 1.1s;
-    }
-
-    .iot-alert {
-      position: absolute;
-      top: 18%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #9fffd8;
-      opacity: 0.72;
-      z-index: 4;
     }
 
     .experience-list {
@@ -1169,14 +1164,8 @@
     }
 
     @keyframes securePulse {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 0.9;
-      }
-      50% {
-        transform: scale(1.08);
-        opacity: 0.45;
-      }
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.08); opacity: 0.45; }
     }
 
     @keyframes graphPulse {
@@ -1185,14 +1174,8 @@
     }
 
     @keyframes shieldGlow {
-      0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 36px rgba(124,255,200,0.16);
-      }
-      50% {
-        transform: scale(1.06);
-        box-shadow: 0 0 62px rgba(94,242,255,0.2);
-      }
+      0%, 100% { transform: scale(1); box-shadow: 0 0 36px rgba(124,255,200,0.16); }
+      50% { transform: scale(1.06); box-shadow: 0 0 62px rgba(94,242,255,0.2); }
     }
 
     @keyframes dataPulse {
@@ -1202,13 +1185,8 @@
 
     @media (max-width: 1100px) {
       .hero,
-      .project.featured {
+      .project {
         grid-template-columns: 1fr;
-      }
-
-      .project,
-      .project.featured {
-        grid-column: span 12;
       }
     }
 
@@ -1217,7 +1195,8 @@
       .nav-inner { padding: 14px 0; }
       .nav-link { display: none; }
       section { padding: 90px 0; }
-      .hero-main, .hero-side, .project, .footer-card { padding: 22px; }
+      .hero-main, .hero-side, .footer-card { padding: 22px; }
+      .project { padding: 22px; }
       .section-head { flex-direction: column; align-items: start; }
       .stat-grid { grid-template-columns: 1fr; }
       .exp-item { grid-template-columns: 1fr; }
@@ -1264,10 +1243,6 @@
         width: 62px;
         height: 62px;
         font-size: 1.25rem;
-      }
-
-      .graph-edge {
-        opacity: 0.56;
       }
     }
 
@@ -1387,28 +1362,31 @@
         </div>
 
         <div class="projects-grid">
-          <article class="panel project featured reveal tilt-card">
-            <div>
-              <div class="project-kicker">
-                <span>Featured project</span>
-                <span>Agentic AI</span>
+          <article class="panel project reveal tilt-card">
+            <div class="project-copy">
+              <div>
+                <div class="project-kicker">
+                  <span>Featured project</span>
+                  <span>Agentic AI</span>
+                </div>
+                <h3>Agentic-Cleanse Factory</h3>
+                <p>
+                  LLM-powered multi-agent ETL system built to automate data cleaning, validation, schema alignment, and anomaly handling across messy real-world datasets.
+                </p>
+                <div class="project-metrics">
+                  <div class="metric"><strong>80%</strong><span>less manual processing</span></div>
+                  <div class="metric"><strong>Multi-agent</strong><span>workflow orchestration</span></div>
+                  <div class="metric"><strong>Real demo</strong><span>deployed for interaction</span></div>
+                </div>
+                <div class="stack">
+                  <span>LangGraph</span>
+                  <span>Groq</span>
+                  <span>Streamlit</span>
+                  <span>Python</span>
+                  <span>Prompt Engineering</span>
+                </div>
               </div>
-              <h3>Agentic-Cleanse Factory</h3>
-              <p>
-                LLM-powered multi-agent ETL system built to automate data cleaning, validation, schema alignment, and anomaly handling across messy real-world datasets.
-              </p>
-              <div class="project-metrics">
-                <div class="metric"><strong>80%</strong><span>less manual processing</span></div>
-                <div class="metric"><strong>Multi-agent</strong><span>workflow orchestration</span></div>
-                <div class="metric"><strong>Real demo</strong><span>deployed for interaction</span></div>
-              </div>
-              <div class="stack">
-                <span>LangGraph</span>
-                <span>Groq</span>
-                <span>Streamlit</span>
-                <span>Python</span>
-                <span>Prompt Engineering</span>
-              </div>
+
               <div class="project-actions">
                 <a href="https://github.com/dhrumilrana25/Agentic-Cleanse" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
                 <a href="https://dhrumil-cleanse.streamlit.app/" target="_blank" class="btn btn-primary"><i class="fa-solid fa-bolt"></i> Live Demo</a>
@@ -1458,29 +1436,32 @@
             </div>
           </article>
 
-          <article class="panel project featured reveal tilt-card">
-            <div>
-              <div class="project-kicker">
-                <span>Privacy-preserving AI</span>
-                <span>Federated Learning</span>
+          <article class="panel project reveal tilt-card">
+            <div class="project-copy">
+              <div>
+                <div class="project-kicker">
+                  <span>Privacy-preserving AI</span>
+                  <span>Federated Learning</span>
+                </div>
+                <h3>Aegis-Federate</h3>
+                <p>
+                  Multimodal privacy-preserving health intelligence system built for secure cross-institutional AI training. It combines federated learning, differential privacy, and containerized orchestration so sensitive patient data never leaves the hospital environment.
+                </p>
+                <div class="project-metrics">
+                  <div class="metric"><strong>Multimodal</strong><span>CNN + MLP fusion model</span></div>
+                  <div class="metric"><strong>Private AI</strong><span>differential privacy with Opacus</span></div>
+                  <div class="metric"><strong>Dockerized</strong><span>aggregator + edge node orchestration</span></div>
+                </div>
+                <div class="stack">
+                  <span>PyTorch</span>
+                  <span>Flower</span>
+                  <span>Opacus</span>
+                  <span>Docker</span>
+                  <span>Streamlit</span>
+                  <span>Plotly</span>
+                </div>
               </div>
-              <h3>Aegis-Federate</h3>
-              <p>
-                Multimodal privacy-preserving health intelligence system built for secure cross-institutional AI training. It combines federated learning, differential privacy, and containerized orchestration so sensitive patient data never leaves the hospital environment.
-              </p>
-              <div class="project-metrics">
-                <div class="metric"><strong>Multimodal</strong><span>CNN + MLP fusion model</span></div>
-                <div class="metric"><strong>Private AI</strong><span>differential privacy with Opacus</span></div>
-                <div class="metric"><strong>Dockerized</strong><span>aggregator + edge node orchestration</span></div>
-              </div>
-              <div class="stack">
-                <span>PyTorch</span>
-                <span>Flower</span>
-                <span>Opacus</span>
-                <span>Docker</span>
-                <span>Streamlit</span>
-                <span>Plotly</span>
-              </div>
+
               <div class="project-actions">
                 <a href="https://github.com/dhrumilrana25/Aegis-Federate" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
               </div>
@@ -1493,106 +1474,110 @@
                 <div class="network-line line-3"></div>
                 <div class="network-line line-4"></div>
 
-                <div class="client-node node-1">
-                  <i class="fa-solid fa-hospital"></i>
-                </div>
-                <div class="client-node node-2">
-                  <i class="fa-solid fa-hospital"></i>
-                </div>
-                <div class="client-node node-3">
-                  <i class="fa-solid fa-laptop-medical"></i>
-                </div>
-                <div class="client-node node-4">
-                  <i class="fa-solid fa-database"></i>
-                </div>
+                <div class="client-node node-1"><i class="fa-solid fa-hospital"></i></div>
+                <div class="client-node node-2"><i class="fa-solid fa-hospital"></i></div>
+                <div class="client-node node-3"><i class="fa-solid fa-laptop-medical"></i></div>
+                <div class="client-node node-4"><i class="fa-solid fa-database"></i></div>
 
                 <div class="secure-core">
                   <div class="secure-ring"></div>
                   <div class="secure-ring ring-2"></div>
-                  <div class="secure-lock">
-                    <i class="fa-solid fa-shield-halved"></i>
-                  </div>
+                  <div class="secure-lock"><i class="fa-solid fa-shield-halved"></i></div>
                 </div>
               </div>
             </div>
           </article>
 
           <article class="panel project reveal tilt-card">
-            <div>
-              <div class="project-kicker">
-                <span>Graph intelligence</span>
-                <span>Scale-first</span>
+            <div class="project-copy">
+              <div>
+                <div class="project-kicker">
+                  <span>Graph intelligence</span>
+                  <span>Scale-first</span>
+                </div>
+                <h3>Twitter Link Prediction Engine</h3>
+                <p>
+                  Large-scale social graph pipeline using DeepWalk embeddings and graph heuristics to model connection likelihood across 1.2M users.
+                </p>
+                <div class="project-metrics">
+                  <div class="metric"><strong>1.2M</strong><span>users in graph</span></div>
+                  <div class="metric"><strong>0.887</strong><span>AUC achieved</span></div>
+                  <div class="metric"><strong>Graph ML</strong><span>link likelihood modeling</span></div>
+                </div>
+                <div class="stack">
+                  <span>DeepWalk</span>
+                  <span>NetworkX</span>
+                  <span>Random Forest</span>
+                  <span>Graph Features</span>
+                </div>
               </div>
-              <h3>Twitter Link Prediction Engine</h3>
-              <p>
-                Large-scale social graph pipeline using DeepWalk embeddings and graph heuristics to model connection likelihood across 1.2M users.
-              </p>
-              <div class="project-metrics">
-                <div class="metric"><strong>1.2M</strong><span>users in graph</span></div>
-                <div class="metric"><strong>0.887</strong><span>AUC achieved</span></div>
-              </div>
-              <div class="stack">
-                <span>DeepWalk</span>
-                <span>NetworkX</span>
-                <span>Random Forest</span>
-                <span>Graph Features</span>
+
+              <div class="project-actions">
+                <a href="https://github.com/dhrumilrana25/Twitter-Scale-Link-Prediction-Engine" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="Link_Prediction_Embeddings.pdf" target="_blank" class="btn"><i class="fa-solid fa-file-pdf"></i> Paper</a>
               </div>
             </div>
 
             <div class="project-visual twitter-visual" aria-hidden="true">
               <div class="graph-network">
-                <div class="graph-edge e1"></div>
-                <div class="graph-edge e2"></div>
-                <div class="graph-edge e3"></div>
-                <div class="graph-edge e4"></div>
-                <div class="graph-edge e5"></div>
-                <div class="graph-edge e6"></div>
-                <div class="graph-edge e7"></div>
-                <div class="graph-edge e8"></div>
-                <div class="graph-edge e9"></div>
-                <div class="graph-edge e10"></div>
+                <div class="graph-edge ge1"></div>
+                <div class="graph-edge ge2"></div>
+                <div class="graph-edge ge3"></div>
+                <div class="graph-edge ge4"></div>
+                <div class="graph-edge ge5"></div>
+                <div class="graph-edge ge6"></div>
+                <div class="graph-edge ge7"></div>
+                <div class="graph-edge ge8"></div>
+                <div class="graph-edge ge9"></div>
+                <div class="graph-edge ge10"></div>
 
                 <div class="graph-node large g1"></div>
                 <div class="graph-node g2"></div>
-                <div class="graph-node large g3"></div>
-                <div class="graph-node g4"></div>
-                <div class="graph-node large g5"></div>
-                <div class="graph-node g6"></div>
+                <div class="graph-node g3"></div>
+                <div class="graph-node large g4"></div>
+                <div class="graph-node g5"></div>
+                <div class="graph-node large g6"></div>
                 <div class="graph-node g7"></div>
-                <div class="graph-node large g8"></div>
+                <div class="graph-node g8"></div>
+                <div class="graph-node g9"></div>
+                <div class="graph-node large g10"></div>
 
-                <div class="graph-core">
+                <div class="graph-center">
+                  <div class="graph-ring"></div>
+                  <div class="graph-ring r2"></div>
                   <div class="graph-core-badge">
                     <i class="fa-solid fa-share-nodes"></i>
                   </div>
                 </div>
               </div>
             </div>
-
-            <div class="project-actions">
-              <a href="https://github.com/dhrumilrana25/Twitter-Scale-Link-Prediction-Engine" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
-              <a href="Link_Prediction_Embeddings.pdf" target="_blank" class="btn"><i class="fa-solid fa-file-pdf"></i> Paper</a>
-            </div>
           </article>
 
           <article class="panel project reveal tilt-card">
-            <div>
-              <div class="project-kicker">
-                <span>Applied security</span>
-                <span>Behavioral ML</span>
+            <div class="project-copy">
+              <div>
+                <div class="project-kicker">
+                  <span>Applied security</span>
+                  <span>Behavioral ML</span>
+                </div>
+                <h3>IoT Malware Defense</h3>
+                <p>
+                  Security analytics system for detecting IoT malware behavior through high-dimensional feature extraction and anomaly-aware classification.
+                </p>
+                <div class="project-metrics">
+                  <div class="metric"><strong>95.38%</strong><span>verified accuracy</span></div>
+                  <div class="metric"><strong>Real-time</strong><span>threat modeling</span></div>
+                  <div class="metric"><strong>Defense AI</strong><span>device behavior analysis</span></div>
+                </div>
+                <div class="stack">
+                  <span>Cybersecurity</span>
+                  <span>ML Analytics</span>
+                  <span>Anomaly Detection</span>
+                </div>
               </div>
-              <h3>IoT Malware Defense</h3>
-              <p>
-                Security analytics system for detecting IoT malware behavior through high-dimensional feature extraction and anomaly-aware classification.
-              </p>
-              <div class="project-metrics">
-                <div class="metric"><strong>95.38%</strong><span>verified accuracy</span></div>
-                <div class="metric"><strong>Real-time</strong><span>threat modeling</span></div>
-              </div>
-              <div class="stack">
-                <span>Cybersecurity</span>
-                <span>ML Analytics</span>
-                <span>Anomaly Detection</span>
+
+              <div class="project-actions">
+                <a href="https://github.com/dhrumilrana25/IoT-Malware-Detection-Network-Analytics" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
               </div>
             </div>
 
@@ -1613,15 +1598,9 @@
                 <div class="iot-core">
                   <div class="iot-wave"></div>
                   <div class="iot-wave w2"></div>
-                  <div class="iot-shield">
-                    <i class="fa-solid fa-shield-virus"></i>
-                  </div>
+                  <div class="iot-shield"><i class="fa-solid fa-shield-virus"></i></div>
                 </div>
               </div>
-            </div>
-
-            <div class="project-actions">
-              <a href="https://github.com/dhrumilrana25/IoT-Malware-Detection-Network-Analytics" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
             </div>
           </article>
         </div>
