@@ -632,152 +632,424 @@
       opacity: 0.22;
     }
 
-    .project-orbit {
+    /* ---------- Agentic Cleanse Visual ---------- */
+    .agentic-visual {
+      background:
+        radial-gradient(circle at 18% 25%, rgba(94,242,255,0.14), transparent 28%),
+        radial-gradient(circle at 82% 70%, rgba(177,104,255,0.16), transparent 32%),
+        radial-gradient(circle at 50% 50%, rgba(124,255,200,0.08), transparent 36%),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    }
+
+    .agentic-system {
+      position: absolute;
+      inset: 0;
+    }
+
+    .agentic-box {
+      position: absolute;
+      min-width: 108px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(8,12,20,0.78);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 0 24px rgba(0,0,0,0.22);
+      backdrop-filter: blur(10px);
+      z-index: 2;
+      animation: floatSoft 5.8s ease-in-out infinite;
+    }
+
+    .agentic-box strong {
+      display: block;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #eef8ff;
+      margin-bottom: 4px;
+      font-family: 'Space Mono', monospace;
+    }
+
+    .agentic-box span {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+      display: block;
+    }
+
+    .agentic-box i {
+      color: var(--accent);
+      margin-right: 8px;
+    }
+
+    .agent-input { top: 14%; left: 10%; animation-delay: 0s; }
+    .agent-validate { top: 14%; right: 10%; animation-delay: 0.8s; }
+    .agent-schema { bottom: 16%; left: 12%; animation-delay: 1.5s; }
+    .agent-anomaly { bottom: 16%; right: 10%; animation-delay: 2.1s; }
+
+    .agent-core {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 130px;
+      height: 130px;
+      transform: translate(-50%, -50%);
+      display: grid;
+      place-items: center;
+      z-index: 3;
+    }
+
+    .agent-core-ring,
+    .agent-core-ring-2 {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(94,242,255,0.18);
+      animation: spin 16s linear infinite;
+    }
+
+    .agent-core-ring {
+      width: 130px;
+      height: 130px;
+    }
+
+    .agent-core-ring-2 {
+      width: 180px;
+      height: 180px;
+      border-color: rgba(177,104,255,0.18);
+      animation-direction: reverse;
+      animation-duration: 22s;
+    }
+
+    .agent-core-chip {
+      width: 82px;
+      height: 82px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(94,242,255,0.9), rgba(177,104,255,0.82));
+      box-shadow: 0 0 60px rgba(94,242,255,0.18);
+      color: white;
+      font-size: 1.7rem;
+      animation: pulse 3.6s ease-in-out infinite;
+    }
+
+    .agent-line {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 2px;
+      transform-origin: left center;
+      background: linear-gradient(90deg, rgba(94,242,255,0.55), rgba(177,104,255,0.12));
+      box-shadow: 0 0 10px rgba(94,242,255,0.16);
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    .agent-line.l1 { width: 148px; transform: translate(0, 0) rotate(-146deg); }
+    .agent-line.l2 { width: 148px; transform: translate(0, 0) rotate(-34deg); }
+    .agent-line.l3 { width: 148px; transform: translate(0, 0) rotate(146deg); }
+    .agent-line.l4 { width: 148px; transform: translate(0, 0) rotate(34deg); }
+
+    .agent-data-chip {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 16px rgba(94,242,255,0.45);
+      z-index: 4;
+    }
+
+    .agent-data-chip.c1 { top: 26%; left: 30%; animation: dataPulse 2.8s ease-in-out infinite; }
+    .agent-data-chip.c2 { top: 30%; right: 30%; animation: dataPulse 2.8s ease-in-out infinite 0.7s; }
+    .agent-data-chip.c3 { bottom: 28%; left: 31%; animation: dataPulse 2.8s ease-in-out infinite 1.4s; }
+    .agent-data-chip.c4 { bottom: 28%; right: 31%; animation: dataPulse 2.8s ease-in-out infinite 2.1s; }
+
+    /* ---------- Aegis Visual ---------- */
+    .aegis-visual {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(94,242,255,0.14), transparent 28%),
+        radial-gradient(circle at 80% 70%, rgba(177,104,255,0.16), transparent 30%),
+        radial-gradient(circle at center, rgba(124,255,200,0.08), transparent 38%),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    }
+
+    .federated-network {
+      position: absolute;
+      inset: 0;
+    }
+
+    .client-node {
+      position: absolute;
+      width: 62px;
+      height: 62px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      color: #eafcff;
+      font-size: 1.2rem;
+      background: rgba(8, 12, 20, 0.78);
+      border: 1px solid rgba(94,242,255,0.2);
+      box-shadow:
+        0 0 25px rgba(94,242,255,0.10),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      animation: floatNode 5s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    .node-1 { top: 16%; left: 18%; animation-delay: 0s; }
+    .node-2 { top: 18%; right: 18%; animation-delay: 0.8s; }
+    .node-3 { bottom: 18%; left: 22%; animation-delay: 1.4s; }
+    .node-4 { bottom: 16%; right: 20%; animation-delay: 2s; }
+
+    .network-line {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 2px;
+      transform-origin: left center;
+      background: linear-gradient(90deg, rgba(94,242,255,0.55), rgba(177,104,255,0.18));
+      box-shadow: 0 0 12px rgba(94,242,255,0.18);
+      opacity: 0.72;
+      z-index: 1;
+    }
+
+    .line-1 { width: 145px; transform: translate(0, 0) rotate(-146deg); }
+    .line-2 { width: 145px; transform: translate(0, 0) rotate(-34deg); }
+    .line-3 { width: 140px; transform: translate(0, 0) rotate(146deg); }
+    .line-4 { width: 140px; transform: translate(0, 0) rotate(34deg); }
+
+    .secure-core {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 120px;
+      height: 120px;
+      transform: translate(-50%, -50%);
+      display: grid;
+      place-items: center;
+      z-index: 3;
+    }
+
+    .secure-ring {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 1px solid rgba(94,242,255,0.22);
+      animation: securePulse 3.6s ease-in-out infinite;
+    }
+
+    .secure-ring.ring-2 {
+      width: 160px;
+      height: 160px;
+      border-color: rgba(177,104,255,0.18);
+      animation-delay: 1.2s;
+    }
+
+    .secure-lock {
+      width: 78px;
+      height: 78px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      color: white;
+      background: linear-gradient(135deg, rgba(94,242,255,0.9), rgba(177,104,255,0.85));
+      box-shadow: 0 0 50px rgba(94,242,255,0.20);
+    }
+
+    /* ---------- Twitter Graph Visual ---------- */
+    .twitter-visual {
+      min-height: 220px;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(94,242,255,0.12), transparent 28%),
+        radial-gradient(circle at 84% 76%, rgba(177,104,255,0.14), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    }
+
+    .graph-network {
+      position: absolute;
+      inset: 0;
+    }
+
+    .graph-node {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(94,242,255,0.95), rgba(177,104,255,0.75));
+      box-shadow: 0 0 18px rgba(94,242,255,0.25);
+      animation: graphPulse 3.2s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    .graph-node.large {
+      width: 28px;
+      height: 28px;
+    }
+
+    .graph-node.g1 { top: 20%; left: 16%; animation-delay: 0s; }
+    .graph-node.g2 { top: 14%; left: 43%; animation-delay: 0.5s; }
+    .graph-node.g3 { top: 24%; right: 18%; animation-delay: 1s; }
+    .graph-node.g4 { top: 48%; left: 28%; animation-delay: 1.5s; }
+    .graph-node.g5 { top: 50%; left: 55%; animation-delay: 2s; }
+    .graph-node.g6 { bottom: 22%; left: 18%; animation-delay: 0.8s; }
+    .graph-node.g7 { bottom: 16%; left: 44%; animation-delay: 1.8s; }
+    .graph-node.g8 { bottom: 20%; right: 18%; animation-delay: 2.4s; }
+
+    .graph-edge {
+      position: absolute;
+      height: 1.8px;
+      transform-origin: left center;
+      background: linear-gradient(90deg, rgba(94,242,255,0.35), rgba(177,104,255,0.16));
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    .e1 { top: 23%; left: 18%; width: 132px; transform: rotate(-6deg); }
+    .e2 { top: 18%; left: 45%; width: 122px; transform: rotate(15deg); }
+    .e3 { top: 30%; left: 21%; width: 110px; transform: rotate(26deg); }
+    .e4 { top: 28%; left: 47%; width: 105px; transform: rotate(36deg); }
+    .e5 { top: 53%; left: 30%; width: 110px; transform: rotate(6deg); }
+    .e6 { top: 56%; left: 57%; width: 92px; transform: rotate(-20deg); }
+    .e7 { bottom: 25%; left: 20%; width: 118px; transform: rotate(-6deg); }
+    .e8 { bottom: 24%; left: 46%; width: 120px; transform: rotate(6deg); }
+    .e9 { top: 38%; left: 18%; width: 160px; transform: rotate(54deg); }
+    .e10 { top: 38%; left: 58%; width: 112px; transform: rotate(66deg); }
+
+    .graph-core {
       position: absolute;
       inset: 0;
       display: grid;
       place-items: center;
+      z-index: 3;
+      pointer-events: none;
     }
 
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(94,242,255,0.18);
-      box-shadow: 0 0 30px rgba(94,242,255,0.05), inset 0 0 22px rgba(255,255,255,0.02);
-      animation: spin 16s linear infinite;
-    }
-
-    .orb.one { width: 220px; height: 220px; }
-    .orb.two { width: 310px; height: 310px; animation-duration: 22s; animation-direction: reverse; border-color: rgba(177,104,255,0.2); }
-    .orb.three { width: 120px; height: 120px; animation-duration: 12s; }
-
-    .core {
-      width: 82px;
-      height: 82px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, rgba(94,242,255,0.88), rgba(177,104,255,0.82));
-      box-shadow: 0 0 80px rgba(94,242,255,0.25);
-      transform: rotate(45deg);
+    .graph-core-badge {
+      width: 66px;
+      height: 66px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(94,242,255,0.88), rgba(177,104,255,0.8));
+      box-shadow: 0 0 40px rgba(94,242,255,0.18);
+      color: white;
+      font-size: 1.35rem;
       animation: pulse 3.6s ease-in-out infinite;
     }
-.aegis-visual {
-  background:
-    radial-gradient(circle at 20% 20%, rgba(94,242,255,0.14), transparent 28%),
-    radial-gradient(circle at 80% 70%, rgba(177,104,255,0.16), transparent 30%),
-    radial-gradient(circle at center, rgba(124,255,200,0.08), transparent 38%),
-    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-}
 
-.federated-network {
-  position: absolute;
-  inset: 0;
-}
+    /* ---------- IoT Security Visual ---------- */
+    .iot-visual {
+      min-height: 220px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(94,242,255,0.12), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(177,104,255,0.14), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    }
 
-.client-node {
-  position: absolute;
-  width: 62px;
-  height: 62px;
-  border-radius: 18px;
-  display: grid;
-  place-items: center;
-  color: #eafcff;
-  font-size: 1.2rem;
-  background: rgba(8, 12, 20, 0.78);
-  border: 1px solid rgba(94,242,255,0.2);
-  box-shadow:
-    0 0 25px rgba(94,242,255,0.10),
-    inset 0 1px 0 rgba(255,255,255,0.06);
-  backdrop-filter: blur(10px);
-  animation: floatNode 5s ease-in-out infinite;
-}
+    .iot-security {
+      position: absolute;
+      inset: 0;
+    }
 
-.node-1 { top: 16%; left: 18%; animation-delay: 0s; }
-.node-2 { top: 18%; right: 18%; animation-delay: 0.8s; }
-.node-3 { bottom: 18%; left: 22%; animation-delay: 1.4s; }
-.node-4 { bottom: 16%; right: 20%; animation-delay: 2s; }
+    .iot-device {
+      position: absolute;
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 1.15rem;
+      color: #f3fbff;
+      background: rgba(8,12,20,0.82);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 0 22px rgba(0,0,0,0.22);
+      z-index: 2;
+      animation: floatNode 5s ease-in-out infinite;
+    }
 
-.network-line {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  height: 2px;
-  transform-origin: left center;
-  background: linear-gradient(90deg, rgba(94,242,255,0.55), rgba(177,104,255,0.18));
-  box-shadow: 0 0 12px rgba(94,242,255,0.18);
-  opacity: 0.72;
-}
+    .iot-d1 { top: 16%; left: 12%; animation-delay: 0s; }
+    .iot-d2 { top: 20%; right: 14%; animation-delay: 0.8s; }
+    .iot-d3 { bottom: 18%; left: 18%; animation-delay: 1.6s; }
+    .iot-d4 { bottom: 16%; right: 16%; animation-delay: 2.2s; }
 
-.line-1 {
-  width: 145px;
-  transform: translate(0, 0) rotate(-146deg);
-}
-.line-2 {
-  width: 145px;
-  transform: translate(0, 0) rotate(-34deg);
-}
-.line-3 {
-  width: 140px;
-  transform: translate(0, 0) rotate(146deg);
-}
-.line-4 {
-  width: 140px;
-  transform: translate(0, 0) rotate(34deg);
-}
+    .iot-link {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 2px;
+      transform-origin: left center;
+      background: linear-gradient(90deg, rgba(124,255,200,0.36), rgba(94,242,255,0.14));
+      opacity: 0.72;
+      z-index: 1;
+    }
 
-.secure-core {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 120px;
-  height: 120px;
-  transform: translate(-50%, -50%);
-  display: grid;
-  place-items: center;
-}
+    .iot-l1 { width: 150px; transform: translate(0, 0) rotate(-148deg); }
+    .iot-l2 { width: 146px; transform: translate(0, 0) rotate(-30deg); }
+    .iot-l3 { width: 144px; transform: translate(0, 0) rotate(148deg); }
+    .iot-l4 { width: 144px; transform: translate(0, 0) rotate(30deg); }
 
-.secure-ring {
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 1px solid rgba(94,242,255,0.22);
-  animation: securePulse 3.6s ease-in-out infinite;
-}
+    .iot-core {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 120px;
+      height: 120px;
+      transform: translate(-50%, -50%);
+      display: grid;
+      place-items: center;
+      z-index: 3;
+    }
 
-.secure-ring.ring-2 {
-  width: 160px;
-  height: 160px;
-  border-color: rgba(177,104,255,0.18);
-  animation-delay: 1.2s;
-}
+    .iot-shield {
+      width: 84px;
+      height: 84px;
+      border-radius: 26px;
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      color: white;
+      background: linear-gradient(135deg, rgba(124,255,200,0.85), rgba(94,242,255,0.75));
+      box-shadow: 0 0 42px rgba(124,255,200,0.18);
+      animation: shieldGlow 3.4s ease-in-out infinite;
+    }
 
-.secure-lock {
-  width: 78px;
-  height: 78px;
-  border-radius: 24px;
-  display: grid;
-  place-items: center;
-  font-size: 1.6rem;
-  color: white;
-  background: linear-gradient(135deg, rgba(94,242,255,0.9), rgba(177,104,255,0.85));
-  box-shadow: 0 0 50px rgba(94,242,255,0.20);
-}
+    .iot-wave,
+    .iot-wave.w2 {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(124,255,200,0.18);
+      animation: securePulse 3.2s ease-in-out infinite;
+    }
 
-@keyframes floatNode {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
+    .iot-wave {
+      width: 120px;
+      height: 120px;
+    }
 
-@keyframes securePulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.9;
-  }
-  50% {
-    transform: scale(1.08);
-    opacity: 0.45;
-  }
-}
+    .iot-wave.w2 {
+      width: 168px;
+      height: 168px;
+      border-color: rgba(94,242,255,0.16);
+      animation-delay: 1.1s;
+    }
+
+    .iot-alert {
+      position: absolute;
+      top: 18%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9fffd8;
+      opacity: 0.72;
+      z-index: 4;
+    }
+
     .experience-list {
       display: grid;
       gap: 14px;
@@ -882,8 +1154,50 @@
     }
 
     @keyframes pulse {
-      0%, 100% { transform: rotate(45deg) scale(1); box-shadow: 0 0 70px rgba(94,242,255,0.22); }
-      50% { transform: rotate(45deg) scale(1.08); box-shadow: 0 0 100px rgba(177,104,255,0.22); }
+      0%, 100% { transform: scale(1); box-shadow: 0 0 60px rgba(94,242,255,0.18); }
+      50% { transform: scale(1.06); box-shadow: 0 0 90px rgba(177,104,255,0.18); }
+    }
+
+    @keyframes floatSoft {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes floatNode {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes securePulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.9;
+      }
+      50% {
+        transform: scale(1.08);
+        opacity: 0.45;
+      }
+    }
+
+    @keyframes graphPulse {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.18); opacity: 1; }
+    }
+
+    @keyframes shieldGlow {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 36px rgba(124,255,200,0.16);
+      }
+      50% {
+        transform: scale(1.06);
+        box-shadow: 0 0 62px rgba(94,242,255,0.2);
+      }
+    }
+
+    @keyframes dataPulse {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.5); opacity: 1; }
     }
 
     @media (max-width: 1100px) {
@@ -911,6 +1225,50 @@
       .footer-card { flex-direction: column; align-items: start; }
       .btn { width: 100%; }
       .cta-row, .project-actions { width: 100%; }
+
+      .agentic-box {
+        min-width: 86px;
+        padding: 10px 11px;
+      }
+
+      .agentic-box strong,
+      .agentic-box span {
+        font-size: 0.68rem;
+      }
+
+      .agent-line.l1,
+      .agent-line.l2,
+      .agent-line.l3,
+      .agent-line.l4,
+      .line-1,
+      .line-2,
+      .line-3,
+      .line-4,
+      .iot-l1,
+      .iot-l2,
+      .iot-l3,
+      .iot-l4 {
+        width: 108px;
+      }
+
+      .client-node,
+      .iot-device {
+        width: 52px;
+        height: 52px;
+        font-size: 1rem;
+      }
+
+      .secure-ring { width: 96px; height: 96px; }
+      .secure-ring.ring-2 { width: 132px; height: 132px; }
+      .secure-lock {
+        width: 62px;
+        height: 62px;
+        font-size: 1.25rem;
+      }
+
+      .graph-edge {
+        opacity: 0.56;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1057,17 +1415,50 @@
               </div>
             </div>
 
-            <div class="project-visual" aria-hidden="true">
-              <div class="project-orbit">
-                <div class="orb one"></div>
-                <div class="orb two"></div>
-                <div class="orb three"></div>
-                <div class="core"></div>
+            <div class="project-visual agentic-visual" aria-hidden="true">
+              <div class="agentic-system">
+                <div class="agent-line l1"></div>
+                <div class="agent-line l2"></div>
+                <div class="agent-line l3"></div>
+                <div class="agent-line l4"></div>
+
+                <div class="agentic-box agent-input">
+                  <strong><i class="fa-solid fa-database"></i>Input</strong>
+                  <span>Raw data intake</span>
+                </div>
+
+                <div class="agentic-box agent-validate">
+                  <strong><i class="fa-solid fa-circle-check"></i>Validate</strong>
+                  <span>Quality checks</span>
+                </div>
+
+                <div class="agentic-box agent-schema">
+                  <strong><i class="fa-solid fa-sitemap"></i>Schema</strong>
+                  <span>Alignment layer</span>
+                </div>
+
+                <div class="agentic-box agent-anomaly">
+                  <strong><i class="fa-solid fa-bug-slash"></i>Anomaly</strong>
+                  <span>Error handling</span>
+                </div>
+
+                <div class="agent-core">
+                  <div class="agent-core-ring"></div>
+                  <div class="agent-core-ring-2"></div>
+                  <div class="agent-core-chip">
+                    <i class="fa-solid fa-microchip"></i>
+                  </div>
+                </div>
+
+                <div class="agent-data-chip c1"></div>
+                <div class="agent-data-chip c2"></div>
+                <div class="agent-data-chip c3"></div>
+                <div class="agent-data-chip c4"></div>
               </div>
             </div>
           </article>
-          
-         <article class="panel project featured reveal tilt-card">
+
+          <article class="panel project featured reveal tilt-card">
             <div>
               <div class="project-kicker">
                 <span>Privacy-preserving AI</span>
@@ -1091,19 +1482,17 @@
                 <span>Plotly</span>
               </div>
               <div class="project-actions">
-                <a href="https://github.com/dhrumilrana25/Aegis-Federate" target="_blank" class="btn">
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
+                <a href="https://github.com/dhrumilrana25/Aegis-Federate" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
               </div>
             </div>
-          
+
             <div class="project-visual aegis-visual" aria-hidden="true">
               <div class="federated-network">
                 <div class="network-line line-1"></div>
                 <div class="network-line line-2"></div>
                 <div class="network-line line-3"></div>
                 <div class="network-line line-4"></div>
-          
+
                 <div class="client-node node-1">
                   <i class="fa-solid fa-hospital"></i>
                 </div>
@@ -1116,7 +1505,7 @@
                 <div class="client-node node-4">
                   <i class="fa-solid fa-database"></i>
                 </div>
-          
+
                 <div class="secure-core">
                   <div class="secure-ring"></div>
                   <div class="secure-ring ring-2"></div>
@@ -1128,7 +1517,6 @@
             </div>
           </article>
 
-          
           <article class="panel project reveal tilt-card">
             <div>
               <div class="project-kicker">
@@ -1150,6 +1538,37 @@
                 <span>Graph Features</span>
               </div>
             </div>
+
+            <div class="project-visual twitter-visual" aria-hidden="true">
+              <div class="graph-network">
+                <div class="graph-edge e1"></div>
+                <div class="graph-edge e2"></div>
+                <div class="graph-edge e3"></div>
+                <div class="graph-edge e4"></div>
+                <div class="graph-edge e5"></div>
+                <div class="graph-edge e6"></div>
+                <div class="graph-edge e7"></div>
+                <div class="graph-edge e8"></div>
+                <div class="graph-edge e9"></div>
+                <div class="graph-edge e10"></div>
+
+                <div class="graph-node large g1"></div>
+                <div class="graph-node g2"></div>
+                <div class="graph-node large g3"></div>
+                <div class="graph-node g4"></div>
+                <div class="graph-node large g5"></div>
+                <div class="graph-node g6"></div>
+                <div class="graph-node g7"></div>
+                <div class="graph-node large g8"></div>
+
+                <div class="graph-core">
+                  <div class="graph-core-badge">
+                    <i class="fa-solid fa-share-nodes"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="project-actions">
               <a href="https://github.com/dhrumilrana25/Twitter-Scale-Link-Prediction-Engine" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
               <a href="Link_Prediction_Embeddings.pdf" target="_blank" class="btn"><i class="fa-solid fa-file-pdf"></i> Paper</a>
@@ -1176,6 +1595,31 @@
                 <span>Anomaly Detection</span>
               </div>
             </div>
+
+            <div class="project-visual iot-visual" aria-hidden="true">
+              <div class="iot-security">
+                <div class="iot-alert">threat detection active</div>
+
+                <div class="iot-link iot-l1"></div>
+                <div class="iot-link iot-l2"></div>
+                <div class="iot-link iot-l3"></div>
+                <div class="iot-link iot-l4"></div>
+
+                <div class="iot-device iot-d1"><i class="fa-solid fa-wifi"></i></div>
+                <div class="iot-device iot-d2"><i class="fa-solid fa-camera"></i></div>
+                <div class="iot-device iot-d3"><i class="fa-solid fa-microchip"></i></div>
+                <div class="iot-device iot-d4"><i class="fa-solid fa-network-wired"></i></div>
+
+                <div class="iot-core">
+                  <div class="iot-wave"></div>
+                  <div class="iot-wave w2"></div>
+                  <div class="iot-shield">
+                    <i class="fa-solid fa-shield-virus"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="project-actions">
               <a href="https://github.com/dhrumilrana25/IoT-Malware-Detection-Network-Analytics" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
             </div>
