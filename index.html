@@ -660,7 +660,124 @@
       transform: rotate(45deg);
       animation: pulse 3.6s ease-in-out infinite;
     }
+.aegis-visual {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(94,242,255,0.14), transparent 28%),
+    radial-gradient(circle at 80% 70%, rgba(177,104,255,0.16), transparent 30%),
+    radial-gradient(circle at center, rgba(124,255,200,0.08), transparent 38%),
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+}
 
+.federated-network {
+  position: absolute;
+  inset: 0;
+}
+
+.client-node {
+  position: absolute;
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  color: #eafcff;
+  font-size: 1.2rem;
+  background: rgba(8, 12, 20, 0.78);
+  border: 1px solid rgba(94,242,255,0.2);
+  box-shadow:
+    0 0 25px rgba(94,242,255,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  animation: floatNode 5s ease-in-out infinite;
+}
+
+.node-1 { top: 16%; left: 18%; animation-delay: 0s; }
+.node-2 { top: 18%; right: 18%; animation-delay: 0.8s; }
+.node-3 { bottom: 18%; left: 22%; animation-delay: 1.4s; }
+.node-4 { bottom: 16%; right: 20%; animation-delay: 2s; }
+
+.network-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 2px;
+  transform-origin: left center;
+  background: linear-gradient(90deg, rgba(94,242,255,0.55), rgba(177,104,255,0.18));
+  box-shadow: 0 0 12px rgba(94,242,255,0.18);
+  opacity: 0.72;
+}
+
+.line-1 {
+  width: 145px;
+  transform: translate(0, 0) rotate(-146deg);
+}
+.line-2 {
+  width: 145px;
+  transform: translate(0, 0) rotate(-34deg);
+}
+.line-3 {
+  width: 140px;
+  transform: translate(0, 0) rotate(146deg);
+}
+.line-4 {
+  width: 140px;
+  transform: translate(0, 0) rotate(34deg);
+}
+
+.secure-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+}
+
+.secure-ring {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid rgba(94,242,255,0.22);
+  animation: securePulse 3.6s ease-in-out infinite;
+}
+
+.secure-ring.ring-2 {
+  width: 160px;
+  height: 160px;
+  border-color: rgba(177,104,255,0.18);
+  animation-delay: 1.2s;
+}
+
+.secure-lock {
+  width: 78px;
+  height: 78px;
+  border-radius: 24px;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+  color: white;
+  background: linear-gradient(135deg, rgba(94,242,255,0.9), rgba(177,104,255,0.85));
+  box-shadow: 0 0 50px rgba(94,242,255,0.20);
+}
+
+@keyframes floatNode {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes securePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.45;
+  }
+}
     .experience-list {
       display: grid;
       gap: 14px;
@@ -950,16 +1067,8 @@
             </div>
           </article>
           
-          <article class="panel project featured reveal tilt-card">
+         <article class="panel project featured reveal tilt-card">
             <div>
-            <div class="project-visual" aria-hidden="true">
-              <div class="project-orbit">
-                <div class="orb one"></div>
-                <div class="orb two"></div>
-                <div class="orb three"></div>
-                <div class="core"></div>
-              </div>
-            </div>
               <div class="project-kicker">
                 <span>Privacy-preserving AI</span>
                 <span>Federated Learning</span>
@@ -988,6 +1097,35 @@
               </div>
             </div>
           
+            <div class="project-visual aegis-visual" aria-hidden="true">
+              <div class="federated-network">
+                <div class="network-line line-1"></div>
+                <div class="network-line line-2"></div>
+                <div class="network-line line-3"></div>
+                <div class="network-line line-4"></div>
+          
+                <div class="client-node node-1">
+                  <i class="fa-solid fa-hospital"></i>
+                </div>
+                <div class="client-node node-2">
+                  <i class="fa-solid fa-hospital"></i>
+                </div>
+                <div class="client-node node-3">
+                  <i class="fa-solid fa-laptop-medical"></i>
+                </div>
+                <div class="client-node node-4">
+                  <i class="fa-solid fa-database"></i>
+                </div>
+          
+                <div class="secure-core">
+                  <div class="secure-ring"></div>
+                  <div class="secure-ring ring-2"></div>
+                  <div class="secure-lock">
+                    <i class="fa-solid fa-shield-halved"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
           </article>
 
           
