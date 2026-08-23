@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dhrumil Rana — Neural Systems Portfolio</title>
+  <meta name="description" content="Dhrumil Rana — AI Engineer building production agentic AI, backend automation, data systems, and applied machine learning." />
+  <meta name="theme-color" content="#04050a" />
+  <title>Dhrumil Rana — AI Systems Engineer | Production AI & Data Systems</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1253,13 +1255,618 @@
         scroll-behavior: auto !important;
       }
     }
+
+
+    /* ===== 2026 PORTFOLIO UPGRADE ===== */
+    :root {
+      --max: 1280px;
+      --radius: 26px;
+      --accent-soft: rgba(94,242,255,0.12);
+      --purple-soft: rgba(177,104,255,0.12);
+      --green-soft: rgba(124,255,200,0.10);
+      --panel-border: rgba(255,255,255,0.085);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(94,242,255,0.10), transparent 30%),
+        radial-gradient(circle at 88% 12%, rgba(177,104,255,0.10), transparent 30%),
+        radial-gradient(circle at 55% 70%, rgba(124,255,200,0.045), transparent 34%),
+        linear-gradient(180deg, #020309 0%, #060914 42%, #04050a 100%);
+      background-attachment: fixed;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 36rem;
+      height: 36rem;
+      right: -14rem;
+      top: 15vh;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(177,104,255,.10), transparent 64%);
+      filter: blur(16px);
+      pointer-events: none;
+      z-index: 0;
+      animation: ambientDrift 16s ease-in-out infinite alternate;
+    }
+
+    #scroll-progress {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 0%;
+      height: 2px;
+      z-index: 2000;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+      box-shadow: 0 0 18px rgba(94,242,255,.55);
+    }
+
+    .cursor-glow {
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 2;
+      opacity: .12;
+      background: radial-gradient(circle, rgba(94,242,255,.28), rgba(177,104,255,.08) 38%, transparent 70%);
+      transform: translate(-50%, -50%);
+      filter: blur(12px);
+      transition: opacity .25s ease;
+    }
+
+    nav::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(94,242,255,.18), rgba(177,104,255,.14), transparent);
+    }
+
+    .brand-mark {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background: conic-gradient(from 0deg, transparent, rgba(94,242,255,.58), transparent 35%, rgba(177,104,255,.5), transparent 70%);
+      z-index: -1;
+      filter: blur(8px);
+      opacity: .45;
+      animation: spin 10s linear infinite;
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 10px 2px;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 4px;
+      width: 100%;
+      height: 1px;
+      transform: scaleX(0);
+      transform-origin: center;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: transform .25s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after { transform: scaleX(1); }
+    .nav-link.active { color: #fff; }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(124,255,200,.06);
+      border: 1px solid rgba(124,255,200,.16);
+      color: #dfffee;
+      font-size: .78rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .availability::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-3);
+      box-shadow: 0 0 0 0 rgba(124,255,200,.4);
+      animation: statusPing 2.4s ease-out infinite;
+    }
+
+    .hero {
+      padding: 40px 0 24px;
+      gap: 22px;
+    }
+
+    .hero-main,
+    .hero-side {
+      min-height: 610px;
+    }
+
+    .hero-main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(32px, 5vw, 62px);
+    }
+
+    .hero h1 {
+      font-size: clamp(3.5rem, 7.4vw, 7.4rem);
+      max-width: 9ch;
+      margin-bottom: 26px;
+    }
+
+    .hero .hero-role {
+      font-family: 'Space Mono', monospace;
+      color: #dffbff;
+      font-size: .86rem;
+      letter-spacing: .08em;
+      margin-bottom: 18px;
+      min-height: 1.5em;
+    }
+
+    .hero p { font-size: 1.08rem; }
+
+    .hero-meta { gap: 10px; }
+
+    .chip {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: border-color .25s ease, background .25s ease, transform .25s ease;
+    }
+
+    .chip:hover {
+      transform: translateY(-2px);
+      border-color: rgba(94,242,255,.22);
+      background: rgba(255,255,255,.055);
+    }
+
+    .panel {
+      border-color: var(--panel-border);
+      box-shadow: 0 26px 90px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.035);
+    }
+
+    .panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(94,242,255,.16), transparent 32%, transparent 64%, rgba(177,104,255,.14));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: .58;
+    }
+
+    .hero-side {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+    }
+
+    .hero-side::before {
+      opacity: 1;
+      background:
+        radial-gradient(circle at 70% 12%, rgba(177,104,255,.16), transparent 28%),
+        radial-gradient(circle at 18% 70%, rgba(94,242,255,.11), transparent 30%);
+    }
+
+    .signal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      color: var(--muted);
+      font: 700 .72rem/1 'Space Mono', monospace;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .signal-live { color: var(--accent-3); }
+
+    .stat-card {
+      position: relative;
+      overflow: hidden;
+      transition: transform .28s cubic-bezier(.16,1,.3,1), border-color .28s ease, background .28s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(94,242,255,.20);
+      background: rgba(255,255,255,.048);
+    }
+
+    .stat-card strong {
+      background: linear-gradient(135deg, #fff, #aef8ff 60%, #c4a6ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .mini-terminal {
+      position: relative;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.03), 0 20px 50px rgba(0,0,0,.18);
+    }
+
+    .mini-terminal::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      top: -10%;
+      background: linear-gradient(90deg, transparent, rgba(94,242,255,.58), transparent);
+      animation: terminalScan 5s linear infinite;
+      opacity: .45;
+    }
+
+    .ticker-shell {
+      margin-top: 18px;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.025);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .ticker-track {
+      width: max-content;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      padding: 12px 22px;
+      animation: ticker 28s linear infinite;
+      color: #c8d2df;
+      font: 700 .74rem/1 'Space Mono', monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .ticker-track span::before {
+      content: "◆";
+      color: var(--accent);
+      margin-right: 12px;
+      font-size: .55rem;
+    }
+
+    .section-head { margin-bottom: 34px; }
+    .section-head h2 { max-width: 16ch; }
+
+    .systems-grid,
+    .capability-grid,
+    .education-grid,
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .systems-hero {
+      grid-column: span 7;
+      padding: 32px;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .systems-metrics {
+      grid-column: span 5;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .systems-metrics .signal-card {
+      padding: 22px;
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .signal-card i { color: var(--accent); font-size: 1.2rem; }
+    .signal-card strong { font-size: 1.8rem; letter-spacing: -.04em; }
+    .signal-card span { color: var(--muted); line-height: 1.5; font-size: .86rem; }
+
+    .production-title {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      letter-spacing: -.055em;
+      max-width: 10ch;
+      line-height: 1.02;
+      margin-bottom: 18px;
+    }
+
+    .production-copy {
+      max-width: 64ch;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .system-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 28px;
+      position: relative;
+    }
+
+    .flow-node {
+      position: relative;
+      padding: 14px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.07);
+      background: rgba(255,255,255,.035);
+      text-align: center;
+      color: #e5edf7;
+      font: 700 .72rem/1.35 'Space Mono', monospace;
+      z-index: 1;
+    }
+
+    .flow-node:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 14px;
+      right: -14px;
+      top: 50%;
+      background: linear-gradient(90deg, var(--accent), rgba(177,104,255,.4));
+      box-shadow: 0 0 10px rgba(94,242,255,.28);
+      animation: flowPulse 2.8s ease-in-out infinite;
+    }
+
+    .system-note {
+      margin-top: 18px;
+      color: #c8d4e4;
+      font-size: .88rem;
+      line-height: 1.7;
+    }
+
+    .cap-card {
+      grid-column: span 3;
+      padding: 24px;
+      min-height: 250px;
+    }
+
+    .cap-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(94,242,255,.12), rgba(177,104,255,.10));
+      border: 1px solid rgba(94,242,255,.14);
+      color: var(--accent);
+    }
+
+    .cap-card h3 { font-size: 1.08rem; margin-bottom: 10px; }
+    .cap-card p { color: var(--muted); line-height: 1.7; font-size: .9rem; }
+    .cap-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+    .cap-tags span {
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.055);
+      color: #d9e4f1;
+      font: 700 .67rem/1 'Space Mono', monospace;
+    }
+
+    .project {
+      min-height: 390px;
+      transition: transform .45s cubic-bezier(.16,1,.3,1), border-color .3s ease, box-shadow .3s ease;
+    }
+
+    .project:hover {
+      border-color: rgba(94,242,255,.15);
+      box-shadow: 0 35px 110px rgba(0,0,0,.45), 0 0 0 1px rgba(94,242,255,.04);
+    }
+
+    .project-kicker span:last-child {
+      color: var(--accent);
+    }
+
+    .metric strong { color: #f4fbff; }
+    .metric { transition: transform .2s ease, border-color .2s ease; }
+    .metric:hover { transform: translateY(-2px); border-color: rgba(94,242,255,.18); }
+
+    .exp-item {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exp-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 18%;
+      bottom: 18%;
+      width: 2px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      opacity: .55;
+    }
+
+    .exp-highlight {
+      display: inline-flex;
+      margin-top: 10px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(124,255,200,.055);
+      border: 1px solid rgba(124,255,200,.12);
+      color: #dfffee;
+      font: 700 .7rem/1 'Space Mono', monospace;
+    }
+
+    .edu-card {
+      grid-column: span 6;
+      padding: 28px;
+      min-height: 220px;
+    }
+
+    .edu-card .edu-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(94,242,255,.16);
+      margin-bottom: 20px;
+    }
+
+    .edu-card h3 { font-size: 1.28rem; margin-bottom: 7px; }
+    .edu-degree { color: #dfe8f5; font-weight: 650; margin-bottom: 12px; }
+    .edu-card p { color: var(--muted); line-height: 1.7; }
+
+    .leadership-card {
+      grid-column: span 6;
+      padding: 24px;
+    }
+
+    .leadership-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .leadership-card p { color: var(--muted); line-height: 1.65; font-size: .9rem; }
+
+    .collab-card {
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1.4fr .6fr;
+      gap: 22px;
+      align-items: center;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(177,104,255,.13), transparent 28%),
+        radial-gradient(circle at 15% 80%, rgba(94,242,255,.10), transparent 30%),
+        linear-gradient(180deg, rgba(10,14,24,.84), rgba(8,11,18,.68));
+    }
+
+    .collab-card h3 { font-size: clamp(1.7rem, 3vw, 2.5rem); letter-spacing: -.045em; margin-bottom: 12px; }
+    .collab-card p { color: var(--muted); line-height: 1.75; max-width: 64ch; }
+
+    .footer-card {
+      min-height: 250px;
+      padding: 40px;
+      background:
+        radial-gradient(circle at 86% 12%, rgba(94,242,255,.12), transparent 25%),
+        radial-gradient(circle at 10% 85%, rgba(177,104,255,.11), transparent 30%),
+        linear-gradient(180deg, rgba(10,14,24,.78), rgba(8,11,18,.65));
+    }
+
+    .footer-copy h3 { font-size: clamp(1.9rem, 3.7vw, 3rem); }
+
+    .btn {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      inset: -80% -20%;
+      z-index: -1;
+      background: linear-gradient(100deg, transparent 38%, rgba(255,255,255,.14) 50%, transparent 62%);
+      transform: translateX(-70%);
+      transition: transform .55s cubic-bezier(.16,1,.3,1);
+    }
+
+    .btn:hover::after { transform: translateX(70%); }
+
+    .section-divider {
+      width: min(520px, 70vw);
+      height: 1px;
+      margin: 0 auto;
+      background: linear-gradient(90deg, transparent, rgba(94,242,255,.16), rgba(177,104,255,.13), transparent);
+    }
+
+    @keyframes ambientDrift {
+      from { transform: translate3d(0, -30px, 0) scale(1); }
+      to { transform: translate3d(-90px, 80px, 0) scale(1.16); }
+    }
+
+    @keyframes statusPing {
+      0% { box-shadow: 0 0 0 0 rgba(124,255,200,.35); }
+      70% { box-shadow: 0 0 0 8px rgba(124,255,200,0); }
+      100% { box-shadow: 0 0 0 0 rgba(124,255,200,0); }
+    }
+
+    @keyframes terminalScan {
+      0% { top: -10%; }
+      100% { top: 110%; }
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @keyframes flowPulse {
+      0%,100% { opacity: .28; }
+      50% { opacity: 1; }
+    }
+
+    @media (max-width: 1100px) {
+      .systems-hero, .systems-metrics { grid-column: span 12; }
+      .cap-card { grid-column: span 6; }
+      .collab-card { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 820px) {
+      .cursor-glow { display: none; }
+      .availability { display: none; }
+      .hero { padding-top: 82px; }
+      .hero-main, .hero-side { min-height: auto; }
+      .hero h1 { font-size: clamp(3.1rem, 16vw, 5.2rem); }
+      .systems-metrics { grid-template-columns: 1fr 1fr; }
+      .cap-card, .edu-card, .leadership-card { grid-column: span 12; }
+      .system-flow { grid-template-columns: 1fr; }
+      .flow-node:not(:last-child)::after {
+        width: 1px;
+        height: 12px;
+        right: auto;
+        left: 50%;
+        top: 100%;
+      }
+      .footer-card { min-height: auto; }
+    }
+
+    @media (max-width: 560px) {
+      .shell, .nav-inner { width: min(100% - 24px, var(--max)); }
+      section { padding: 78px 0; }
+      .hero-main, .hero-side, .systems-hero, .cap-card, .edu-card, .leadership-card, .collab-card, .footer-card { padding: 20px; }
+      .systems-metrics { grid-template-columns: 1fr; }
+      .hero-meta { display: grid; grid-template-columns: 1fr; }
+      .chip { width: 100%; }
+      .project-visual { min-height: 300px; }
+    }
+
   </style>
 </head>
 <body>
+  <div id="scroll-progress"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
   <div id="boot-screen" aria-hidden="true">
     <div class="boot-shell">
-      <div class="boot-label">Neural interface initialization</div>
-      <div class="boot-title">Loading portfolio environment, rendering system mesh, and preparing interaction layer.</div>
+      <div class="boot-label">Portfolio systems initialization</div>
+      <div class="boot-title">Loading production signals, projects, system architecture, and interaction layer.</div>
       <div class="boot-progress"><span id="boot-fill"></span></div>
       <div class="boot-meta">
         <span>STATUS <strong id="boot-pct">0%</strong></span>
@@ -1278,14 +1885,17 @@
           <div class="brand-mark">DR</div>
           <div class="brand-copy">
             <strong>DHRUMIL RANA</strong>
-            <span>AI Systems · Data Science</span>
+            <span>AI Engineer · Production Systems</span>
           </div>
         </div>
 
         <div class="nav-right">
+          <a class="nav-link" href="#systems">Systems</a>
           <a class="nav-link" href="#projects">Projects</a>
           <a class="nav-link" href="#experience">Experience</a>
+          <a class="nav-link" href="#education">Education</a>
           <a class="nav-link" href="#contact">Contact</a>
+          <div class="availability">Open to high-impact roles</div>
           <div class="socials">
             <a href="https://github.com/dhrumilrana25" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/dhrumil-rana-265316232/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -1298,40 +1908,52 @@
       <section>
         <div class="hero">
           <div class="panel hero-main reveal tilt-card">
-            <div class="eyebrow">System status · available for opportunities</div>
-            <h1><span class="title-gradient">AI systems with signal, scale, and style.</span></h1>
+            <div class="eyebrow">AI Engineer @ NovaChatAI · M.S. Data Science</div>
+            <div class="hero-role">&gt; <span id="type-target">production AI systems</span><span aria-hidden="true">_</span></div>
+            <h1><span class="title-gradient">I build AI systems that survive production.</span></h1>
             <p>
-              I build applied AI products, agentic workflows, graph learning systems, and privacy-aware ML pipelines with a strong focus on real execution. My work sits at the intersection of engineering depth, research intuition, and production-minded design.
+              I work across agentic AI, backend services, SQL/PostgreSQL, automation, product workflows, and production reliability. At NovaChatAI, I ship systems where model behavior, state, data integrity, security, and user experience all have to work together — not just in a demo, but under real production pressure.
             </p>
 
             <div class="hero-meta">
-              <div class="chip"><i class="fa-solid fa-graduation-cap"></i> MS Data Science · UT Arlington</div>
-              <div class="chip"><i class="fa-solid fa-microchip"></i> Agentic AI · Graph ML · Privacy ML</div>
+              <div class="chip"><i class="fa-solid fa-briefcase"></i> AI Engineer · NovaChatAI</div>
+              <div class="chip"><i class="fa-solid fa-graduation-cap"></i> M.S. Data Science · UT Arlington · 2026</div>
+              <div class="chip"><i class="fa-solid fa-code"></i> Python · FastAPI · PostgreSQL · Next.js</div>
+              <div class="chip"><i class="fa-solid fa-brain"></i> Agentic AI · Data Systems · Applied ML</div>
             </div>
 
             <div class="cta-row">
-              <a href="Dhrumil_s_Resume.pdf" target="_blank" class="btn btn-primary"><i class="fa-solid fa-file-arrow-down"></i> View Resume</a>
-              <a href="#projects" class="btn"><i class="fa-solid fa-arrow-down"></i> Explore Projects</a>
+              <a href="Dhrumil_s_Resume.pdf" target="_blank" rel="noreferrer" class="btn btn-primary"><i class="fa-solid fa-file-arrow-down"></i> View Resume</a>
+              <a href="#systems" class="btn"><i class="fa-solid fa-diagram-project"></i> See Production Work</a>
+              <a href="mailto:dhrumilrana25@gmail.com" class="btn"><i class="fa-solid fa-envelope"></i> Contact</a>
+            </div>
+
+            <div class="ticker-shell" aria-label="Current engineering focus">
+              <div class="ticker-track">
+                <span>Agentic AI</span><span>Production Reliability</span><span>PostgreSQL</span><span>FastAPI</span><span>Queues & Schedulers</span><span>Security & RLS</span><span>Analytics</span><span>Next.js</span>
+                <span>Agentic AI</span><span>Production Reliability</span><span>PostgreSQL</span><span>FastAPI</span><span>Queues & Schedulers</span><span>Security & RLS</span><span>Analytics</span><span>Next.js</span>
+              </div>
             </div>
           </div>
 
           <aside class="panel hero-side reveal tilt-card">
+            <div class="signal-head"><span>Production signal</span><span class="signal-live">● LIVE</span></div>
             <div class="stat-grid">
               <div class="stat-card">
-                <strong>1.2M+</strong>
-                <span>Nodes processed in large-scale graph learning pipelines</span>
+                <strong>9K+</strong>
+                <span>queued jobs investigated during a production worker-saturation incident</span>
               </div>
               <div class="stat-card">
-                <strong>100k+</strong>
-                <span>Records structured through ETL and analytics workflows</span>
+                <strong>50+</strong>
+                <span>production data, workflow, messaging, media, auth, and integration defects resolved</span>
               </div>
               <div class="stat-card">
-                <strong>80%</strong>
-                <span>Reduction in manual processing through AI automation</span>
+                <strong>8+</strong>
+                <span>creator-facing product modules redesigned and hardened</span>
               </div>
               <div class="stat-card">
-                <strong>0.887</strong>
-                <span>AUC achieved on large-scale link prediction modeling</span>
+                <strong>1.2M</strong>
+                <span>nodes processed in large-scale graph learning work</span>
               </div>
             </div>
 
@@ -1341,23 +1963,124 @@
                 <span class="dot"></span>
                 <span class="dot"></span>
               </div>
-              <code>> loading signal profile...
-> focus = [agentic_ai, graph_ml, federated_learning]
-> stack = python / langgraph / pytorch / docker
-> intent = build things recruiters remember</code>
+              <code>&gt; current_role = AI_ENGINEER @ NovaChatAI
+&gt; systems = [agents, queues, sql, security, analytics]
+&gt; stack = python / fastapi / postgres / next.js / langgraph
+&gt; mode = ship → observe → debug → harden</code>
             </div>
           </aside>
         </div>
       </section>
 
+      <div class="section-divider"></div>
+
+      <section id="systems">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Production engineering</div>
+            <h2>Production AI, not demo AI.</h2>
+          </div>
+          <p>
+            My current work spans the full system boundary: model behavior, backend orchestration, databases, scheduled automation, security controls, product state, observability, and real user workflows.
+          </p>
+        </div>
+
+        <div class="systems-grid">
+          <article class="panel systems-hero reveal tilt-card">
+            <div>
+              <div class="project-kicker"><span>NovaChatAI</span><span>AI Engineer · 2026 — Present</span></div>
+              <h3 class="production-title">Building the machinery behind intelligent creator automation.</h3>
+              <p class="production-copy">
+                I work across AI conversation orchestration, messaging and monetization flows, campaign automation, database integrity, delivery state, queue/worker behavior, security hardening, and creator-facing product systems. The work is production-facing: failures are traced through logs, state, APIs, database rows, workers, and deployment behavior until the actual system cause is understood and fixed.
+              </p>
+            </div>
+
+            <div>
+              <div class="system-flow" aria-label="Production AI architecture">
+                <div class="flow-node">Fan / User Input</div>
+                <div class="flow-node">AI Analysis</div>
+                <div class="flow-node">State + Policy</div>
+                <div class="flow-node">Workers / APIs</div>
+                <div class="flow-node">Data + Metrics</div>
+              </div>
+              <p class="system-note">Recent focus: reliable AI state transitions, messaging/media workflows, monetization logic, campaign systems, latency analysis, database correctness, access control, and deployment-safe fixes.</p>
+            </div>
+          </article>
+
+          <div class="systems-metrics">
+            <article class="panel signal-card reveal tilt-card">
+              <i class="fa-solid fa-layer-group"></i>
+              <strong>8+ modules</strong>
+              <span>Onboarding, auth, settings, subscribers, scripts, messages, media workflows, and related product surfaces.</span>
+            </article>
+            <article class="panel signal-card reveal tilt-card">
+              <i class="fa-solid fa-bug-slash"></i>
+              <strong>50+ fixes</strong>
+              <span>Production-facing defects across data, workflows, messaging, integrations, authentication, and media.</span>
+            </article>
+            <article class="panel signal-card reveal tilt-card">
+              <i class="fa-solid fa-database"></i>
+              <strong>SQL + state</strong>
+              <span>PostgreSQL/Supabase, migrations, indexes, RLS, state models, event identifiers, and data integrity.</span>
+            </article>
+            <article class="panel signal-card reveal tilt-card">
+              <i class="fa-solid fa-gears"></i>
+              <strong>9K+ jobs</strong>
+              <span>Diagnosed a worker-saturation incident involving more than nine thousand queued AI-response jobs.</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section id="capabilities">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Engineering range</div>
+            <h2>One engineer across the whole signal path.</h2>
+          </div>
+          <p>I am strongest when the problem crosses boundaries — AI behavior, backend state, data, infrastructure, debugging, and product experience.</p>
+        </div>
+
+        <div class="capability-grid">
+          <article class="panel cap-card reveal tilt-card">
+            <div class="cap-icon"><i class="fa-solid fa-brain"></i></div>
+            <h3>Agentic AI Systems</h3>
+            <p>Stateful agent workflows, routing, tool use, memory/context, policy logic, fallbacks, evaluation, and production-safe behavior.</p>
+            <div class="cap-tags"><span>LangGraph</span><span>LangChain</span><span>RAG</span><span>LLMs</span></div>
+          </article>
+          <article class="panel cap-card reveal tilt-card">
+            <div class="cap-icon"><i class="fa-solid fa-server"></i></div>
+            <h3>Backend & Automation</h3>
+            <p>API services, workers, queues, cron/schedulers, idempotency, delivery state, third-party integrations, and failure recovery.</p>
+            <div class="cap-tags"><span>Python</span><span>FastAPI</span><span>REST</span><span>Automation</span></div>
+          </article>
+          <article class="panel cap-card reveal tilt-card">
+            <div class="cap-icon"><i class="fa-solid fa-database"></i></div>
+            <h3>Data & Reliability</h3>
+            <p>SQL analysis, relational modeling, migrations, indexes, access controls, analytics foundations, data validation, and incident debugging.</p>
+            <div class="cap-tags"><span>PostgreSQL</span><span>Supabase</span><span>SQL</span><span>RLS</span></div>
+          </article>
+          <article class="panel cap-card reveal tilt-card">
+            <div class="cap-icon"><i class="fa-solid fa-window-maximize"></i></div>
+            <h3>Product Engineering</h3>
+            <p>Responsive dashboards and real user workflows where AI functionality, data visibility, and UX need to stay synchronized.</p>
+            <div class="cap-tags"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind</span></div>
+          </article>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
       <section id="projects">
         <div class="section-head reveal">
           <div>
             <div class="eyebrow">Selected work</div>
-            <h2>Projects that actually differentiate me.</h2>
+            <h2>Projects engineered to prove depth.</h2>
           </div>
           <p>
-            I focus on projects that combine strong technical depth with clear real-world relevance: privacy-preserving ML, autonomous data systems, graph intelligence, and applied security analytics.
+            Each project is built around a real systems problem — autonomous data quality, privacy-preserving learning, graph-scale recommendation, or behavioral security — with architecture, measurable results, and deployable engineering.
           </p>
         </div>
 
@@ -1371,25 +2094,25 @@
                 </div>
                 <h3>Agentic-Cleanse Factory</h3>
                 <p>
-                  LLM-powered multi-agent ETL system built to automate data cleaning, validation, schema alignment, and anomaly handling across messy real-world datasets.
+                  Autonomous multi-agent ETL system with profiling, code generation, security review, human approval, controlled execution, and self-healing retry loops for messy real-world datasets.
                 </p>
                 <div class="project-metrics">
                   <div class="metric"><strong>80%</strong><span>less manual processing</span></div>
-                  <div class="metric"><strong>Multi-agent</strong><span>workflow orchestration</span></div>
-                  <div class="metric"><strong>Real demo</strong><span>deployed for interaction</span></div>
+                  <div class="metric"><strong>4-agent</strong><span>stateful LangGraph workflow</span></div>
+                  <div class="metric"><strong>HITL</strong><span>security review + self-healing</span></div>
                 </div>
                 <div class="stack">
                   <span>LangGraph</span>
                   <span>Groq</span>
                   <span>Streamlit</span>
                   <span>Python</span>
-                  <span>Prompt Engineering</span>
+                  <span>HITL</span>
                 </div>
               </div>
 
               <div class="project-actions">
-                <a href="https://github.com/dhrumilrana25/Agentic-Cleanse" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
-                <a href="https://dhrumil-cleanse.streamlit.app/" target="_blank" class="btn btn-primary"><i class="fa-solid fa-bolt"></i> Live Demo</a>
+                <a href="https://github.com/dhrumilrana25/Agentic-Cleanse" target="_blank" rel="noreferrer" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://dhrumil-cleanse.streamlit.app/" target="_blank" rel="noreferrer" class="btn btn-primary"><i class="fa-solid fa-bolt"></i> Live Demo</a>
               </div>
             </div>
 
@@ -1445,11 +2168,11 @@
                 </div>
                 <h3>Aegis-Federate</h3>
                 <p>
-                  Multimodal privacy-preserving health intelligence system built for secure cross-institutional AI training. It combines federated learning, differential privacy, and containerized orchestration so sensitive patient data never leaves the hospital environment.
+                  Cross-silo federated learning system for multimodal health intelligence. A 1D-CNN telemetry branch and MLP EHR branch train across isolated clients while DP-SGD with Opacus reduces privacy leakage risk and Docker keeps the distributed workflow reproducible.
                 </p>
                 <div class="project-metrics">
                   <div class="metric"><strong>Multimodal</strong><span>CNN + MLP fusion model</span></div>
-                  <div class="metric"><strong>Private AI</strong><span>differential privacy with Opacus</span></div>
+                  <div class="metric"><strong>DP-SGD</strong><span>formal differential privacy</span></div>
                   <div class="metric"><strong>Dockerized</strong><span>aggregator + edge node orchestration</span></div>
                 </div>
                 <div class="stack">
@@ -1463,7 +2186,7 @@
               </div>
 
               <div class="project-actions">
-                <a href="https://github.com/dhrumilrana25/Aegis-Federate" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://github.com/dhrumilrana25/Aegis-Federate" target="_blank" rel="noreferrer" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
               </div>
             </div>
 
@@ -1495,26 +2218,26 @@
                   <span>Graph intelligence</span>
                   <span>Scale-first</span>
                 </div>
-                <h3>Twitter Link Prediction Engine</h3>
+                <h3>Twitter-Scale Link Prediction Engine</h3>
                 <p>
-                  Large-scale social graph pipeline using DeepWalk embeddings and graph heuristics to model connection likelihood across 1.2M users.
+                  Large-scale social recommendation engine combining DeepWalk embeddings with Jaccard, Adamic-Adar, Resource Allocation, and a Random Forest classifier to predict missing links across a 1.2M-node graph.
                 </p>
                 <div class="project-metrics">
                   <div class="metric"><strong>1.2M</strong><span>users in graph</span></div>
-                  <div class="metric"><strong>0.887</strong><span>AUC achieved</span></div>
-                  <div class="metric"><strong>Graph ML</strong><span>link likelihood modeling</span></div>
+                  <div class="metric"><strong>0.8872</strong><span>ROC AUC</span></div>
+                  <div class="metric"><strong>1M+</strong><span>random walks generated</span></div>
                 </div>
                 <div class="stack">
                   <span>DeepWalk</span>
                   <span>NetworkX</span>
                   <span>Random Forest</span>
-                  <span>Graph Features</span>
+                  <span>1028-D Features</span>
                 </div>
               </div>
 
               <div class="project-actions">
-                <a href="https://github.com/dhrumilrana25/Twitter-Scale-Link-Prediction-Engine" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
-                <a href="Link_Prediction_Embeddings.pdf" target="_blank" class="btn"><i class="fa-solid fa-file-pdf"></i> Paper</a>
+                <a href="https://github.com/dhrumilrana25/Twitter-Scale-Link-Prediction-Engine" target="_blank" rel="noreferrer" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="Link_Prediction_Embeddings.pdf" target="_blank" rel="noreferrer" class="btn"><i class="fa-solid fa-file-pdf"></i> Paper</a>
               </div>
             </div>
 
@@ -1560,24 +2283,24 @@
                   <span>Applied security</span>
                   <span>Behavioral ML</span>
                 </div>
-                <h3>IoT Malware Defense</h3>
+                <h3>IoT Malware Detection</h3>
                 <p>
-                  Security analytics system for detecting IoT malware behavior through high-dimensional feature extraction and anomaly-aware classification.
+                  Behavioral intrusion-detection pipeline trained on 1.1M+ network connections. It removes high-cardinality identifiers, ranks behavioral features with mutual information, and preserves strong performance with a compact Decision Tree model.
                 </p>
                 <div class="project-metrics">
-                  <div class="metric"><strong>95.38%</strong><span>verified accuracy</span></div>
-                  <div class="metric"><strong>Real-time</strong><span>threat modeling</span></div>
-                  <div class="metric"><strong>Defense AI</strong><span>device behavior analysis</span></div>
+                  <div class="metric"><strong>95.38%</strong><span>classification accuracy</span></div>
+                  <div class="metric"><strong>1.1M+</strong><span>network connections</span></div>
+                  <div class="metric"><strong>0.95</strong><span>ROC AUC</span></div>
                 </div>
                 <div class="stack">
                   <span>Cybersecurity</span>
                   <span>ML Analytics</span>
-                  <span>Anomaly Detection</span>
+                  <span>Mutual Information</span>
                 </div>
               </div>
 
               <div class="project-actions">
-                <a href="https://github.com/dhrumilrana25/IoT-Malware-Detection-Network-Analytics" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://github.com/dhrumilrana25/IoT-Malware-Detection-Network-Analytics" target="_blank" rel="noreferrer" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
               </div>
             </div>
 
@@ -1610,20 +2333,21 @@
         <div class="section-head reveal">
           <div>
             <div class="eyebrow">Professional timeline</div>
-            <h2>Experience with both execution and range.</h2>
+            <h2>Experience shaped by real systems and real ownership.</h2>
           </div>
           <p>
-            My experience spans product-facing AI engineering, backend development, analytics, and operational leadership — which helps me build systems that are both technically sharp and practically grounded.
+            From production AI and database reliability to backend optimization, analytics, and operational leadership, I have worked in environments where correctness, speed, and ownership all matter.
           </p>
         </div>
 
         <div class="experience-list">
           <a class="panel exp-item reveal tilt-card" href="https://www.novachat.io/" target="_blank" rel="noreferrer">
-            <div class="exp-date">Apr 2026 — Present</div>
+            <div class="exp-date">Mar 2026 — Present</div>
             <div class="exp-content">
               <h3>NovaChatAI</h3>
-              <div class="exp-role">AI Engineer Intern</div>
-              <p>Designing agentic workflows and conversational AI systems using LangGraph and LangChain, with emphasis on orchestration, reliability, and production-minded behavior.</p>
+              <div class="exp-role">AI Engineer · promoted from internship</div>
+              <p>Building production AI and automation systems across Python/FastAPI services, PostgreSQL/Supabase data models, agent workflows, workers and schedulers, creator messaging/media flows, security controls, analytics, and Next.js product surfaces.</p>
+              <span class="exp-highlight">Full-time AI Engineer since Aug 2026</span>
             </div>
             <div class="exp-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
           </a>
@@ -1633,30 +2357,88 @@
             <div class="exp-content">
               <h3>Maverick Activities Center · UTA</h3>
               <div class="exp-role">Building Manager</div>
-              <p>Led operational workflows, incident response coordination, and facility oversight in a fast-moving environment requiring accountability, communication, and quick decision-making.</p>
+              <p>Led facility operations, incident response, and staff coordination in a high-traffic environment; recognized as Building Manager of the Year 2025.</p>
             </div>
             <div class="exp-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
           </a>
 
           <a class="panel exp-item reveal tilt-card" href="https://www.odoo.com" target="_blank" rel="noreferrer">
-            <div class="exp-date">Jun 2024 — Sep 2024</div>
+            <div class="exp-date">May 2024 — Sep 2024</div>
             <div class="exp-content">
               <h3>Odoo</h3>
               <div class="exp-role">Software Developer Intern</div>
-              <p>Built backend modules and optimized PostgreSQL-driven business logic inside the Odoo ecosystem, improving reliability, integration flow, and system performance.</p>
+              <p>Built Python backend modules for POS and inventory workflows, optimized PostgreSQL queries and backend logic for a 15% transaction-speed improvement, and resolved 50+ production defects.</p>
             </div>
             <div class="exp-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
           </a>
 
           <a class="panel exp-item reveal tilt-card" href="https://silentinfotech.com" target="_blank" rel="noreferrer">
-            <div class="exp-date">Jan 2024 — May 2024</div>
+            <div class="exp-date">Jan 2024 — Apr 2024</div>
             <div class="exp-content">
               <h3>Silent Infotech Pvt. Ltd.</h3>
               <div class="exp-role">Research Analyst</div>
-              <p>Built ETL and analytics workflows for large structured datasets while using Python, Pandas, NumPy, and AI-assisted automation to support research and business insight generation.</p>
+              <p>Built an end-to-end Python ETL pipeline processing 100k+ records across 20+ features, integrated OpenAI APIs for workflow automation, and reduced manual processing effort by 80%.</p>
             </div>
             <div class="exp-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
           </a>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section id="education">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Education</div>
+            <h2>Data science foundation. Systems-engineering execution.</h2>
+          </div>
+          <p>My academic background is in data science and information technology; my professional work applies that foundation to production AI, backend systems, and analytics.</p>
+        </div>
+
+        <div class="education-grid">
+          <article class="panel edu-card reveal tilt-card">
+            <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <h3>University of Texas at Arlington</h3>
+            <div class="edu-degree">Master of Science in Data Science</div>
+            <p>January 2025 — July 2026 · Arlington, Texas<br><strong>Completed 2026</strong></p>
+          </article>
+          <article class="panel edu-card reveal tilt-card">
+            <div class="edu-icon"><i class="fa-solid fa-building-columns"></i></div>
+            <h3>Government Engineering College Modasa</h3>
+            <div class="edu-degree">Bachelor of Engineering in Information Technology</div>
+            <p>November 2020 — May 2024 · Gujarat, India</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="leadership" style="padding-top:0;">
+        <div class="leadership-grid">
+          <article class="panel leadership-card reveal tilt-card">
+            <div class="project-kicker"><span>Leadership</span><span>UTA · 2025–2026</span></div>
+            <h3>Building Manager · Maverick Activities Center</h3>
+            <p>Operational leadership, staff coordination, emergency response, and high-accountability decision-making. Recognized as Building Manager of the Year 2025.</p>
+          </article>
+          <article class="panel leadership-card reveal tilt-card">
+            <div class="project-kicker"><span>Community</span><span>2025–2026</span></div>
+            <h3>Cultural Head · HinduYuva</h3>
+            <p>Helped coordinate student programming and large community events, bringing product-style planning, communication, and execution into a non-technical leadership setting.</p>
+          </article>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section id="collaborate">
+        <div class="panel collab-card reveal tilt-card">
+          <div>
+            <div class="eyebrow">Open-source collaboration</div>
+            <h3>Want to build a top-tier RAG + agentic AI system?</h3>
+            <p>I am open to collaborating on a properly engineered project with retrieval, agents, automated ingestion, evaluation, observability, backend APIs, deployment, and a polished public technical story — not another tutorial chatbot.</p>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:dhrumilrana25@gmail.com?subject=AI%20Project%20Collaboration"><i class="fa-solid fa-people-group"></i> Collaborate</a>
+            <a class="btn" href="https://github.com/dhrumilrana25" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
         </div>
       </section>
 
@@ -1664,14 +2446,15 @@
         <div class="panel footer-card reveal tilt-card">
           <div class="footer-copy">
             <div class="eyebrow">Open channel</div>
-            <h3>Let’s build something that feels inevitable.</h3>
+            <h3>Let’s build something difficult — and make it reliable.</h3>
             <p>
-              I’m interested in software engineering, applied AI, ML systems, and product-minded roles where technical depth actually matters.
+              I’m open to high-impact AI systems, backend, data, and automation roles where I can own real technical problems across model behavior, data, infrastructure, and product execution.
             </p>
           </div>
           <div class="cta-row">
-            <a class="btn btn-primary" href="mailto:dxr2109@mavs.uta.edu"><i class="fa-solid fa-envelope"></i> Email Me</a>
+            <a class="btn btn-primary" href="mailto:dhrumilrana25@gmail.com"><i class="fa-solid fa-envelope"></i> Email Me</a>
             <a class="btn" href="https://github.com/dhrumilrana25" target="_blank"><i class="fa-brands fa-github"></i> View GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/dhrumil-rana-265316232/" target="_blank"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
           </div>
         </div>
       </section>
@@ -1684,6 +2467,56 @@
     const bootPct = document.getElementById('boot-pct');
     const bootScreen = document.getElementById('boot-screen');
     let progress = 0;
+
+
+    const scrollProgress = document.getElementById('scroll-progress');
+    const cursorGlow = document.querySelector('.cursor-glow');
+    const typeTarget = document.getElementById('type-target');
+    const typePhrases = [
+      'production AI systems',
+      'agentic workflows',
+      'backend automation',
+      'reliable data systems',
+      'applied machine learning'
+    ];
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeLoop() {
+      if (!typeTarget || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const phrase = typePhrases[phraseIndex];
+      if (!deleting) {
+        charIndex = Math.min(charIndex + 1, phrase.length);
+        typeTarget.textContent = phrase.slice(0, charIndex);
+        if (charIndex === phrase.length) {
+          deleting = true;
+          return setTimeout(typeLoop, 1350);
+        }
+      } else {
+        charIndex = Math.max(charIndex - 1, 0);
+        typeTarget.textContent = phrase.slice(0, charIndex);
+        if (charIndex === 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % typePhrases.length;
+        }
+      }
+      setTimeout(typeLoop, deleting ? 34 : 58);
+    }
+    setTimeout(typeLoop, 1400);
+
+    window.addEventListener('scroll', () => {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+      if (scrollProgress) scrollProgress.style.width = pct + '%';
+    }, { passive: true });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!cursorGlow) return;
+      cursorGlow.style.left = e.clientX + 'px';
+      cursorGlow.style.top = e.clientY + 'px';
+    }, { passive: true });
 
     const bootTimer = setInterval(() => {
       progress += Math.floor(Math.random() * 14) + 6;
@@ -1707,14 +2540,14 @@
     camera.position.set(0, 80, 420);
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.8));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.innerWidth < 820 ? 1.25 : 1.7));
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     const group = new THREE.Group();
     scene.add(group);
 
     const starsGeo = new THREE.BufferGeometry();
-    const starCount = 1800;
+    const starCount = window.innerWidth < 820 ? 700 : 1500;
     const starPos = new Float32Array(starCount * 3);
     for (let i = 0; i < starCount * 3; i += 3) {
       starPos[i] = (Math.random() - 0.5) * 2200;
@@ -1836,6 +2669,30 @@
     }, { threshold: 0.16 });
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+        });
+      });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0.01 });
+
+    document.querySelectorAll('section[id]').forEach(section => sectionObserver.observe(section));
+
+    if (!window.matchMedia('(pointer: coarse)').matches) {
+      document.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+          const r = btn.getBoundingClientRect();
+          const x = (e.clientX - r.left - r.width / 2) * 0.08;
+          const y = (e.clientY - r.top - r.height / 2) * 0.08;
+          btn.style.transform = `translate(${x}px, ${y - 2}px)`;
+        });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+      });
+    }
 
     document.querySelectorAll('.tilt-card').forEach(card => {
       card.addEventListener('mousemove', (e) => {
