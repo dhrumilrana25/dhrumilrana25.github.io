@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Dhrumil Rana — AI Engineer building production agentic AI, backend automation, data systems, and applied machine learning." />
+  <meta name="description" content="Dhrumil Rana — Founding AI Systems Engineer building production agentic AI, backend automation, PostgreSQL data systems, monetization workflows, and applied machine learning." />
   <meta name="theme-color" content="#04050a" />
-  <title>Dhrumil Rana — AI Systems Engineer | Production AI & Data Systems</title>
+  <title>Dhrumil Rana — Founding AI Systems Engineer | Production AI, Data & Automation</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1248,6 +1248,11 @@
       }
     }
 
+    @media (max-width: 900px) {
+      .proof-grid { grid-template-columns: 1fr; }
+      .proof-card { min-height: auto; padding: 24px; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation: none !important;
@@ -1790,6 +1795,116 @@
 
     .btn:hover::after { transform: translateX(70%); }
 
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .proof-card {
+      min-height: 390px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .proof-card::before {
+      opacity: 1;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(94,242,255,.10), transparent 26%),
+        radial-gradient(circle at 8% 92%, rgba(177,104,255,.09), transparent 30%);
+    }
+
+    .proof-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2px;
+      height: 0;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2), var(--accent-3));
+      box-shadow: 0 0 18px rgba(94,242,255,.35);
+      transition: height .7s cubic-bezier(.16,1,.3,1);
+      z-index: 4;
+      padding: 0;
+      -webkit-mask: none;
+      mask: none;
+      opacity: 1;
+    }
+
+    .proof-card.visible::after,
+    .proof-card:hover::after { height: 100%; }
+
+    .proof-index {
+      position: absolute;
+      right: 24px;
+      top: 18px;
+      font: 700 clamp(2.6rem, 6vw, 5.2rem)/1 'Space Mono', monospace;
+      color: rgba(255,255,255,.035);
+      letter-spacing: -.08em;
+      user-select: none;
+    }
+
+    .proof-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      margin-bottom: 24px;
+      color: #eaffff;
+      background: linear-gradient(135deg, rgba(94,242,255,.12), rgba(177,104,255,.10));
+      border: 1px solid rgba(94,242,255,.16);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 12px 34px rgba(0,0,0,.18);
+    }
+
+    .proof-label {
+      margin-bottom: 10px;
+      color: var(--accent);
+      font: 700 .72rem/1 'Space Mono', monospace;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .proof-card h3 {
+      max-width: 18ch;
+      font-size: clamp(1.45rem, 2.6vw, 2.15rem);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+      margin-bottom: 16px;
+    }
+
+    .proof-card p {
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 22px;
+      max-width: 62ch;
+    }
+
+    .proof-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .proof-tags span {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.06);
+      color: #dce6f2;
+      font: 700 .68rem/1 'Space Mono', monospace;
+    }
+
+    .countup {
+      font-variant-numeric: tabular-nums;
+    }
+
     .section-divider {
       width: min(520px, 70vw);
       height: 1px;
@@ -1885,17 +2000,17 @@
           <div class="brand-mark">DR</div>
           <div class="brand-copy">
             <strong>DHRUMIL RANA</strong>
-            <span>AI Engineer · Production Systems</span>
+            <span>Founding AI Systems Engineer</span>
           </div>
         </div>
 
         <div class="nav-right">
           <a class="nav-link" href="#systems">Systems</a>
+          <a class="nav-link" href="#proof">Proof</a>
           <a class="nav-link" href="#projects">Projects</a>
           <a class="nav-link" href="#experience">Experience</a>
-          <a class="nav-link" href="#education">Education</a>
           <a class="nav-link" href="#contact">Contact</a>
-          <div class="availability">Open to high-impact roles</div>
+          <div class="availability">Open to AI systems roles</div>
           <div class="socials">
             <a href="https://github.com/dhrumilrana25" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/dhrumil-rana-265316232/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -1908,30 +2023,30 @@
       <section>
         <div class="hero">
           <div class="panel hero-main reveal tilt-card">
-            <div class="eyebrow">AI Engineer @ NovaChatAI · M.S. Data Science</div>
-            <div class="hero-role">&gt; <span id="type-target">production AI systems</span><span aria-hidden="true">_</span></div>
-            <h1><span class="title-gradient">I build AI systems that survive production.</span></h1>
+            <div class="eyebrow">Founding AI Systems Engineer @ NovaChatAI · M.S. Data Science</div>
+            <div class="hero-role">&gt; <span id="type-target">production AI architecture</span><span aria-hidden="true">_</span></div>
+            <h1><span class="title-gradient">I engineer the state, data, and execution layer behind production AI.</span></h1>
             <p>
-              I work across agentic AI, backend services, SQL/PostgreSQL, automation, product workflows, and production reliability. At NovaChatAI, I ship systems where model behavior, state, data integrity, security, and user experience all have to work together — not just in a demo, but under real production pressure.
+              I own architecture and delivery across conversational AI, messaging, scripts, PPV monetization, media, subscribers, campaigns, analytics, and authentication. My work spans Python/FastAPI services, PostgreSQL/Supabase, workers and schedulers, Next.js product surfaces, security controls, and the safeguards that turn probabilistic model decisions into reliable product actions.
             </p>
 
             <div class="hero-meta">
-              <div class="chip"><i class="fa-solid fa-briefcase"></i> AI Engineer · NovaChatAI</div>
+              <div class="chip"><i class="fa-solid fa-briefcase"></i> Founding AI Systems Engineer · NovaChatAI</div>
               <div class="chip"><i class="fa-solid fa-graduation-cap"></i> M.S. Data Science · UT Arlington · 2026</div>
-              <div class="chip"><i class="fa-solid fa-code"></i> Python · FastAPI · PostgreSQL · Next.js</div>
-              <div class="chip"><i class="fa-solid fa-brain"></i> Agentic AI · Data Systems · Applied ML</div>
+              <div class="chip"><i class="fa-solid fa-code"></i> Python · FastAPI · PostgreSQL · Supabase · Next.js</div>
+              <div class="chip"><i class="fa-solid fa-brain"></i> Agentic AI · State Machines · Data Systems · Applied ML</div>
             </div>
 
             <div class="cta-row">
-              <a href="Dhrumil_s_Resume.pdf" target="_blank" rel="noreferrer" class="btn btn-primary"><i class="fa-solid fa-file-arrow-down"></i> View Resume</a>
-              <a href="#systems" class="btn"><i class="fa-solid fa-diagram-project"></i> See Production Work</a>
+              <a href="Dhrumil_Resume.pdf" target="_blank" rel="noreferrer" class="btn btn-primary"><i class="fa-solid fa-file-arrow-down"></i> View Latest Resume</a>
+              <a href="#proof" class="btn"><i class="fa-solid fa-shield-halved"></i> See Production Proof</a>
               <a href="mailto:dhrumilrana25@gmail.com" class="btn"><i class="fa-solid fa-envelope"></i> Contact</a>
             </div>
 
             <div class="ticker-shell" aria-label="Current engineering focus">
               <div class="ticker-track">
-                <span>Agentic AI</span><span>Production Reliability</span><span>PostgreSQL</span><span>FastAPI</span><span>Queues & Schedulers</span><span>Security & RLS</span><span>Analytics</span><span>Next.js</span>
-                <span>Agentic AI</span><span>Production Reliability</span><span>PostgreSQL</span><span>FastAPI</span><span>Queues & Schedulers</span><span>Security & RLS</span><span>Analytics</span><span>Next.js</span>
+                <span>Agentic AI</span><span>Persistent State</span><span>PostgreSQL</span><span>FastAPI</span><span>Workers & Schedulers</span><span>Idempotency</span><span>Security & RLS</span><span>Monetization Analytics</span><span>Next.js</span>
+                <span>Agentic AI</span><span>Persistent State</span><span>PostgreSQL</span><span>FastAPI</span><span>Workers & Schedulers</span><span>Idempotency</span><span>Security & RLS</span><span>Monetization Analytics</span><span>Next.js</span>
               </div>
             </div>
           </div>
@@ -1940,20 +2055,20 @@
             <div class="signal-head"><span>Production signal</span><span class="signal-live">● LIVE</span></div>
             <div class="stat-grid">
               <div class="stat-card">
-                <strong>9K+</strong>
-                <span>queued jobs investigated during a production worker-saturation incident</span>
+                <strong class="countup" data-value="9000" data-display="9K+">9K+</strong>
+                <span>queued AI-response jobs traced through cron concurrency, worker saturation, queue state, and database records</span>
               </div>
               <div class="stat-card">
-                <strong>50+</strong>
-                <span>production data, workflow, messaging, media, auth, and integration defects resolved</span>
+                <strong class="countup" data-value="100" data-display="100+">100+</strong>
+                <span>production defects and functionality chokepoints resolved across frontend, backend, database, AI execution, auth, workers, and APIs</span>
               </div>
               <div class="stat-card">
-                <strong>8+</strong>
-                <span>creator-facing product modules redesigned and hardened</span>
+                <strong class="countup" data-value="8" data-display="8+">8+</strong>
+                <span>production product surfaces owned across AI, messaging, scripts, monetization, media, campaigns, analytics, and auth</span>
               </div>
               <div class="stat-card">
-                <strong>1.2M</strong>
-                <span>nodes processed in large-scale graph learning work</span>
+                <strong class="countup" data-value="1.2" data-display="1.2M">1.2M</strong>
+                <span>nodes processed in graph ML work, alongside 1M+ DeepWalk sequences</span>
               </div>
             </div>
 
@@ -1963,10 +2078,10 @@
                 <span class="dot"></span>
                 <span class="dot"></span>
               </div>
-              <code>&gt; current_role = AI_ENGINEER @ NovaChatAI
-&gt; systems = [agents, queues, sql, security, analytics]
-&gt; stack = python / fastapi / postgres / next.js / langgraph
-&gt; mode = ship → observe → debug → harden</code>
+              <code>&gt; current_role = FOUNDING_AI_SYSTEMS_ENGINEER
+&gt; ownership = [agents, state, workers, sql, security, product]
+&gt; stack = python / fastapi / postgres / supabase / next.js / langgraph
+&gt; loop = architect → ship → observe → reconcile → harden</code>
             </div>
           </aside>
         </div>
@@ -1988,22 +2103,22 @@
         <div class="systems-grid">
           <article class="panel systems-hero reveal tilt-card">
             <div>
-              <div class="project-kicker"><span>NovaChatAI</span><span>AI Engineer · 2026 — Present</span></div>
-              <h3 class="production-title">Building the machinery behind intelligent creator automation.</h3>
+              <div class="project-kicker"><span>NovaChatAI</span><span>Founding AI Systems Engineer · 2026 — Present</span></div>
+              <h3 class="production-title">Owning the machinery behind intelligent creator automation.</h3>
               <p class="production-copy">
-                I work across AI conversation orchestration, messaging and monetization flows, campaign automation, database integrity, delivery state, queue/worker behavior, security hardening, and creator-facing product systems. The work is production-facing: failures are traced through logs, state, APIs, database rows, workers, and deployment behavior until the actual system cause is understood and fixed.
+                I own architecture and delivery across 8+ production surfaces: conversational AI, messaging, scripts, PPV monetization, media, subscribers, campaigns, analytics, and authentication. The engineering spans stateful model routing, persistent fan state, relational data models, delivery attempts, schedulers, claim-based workers, authorization, recovery, and product UX — with failures traced end to end until the actual system cause is fixed.
               </p>
             </div>
 
             <div>
               <div class="system-flow" aria-label="Production AI architecture">
-                <div class="flow-node">Fan / User Input</div>
-                <div class="flow-node">AI Analysis</div>
-                <div class="flow-node">State + Policy</div>
-                <div class="flow-node">Workers / APIs</div>
-                <div class="flow-node">Data + Metrics</div>
+                <div class="flow-node">Fan / Event Input</div>
+                <div class="flow-node">AI Routing + Policy</div>
+                <div class="flow-node">Persistent State</div>
+                <div class="flow-node">Claims / Workers / APIs</div>
+                <div class="flow-node">Ledger + Events + Metrics</div>
               </div>
-              <p class="system-note">Recent focus: reliable AI state transitions, messaging/media workflows, monetization logic, campaign systems, latency analysis, database correctness, access control, and deployment-safe fixes.</p>
+              <p class="system-note">Current focus: reliable AI state transitions, PPV purchase/pending/re-engagement flows, campaign and script execution, claim-based recovery, monetization reconciliation, AI-attribution analytics, database correctness, access control, and deployment-safe fixes.</p>
             </div>
           </article>
 
@@ -2015,20 +2130,70 @@
             </article>
             <article class="panel signal-card reveal tilt-card">
               <i class="fa-solid fa-bug-slash"></i>
-              <strong>50+ fixes</strong>
-              <span>Production-facing defects across data, workflows, messaging, integrations, authentication, and media.</span>
+              <strong>100+ fixes</strong>
+              <span>Production defects and chokepoints across frontend, backend, database, AI execution, auth, workers, integrations, and monetization.</span>
             </article>
             <article class="panel signal-card reveal tilt-card">
               <i class="fa-solid fa-database"></i>
-              <strong>SQL + state</strong>
-              <span>PostgreSQL/Supabase, migrations, indexes, RLS, state models, event identifiers, and data integrity.</span>
+              <strong>State + SQL</strong>
+              <span>Persistent state, PostgreSQL/Supabase, partial indexes, safe migrations, event history, RLS, scoped roles, and data integrity.</span>
             </article>
             <article class="panel signal-card reveal tilt-card">
               <i class="fa-solid fa-gears"></i>
-              <strong>9K+ jobs</strong>
-              <span>Diagnosed a worker-saturation incident involving more than nine thousand queued AI-response jobs.</span>
+              <strong>9K+ recovery</strong>
+              <span>Diagnosed worker saturation, cron concurrency, queue state, and database execution; restored processing and verified backlog drainage.</span>
             </article>
           </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section id="proof">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Production proof</div>
+            <h2>Four problems that define how I engineer.</h2>
+          </div>
+          <p>These are not isolated portfolio exercises. They are the kinds of system failures, data-consistency problems, and architecture constraints I have owned in a live AI product.</p>
+        </div>
+
+        <div class="proof-grid">
+          <article class="panel proof-card reveal tilt-card">
+            <div class="proof-index">01</div>
+            <div class="proof-icon"><i class="fa-solid fa-rotate"></i></div>
+            <div class="proof-label">Queue recovery</div>
+            <h3>9,000+ queued AI jobs. Trace the entire execution path.</h3>
+            <p>Diagnosed a production response outage by correlating cron concurrency, worker saturation, queue state, and database records. Restored processing, then verified that the backlog drained successfully instead of declaring victory at the first green log line.</p>
+            <div class="proof-tags"><span>Workers</span><span>Queues</span><span>Cron</span><span>PostgreSQL</span><span>Observability</span></div>
+          </article>
+
+          <article class="panel proof-card reveal tilt-card">
+            <div class="proof-index">02</div>
+            <div class="proof-icon"><i class="fa-solid fa-route"></i></div>
+            <div class="proof-label">Stateful AI</div>
+            <h3>Make model decisions map to controlled product actions.</h3>
+            <p>Engineered conversation and monetization flows across relationship building, scripts, PPV, follow-ups, purchase state, and re-engagement by combining persistent context, routing logic, memory, purchase signals, and execution safeguards.</p>
+            <div class="proof-tags"><span>LangGraph</span><span>State Machines</span><span>Memory</span><span>Routing</span><span>Monetization</span></div>
+          </article>
+
+          <article class="panel proof-card reveal tilt-card">
+            <div class="proof-index">03</div>
+            <div class="proof-icon"><i class="fa-solid fa-fingerprint"></i></div>
+            <div class="proof-label">Idempotent automation</div>
+            <h3>Stop duplicate automation at both the application and database layers.</h3>
+            <p>Eliminated duplicate and conflicting execution through persistent fan state, idempotency guards, database-enforced uniqueness, partial indexes, scheduler lifecycle controls, claim-based execution, attempt history, and safe recovery paths.</p>
+            <div class="proof-tags"><span>Idempotency</span><span>Partial Indexes</span><span>Claims</span><span>Schedulers</span><span>Recovery</span></div>
+          </article>
+
+          <article class="panel proof-card reveal tilt-card">
+            <div class="proof-index">04</div>
+            <div class="proof-icon"><i class="fa-solid fa-lock"></i></div>
+            <div class="proof-label">Security architecture</div>
+            <h3>Derive identity on the server. Enforce ownership in the data layer.</h3>
+            <p>Reworked authorization around session-derived identity, ownership validation, private PostgreSQL schemas, row-level security, scoped roles, internal service authorization, and safer external integration boundaries.</p>
+            <div class="proof-tags"><span>RLS</span><span>Private Schema</span><span>OAuth</span><span>Ownership</span><span>Service Auth</span></div>
+          </article>
         </div>
       </section>
 
@@ -2094,7 +2259,7 @@
                 </div>
                 <h3>Agentic-Cleanse Factory</h3>
                 <p>
-                  Autonomous multi-agent ETL system with profiling, code generation, security review, human approval, controlled execution, and self-healing retry loops for messy real-world datasets.
+                  Stateful multi-agent data engineering system with profiling, anomaly detection, schema reasoning, code generation, security review, human approval, deterministic validation, controlled execution, and self-healing correction loops for messy real-world datasets.
                 </p>
                 <div class="project-metrics">
                   <div class="metric"><strong>80%</strong><span>less manual processing</span></div>
@@ -2168,7 +2333,7 @@
                 </div>
                 <h3>Aegis-Federate</h3>
                 <p>
-                  Cross-silo federated learning system for multimodal health intelligence. A 1D-CNN telemetry branch and MLP EHR branch train across isolated clients while DP-SGD with Opacus reduces privacy leakage risk and Docker keeps the distributed workflow reproducible.
+                  Cross-silo federated learning system for multimodal health intelligence using Flower, gRPC, Docker, and PyTorch. A 1D-CNN telemetry branch and MLP EHR branch learn across isolated clients while DP-SGD with Opacus evaluates the privacy-versus-utility tradeoff without centralizing raw data.
                 </p>
                 <div class="project-metrics">
                   <div class="metric"><strong>Multimodal</strong><span>CNN + MLP fusion model</span></div>
@@ -2231,13 +2396,12 @@
                   <span>DeepWalk</span>
                   <span>NetworkX</span>
                   <span>Random Forest</span>
-                  <span>1028-D Features</span>
+                  <span>1,028-D Features</span>
                 </div>
               </div>
 
               <div class="project-actions">
                 <a href="https://github.com/dhrumilrana25/Twitter-Scale-Link-Prediction-Engine" target="_blank" rel="noreferrer" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
-                <a href="Link_Prediction_Embeddings.pdf" target="_blank" rel="noreferrer" class="btn"><i class="fa-solid fa-file-pdf"></i> Paper</a>
               </div>
             </div>
 
@@ -2345,9 +2509,9 @@
             <div class="exp-date">Mar 2026 — Present</div>
             <div class="exp-content">
               <h3>NovaChatAI</h3>
-              <div class="exp-role">AI Engineer · promoted from internship</div>
-              <p>Building production AI and automation systems across Python/FastAPI services, PostgreSQL/Supabase data models, agent workflows, workers and schedulers, creator messaging/media flows, security controls, analytics, and Next.js product surfaces.</p>
-              <span class="exp-highlight">Full-time AI Engineer since Aug 2026</span>
+              <div class="exp-role">Founding AI Systems Engineer</div>
+              <p>Own architecture and delivery across 8+ production surfaces spanning conversational AI, messaging, scripts, PPV monetization, media, subscribers, campaigns, analytics, and authentication. Built persistent state, idempotency and recovery controls, relational automation systems, authorization hardening, and end-to-end incident fixes across Python/FastAPI, PostgreSQL/Supabase, workers, external APIs, and Next.js.</p>
+              <span class="exp-highlight">100+ production defects resolved · 9K+ queued-job incident recovered</span>
             </div>
             <div class="exp-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
           </a>
@@ -2432,8 +2596,8 @@
         <div class="panel collab-card reveal tilt-card">
           <div>
             <div class="eyebrow">Open-source collaboration</div>
-            <h3>Want to build a top-tier RAG + agentic AI system?</h3>
-            <p>I am open to collaborating on a properly engineered project with retrieval, agents, automated ingestion, evaluation, observability, backend APIs, deployment, and a polished public technical story — not another tutorial chatbot.</p>
+            <h3>Building next: an end-to-end RAG + agentic AI system.</h3>
+            <p>I am open to collaborating with serious builders on a portfolio-grade system: automated ingestion, retrieval, grounded generation, agent routing/tool use, evaluation, observability, backend APIs, deployment, and a polished public technical story. The standard is an end-to-end system people can inspect, run, and remember — not another tutorial chatbot.</p>
           </div>
           <div class="cta-row">
             <a class="btn btn-primary" href="mailto:dhrumilrana25@gmail.com?subject=AI%20Project%20Collaboration"><i class="fa-solid fa-people-group"></i> Collaborate</a>
@@ -2448,7 +2612,7 @@
             <div class="eyebrow">Open channel</div>
             <h3>Let’s build something difficult — and make it reliable.</h3>
             <p>
-              I’m open to high-impact AI systems, backend, data, and automation roles where I can own real technical problems across model behavior, data, infrastructure, and product execution.
+              I’m open to AI systems, backend, data platform, and automation roles where architecture ownership matters — especially teams building stateful AI, reliable distributed workflows, data-intensive products, or production LLM systems.
             </p>
           </div>
           <div class="cta-row">
@@ -2473,10 +2637,11 @@
     const cursorGlow = document.querySelector('.cursor-glow');
     const typeTarget = document.getElementById('type-target');
     const typePhrases = [
-      'production AI systems',
-      'agentic workflows',
-      'backend automation',
-      'reliable data systems',
+      'production AI architecture',
+      'stateful agent systems',
+      'idempotent automation',
+      'PostgreSQL data systems',
+      'reliable monetization workflows',
       'applied machine learning'
     ];
 
@@ -2517,6 +2682,33 @@
       cursorGlow.style.left = e.clientX + 'px';
       cursorGlow.style.top = e.clientY + 'px';
     }, { passive: true });
+
+
+    const countObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const raw = Number(el.dataset.value || 0);
+        const display = el.dataset.display || String(raw);
+        const duration = 950;
+        const start = performance.now();
+        const decimal = !Number.isInteger(raw);
+        const frame = (now) => {
+          const p = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          const value = raw * eased;
+          if (display.includes('K')) el.textContent = Math.round(value / 1000) + 'K+';
+          else if (display.includes('M')) el.textContent = value.toFixed(decimal ? 1 : 0) + 'M';
+          else if (display.includes('+')) el.textContent = Math.round(value) + '+';
+          else el.textContent = decimal ? value.toFixed(1) : Math.round(value);
+          if (p < 1) requestAnimationFrame(frame);
+          else el.textContent = display;
+        };
+        requestAnimationFrame(frame);
+        observer.unobserve(el);
+      });
+    }, { threshold: .55 });
+    document.querySelectorAll('.countup').forEach(el => countObserver.observe(el));
 
     const bootTimer = setInterval(() => {
       progress += Math.floor(Math.random() * 14) + 6;
